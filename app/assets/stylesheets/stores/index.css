@@ -8,6 +8,7 @@
 
 .map-wrapper {
   width: 60%;
+  height: calc(100% - 100px);
   background-color:lightblue;
 }
 
@@ -24,6 +25,14 @@
 .community-content {
   height: 40%;
   background-color:lightyellow;
+}
+
+.form-map {
+  height: 100px;
+}
+
+.map {
+  height: calc(100% - 100px);
 }
 
 #map {
