@@ -1,0 +1,28 @@
+.wrapper {
+  height: calc(100vh - 100px);
+  width: 100vw;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+}
+
+.map-wrapper {
+  width: 60%;
+  background-color:lightblue;
+}
+
+.contents {
+  width: 40%;
+  background-color: lightcoral;
+}
+
+.store-content {
+  height: 60%;
+  background-color:lightgreen;
+}
+
+.community-content {
+  height: 40%;
+  background-color:lightyellow;
+}
+

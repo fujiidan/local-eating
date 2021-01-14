@@ -1,0 +1,21 @@
+<%= render 'shared/header'%>
+<div class="wrapper">
+  <div class="map-wrapper">
+    <div class="form-map">
+    <h2>住所を検索して見よう！</h1>
+    </div>
+    <div class="map">
+    googlemap表示
+    </div>
+  </div>
+  <div class="contents">
+    <div class="store-content">
+    <h2>お気に入りの飲食店を登録しよう！</h2>
+    <%= link_to '飲食店を追加！', '#', class: 'store-link' %>
+    </div>
+    <div class="community-content">
+      <h2>近くの人と食を通して交流しよう！</h2>
+      <%= link_to 'コミュニティ一覧ページへ', '#', class: 'community-link' %>
+    </div>  
+  </div>
+</div>

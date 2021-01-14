@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="title">
+    <%= link_to 'LocalEating', root_path, class: 'title-name'%>
+  </div>
+  <div class="links">
+    <%# ログイン時はnickname表示 %>
+      <%= link_to 'ゲストさん', '#', class:'link'%>
+      <%= link_to '飲食店を追加する' , '#', class: 'link' %>
+      <%= link_to 'コミュニティ一覧へ', '#', class: 'link'%>
+    <%# ログインしている時 %>
+      <%= link_to 'ログアウト', '#', class: 'link' %>
+    <%# ログアウト時   %>
+      <%= link_to 'ログイン', '#', class: 'link' %>
+      <%= link_to '新規登録', '#', class: 'link' %>
+  </div>
+</header>
