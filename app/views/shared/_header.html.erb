@@ -8,9 +8,9 @@
       <%= link_to '飲食店を追加する' , '#', class: 'link' %>
       <%= link_to 'コミュニティ一覧へ', '#', class: 'link'%>
     <%# ログインしている時 %>
-      <%= link_to 'ログアウト', '#', class: 'link' %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: 'link' %>
     <%# ログアウト時   %>
-      <%= link_to 'ログイン', '#', class: 'link' %>
-      <%= link_to '新規登録', '#', class: 'link' %>
+      <%= link_to 'ログイン', new_user_session_path, class: 'link' %>
+      <%= link_to '新規登録', new_user_registration_path, class: 'link' %>
   </div>
 </header>
