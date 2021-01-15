@@ -7,5 +7,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: { case_sensitive: true }
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/, message: 'は半角英数字をそれぞれ１文字以上含めてください' }
 
+  has_many :stores, dependent: :destroy
   has_one :profile, dependent: :destroy
 end
