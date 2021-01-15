@@ -9,7 +9,7 @@
         <%= f.label :address, "住所（任意）", class: "form-label-name" %>
       </div> 
       <div class="form-input"> 
-        <%= f.text_field :address, autofocus: true, placeholder: "例: 東京都渋谷区神南１−１−１", class: "form-input-area", id: "nickname" %>
+        <%= f.text_field :address, autofocus: true, placeholder: "例: 東京都渋谷区神南１−１−１", class: "form-input-area", id: "address" %>
       </div>
     </div>
     <div class="form-group">
@@ -17,7 +17,7 @@
         <%= f.label :age, "age（任意）", class: "form-label-name" %>
       </div> 
       <div class="form-input"> 
-        <%= f.text_field :age, placeholder: "例: 20", class: "form-input-area", id: "email" %>
+        <%= f.text_field :age, placeholder: "例: 20", class: "form-input-area", id: "age" %>
       </div>
     </div>
     <div class="form-group">
@@ -25,7 +25,7 @@
         <%= f.label :sex_id, "性別（任意）", class: "form-label-name" %>
       </div> 
       <div class="form-input"> 
-        <%= f.collection_select :sex_id, Sex.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-input-area", autocomplete: "new-password", id: "password" %>
+        <%= f.collection_select :sex_id, Sex.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-input-area", autocomplete: "new-password", id: "sex-id" %>
       </div>
     </div>
     <div class="form-submit">
