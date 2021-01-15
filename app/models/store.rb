@@ -5,7 +5,7 @@ class Store < ApplicationRecord
   validates :url, format: {with: /\Ahttp(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/}
   
   belongs_to :user
-  has_many :images
+  has_many_attached :images
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to_active_hash :price
