@@ -11,12 +11,20 @@
   </div>
   <div class="contents">
     <div class="store-content">
-    <h2>お気に入りの飲食店を登録しよう！</h2>
-    <%= link_to '飲食店を追加！', '#', class: 'store-link' %>
+      <div class="store-message">
+        <h2>お気に入りの飲食店を登録しよう！</h2>
+      </div>
+      <div class="store-link">
+        <%= link_to '飲食店を追加！', '#', class: 'store-btn' %>
+      </div>
     </div>
     <div class="community-content">
-      <h2>近くの人と食を通して交流しよう！</h2>
-      <%= link_to 'コミュニティ一覧ページへ', '#', class: 'community-link' %>
+      <div class="community-message">
+        <h2>近くの人と食を通して交流しよう！</h2>
+      </div>
+      <div class="community-link">  
+        <%= link_to 'コミュニティ一覧ページへ', '#', class: 'community-btn' %>
+      </div>  
     </div>  
   </div>
 </div>

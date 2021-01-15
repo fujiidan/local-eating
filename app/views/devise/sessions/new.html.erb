@@ -1,12 +1,12 @@
 <div class="form-wrapper">
-  <div class="form-title">
-    <h2 class="form-title-name">ログイン<h2>
-  </div>  
   <%= form_with model: @user, url: session_path(@user), class: "form-wrap", local: true do |f| %>
-  <div class='login-flash-message'>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-  </div>
+    <div class="form-title">
+      <h2 class="form-title-name">ログイン<h2>
+    </div>  
+    <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
     <div class="form-group">
       <div class="form-label">
         <%= f.label :email, "Email（必須）", class: "form-label-name" %>
@@ -23,8 +23,10 @@
         <%= f.password_field :password, class: "form-input-area", autocomplete: "new-password", id: "password" %>
       </div>
     </div>
-    <div class="form-submit">
-      <%= f.submit "ログイン", class: "form-submit-btn" %>
-    </div>
+    <div class="form-group">
+      <div class="form-submit">
+        <%= f.submit "ログイン", class: "form-submit-btn" %>
+      </div>
+    </div>  
   <% end %>
 </div>

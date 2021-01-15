@@ -1,8 +1,8 @@
 <div class="form-wrapper">
-  <div class="form-title">
-    <h2 class="form-title-name">会員登録しよう！<h2>
-  </div>  
   <%= form_with model: @user, url: user_registration_path, class: "form-wrap", local: true do |f| %>
+    <div class="form-title">
+      <h2 class="form-title-name">会員登録しよう！<h2>
+    </div>
     <%= render "shared/error_messages", model: f.object %>
     <div class="form-group">
       <div class="form-label">
@@ -36,8 +36,10 @@
         <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form-input-area", autocomplete: "new-password", id: "password-confirmation" %>
       </div>
     </div>
-    <div class="form-submit">
-      <%= f.submit "プロフィール情報入力へ", class: "form-submit-btn" %>
-    </div>
+    <div class="form-group">
+      <div class="form-submit">
+        <%= f.submit "プロフィール情報入力へ", class: "form-submit-btn" %>
+      </div>
+    </div>  
   <% end %>
 </div>

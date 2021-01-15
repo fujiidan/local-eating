@@ -1,31 +1,31 @@
 .header {
   height: 100px;
   width: 100vw;
-  padding: 20px;
   display: flex;
-  background-color: lightgrey;
+  background-color: lightskyblue;
 }
 
 .title {
-  width: 500px;
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .title-name {
-  color: black;
+  color: blanchedalmond;
   font-size: 36px;
   font-weight: bolder;
 }
 
 .links {
- width: calc(100vw - 500px);
+ width: calc(100vw - 30%);
  display: flex;
  align-items: center;
  justify-content: space-around;
 }
 
 .link {
+  font-size: 20px;
   color: black;
 }
