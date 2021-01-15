@@ -1,26 +1,35 @@
-<h2>プロフィール情報登録（任意）</h2>
-
-<%= form_for @profile do |f| %>
-  <%= render "devise/shared/error_messages", resource: @profile %>
-
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age %>
-  </div>
-
-  <div class="field">
-    <%= f.label :sex_id %><br />
-    <%= f.collection_select :sex_id, Sex.all, :id, :name, {include_blank: '選択して下さい'} %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="form-wrapper">
+  <div class="form-title">
+    <h2 class="form-title-name">プロフィールを登録しよう！<h2>
+  </div>  
+  <%= form_with model: @profile, class: "form-wrap", local: true do |f| %>
+    <%= render "shared/error_messages", model: f.object %>
+    <div class="form-group">
+      <div class="form-label">
+        <%= f.label :address, "住所（任意）", class: "form-label-name" %>
+      </div> 
+      <div class="form-input"> 
+        <%= f.text_field :address, autofocus: true, placeholder: "例: 東京都渋谷区神南１−１−１", class: "form-input-area", id: "nickname" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label">
+        <%= f.label :age, "age（任意）", class: "form-label-name" %>
+      </div> 
+      <div class="form-input"> 
+        <%= f.text_field :age, placeholder: "例: 20", class: "form-input-area", id: "email" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label">
+        <%= f.label :sex_id, "性別（任意）", class: "form-label-name" %>
+      </div> 
+      <div class="form-input"> 
+        <%= f.collection_select :sex_id, Sex.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-input-area", autocomplete: "new-password", id: "password" %>
+      </div>
+    </div>
+    <div class="form-submit">
+      <%= f.submit "新規登録", class: "form-submit-btn" %>
+    </div>
+  <% end %>
+</div>

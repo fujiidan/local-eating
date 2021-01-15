@@ -1,26 +1,30 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="form-wrapper">
+  <div class="form-title">
+    <h2 class="form-title-name">ログイン<h2>
+  </div>  
+  <%= form_with model: @user, url: session_path(@user), class: "form-wrap", local: true do |f| %>
+  <div class='login-flash-message'>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="form-group">
+      <div class="form-label">
+        <%= f.label :email, "Email（必須）", class: "form-label-name" %>
+      </div> 
+      <div class="form-input"> 
+        <%= f.email_field :email, placeholder: "例: example@gmail.com", class: "form-input-area", id: "email" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label">
+        <%= f.label :password, "パスワード（必須）", class: "form-label-name" %>
+      </div> 
+      <div class="form-input"> 
+        <%= f.password_field :password, class: "form-input-area", autocomplete: "new-password", id: "password" %>
+      </div>
+    </div>
+    <div class="form-submit">
+      <%= f.submit "ログイン", class: "form-submit-btn" %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
