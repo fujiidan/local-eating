@@ -1,8 +1,10 @@
-function initMap() {
-  let map = new google.maps.Map(document.getElementById("map"), {
+// let mapInstance //この変数はmap.js.erbでも使うのでタイプミスに注意
+
+function initMap(){
+  mapInstance = new google.maps.Map(document.getElementById('map'), {
   center: {lat: -34.397, lng: 150.644},
-  zoom: 5  
+  zoom: 8
   });
 }
 
-window.addEventListener("load", initMap)
+window.addEventListener("load", initMap);
