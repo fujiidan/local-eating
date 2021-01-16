@@ -1,4 +1,4 @@
-// let mapInstance //この変数はmap.js.erbでも使うのでタイプミスに注意
+// let mapInstance
 
 function initMap(){
   mapInstance = new google.maps.Map(document.getElementById('map'), {
