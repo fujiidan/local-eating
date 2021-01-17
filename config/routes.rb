@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'profiles', to: 'users/registrations#new_profile'
     post 'profiles', to: 'users/registrations#create_profile'
   end
-  resources :stores, only: [:index] do
+  resources :stores, only: [:index, :new, :create] do
     collection do
       get 'search_map'
     end
