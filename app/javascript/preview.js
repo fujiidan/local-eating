@@ -12,7 +12,7 @@ const preview = () => {
     // 画像追加の為のinput要素作成
     const inputHTML = document.createElement("input");
     inputHTML.setAttribute("id", `message_image_${imageElementNum}`);
-    inputHTML.setAttribute("name", "profile[images][]");
+    inputHTML.setAttribute("name", "store[images][]");
     inputHTML.setAttribute("type", "file")
     inputHTML.setAttribute("class", "form-image-btn")
     // 作成したHTML要素を結合

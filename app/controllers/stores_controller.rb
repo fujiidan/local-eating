@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
   def index
+    @stores = Store.all.includes(:user)
+    gon.stores = @stores
   end
 
   def search_map
