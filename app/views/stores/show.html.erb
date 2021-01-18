@@ -1,0 +1,37 @@
+<div class="store-show">
+  <div class="store-box">
+    <div class="store-title">
+      <div class="store-name">
+        <%= @store.name %>
+      </div>
+      <div class="store-url">
+        <%= @store.url%>
+      </div>  
+    </div>
+    <div class="store-image">
+      <%  @store.images.each do |image|%>
+      <%= image_tag image %>
+      <% end%>
+    </div>
+    <div class="store-categorys">
+      <div class="store-genre"><%= @store.genre.name %></div>
+      <div class="store-price"><%= @store.price.name%></div>
+      <div class="store-user"><%= @store.user.nickname%></div>
+    </div>
+  </div>
+  <div class="store-info-box">
+    <div class="store-info">
+    <%= @store.info %>
+    </div>
+  </div>
+  <div class="comment-box">
+    <div class="comment-field">
+    </div>
+    <div class="comment-form">
+      <div class="form_input_area">
+      </div>
+      <div class="form_submit_btn">
+      </div>
+    </div>
+  </div>
+</div>

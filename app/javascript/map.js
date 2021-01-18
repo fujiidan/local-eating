@@ -18,7 +18,7 @@ function allMap () {
         <p>${store.name}</p>
         <p>${store.address}</p>
         <p>${store.url}</p>
-        <a href=https://local-eating.herokuapp.com/>リンク</a>
+        <a href="/stores/${store.id}"/>リンク</a>
         </div>`
       });
       marker.addListener('click', function() {
