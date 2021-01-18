@@ -1,12 +1,13 @@
 /* 全フォーム要素に借りで適用 */
 .form-wrapper {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: lightgrey;
+  overflow: scroll;
 }
 
 .form-wrap {
-  height: 100vh;
+  height: 100%;
   width: 50%;
   margin: 0 auto;
   background-color: mintcream;
@@ -19,6 +20,7 @@
   align-items: center;
   background-color: palegreen;
 }
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -61,5 +63,6 @@
 }
 .preview-image {
   height: 200px;
-  width: 200px;
+  width:200px;
 }
+

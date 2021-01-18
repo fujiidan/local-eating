@@ -2,4 +2,12 @@ ja:
  activerecord:
    attributes:
      user:
-       nickname: ニックネーム
+      nickname: ニックネーム
+     store:
+      name: 店舗名
+      address: 住所
+      info: 店舗情報
+      latitude: 緯度
+      longitude: 経度
+      genre_id: ジャンル
+      price_id: 価格帯

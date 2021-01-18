@@ -1,12 +1,11 @@
 .wrapper {
   height: calc(100vh - 100px);
-  width: 100vw;
-  padding: 20px;
-  background-color: lightcyan;
+  width: 100％;
   display: flex;
 }
 
 .map-wrapper {
+  height: calc(100vh - 100px);
   width: 60%;
   background-color:lightblue;
 }
@@ -17,23 +16,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .map {
-  height: calc(100% - 30%);
-  background-color: lightgreen;
-  padding: 20px;
+  height: 70%;
 }
 
 #map {
   height: 100%;
+  border: 1px solid black;
 }
 
 .contents {
-  width: calc(100% - 60%);
-  background-color: lightcoral;
-  padding: 20px;
+  width: 40%;
+  height: calc(100vh - 100px);
 }
 
 .store-content {
@@ -49,7 +45,7 @@
 }
 
 .store-link {
-  height: calc(100% - 30%);
+  height: 70%;
   background-color: lightskyblue;
   display: flex;
   align-items: center;
@@ -76,7 +72,7 @@
 }
 
 .community-link {
-  height: calc(100% - 30%);
+  height: 70%;
   background-color: lightskyblue;
   display: flex;
   align-items: center;

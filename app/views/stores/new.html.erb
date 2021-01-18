@@ -2,7 +2,7 @@
   <%= form_with model: @store, class: "form-wrap", local: true do |f| %>
     <div class="form-title">
       <h2 class="form-title-name">お気に入りのお店を登録しよう！<h2>
-    </div>  
+    </div> 
     <%= render "shared/error_messages", model: f.object %>
     <div class="form-group">
       <div class="form-label">
@@ -65,6 +65,6 @@
       <div class="form-submit">
         <%= f.submit "店舗登録", class: "form-submit-btn" %>
       </div>
-    </div>  
+    </div>
   <% end %>
 </div>

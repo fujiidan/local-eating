@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   def index
-    @stores = Store.all.includes(:user)
+    @stores = Store.includes(:user)
     gon.stores = @stores
   end
 
