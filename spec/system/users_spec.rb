@@ -1,24 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
-
+RSpec.describe 'Users', type: :system do
   describe 'ユーザー登録・ログイン認証' do
     before do
       @user = FactoryBot.build(:user)
       @profile = FactoryBot.build(:profile)
     end
-    
+
     context '新規登録、ログインできるとき' do
       it '新規登録ができること' do
         sign_up(@user, @profile)
-      end  
+      end
 
       it 'ログインできること' do
         @user.save
         sign_in(@user)
-      end   
+      end
     end
-    
+
     context '新規登録、ログインできないとき' do
       it '新規登録に失敗すると再び新規登録画面に戻ってくる' do
         visit new_user_registration_path
@@ -44,7 +43,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content(@user.nickname)
       expect(page).to have_content('ログアウト')
     end
-    
+
     it 'ログアウト状態では、ヘッダーに新規登録/ログインボタン/ゲストさんが表示されること' do
       visit root_path
       expect(page).to have_content('新規登録')

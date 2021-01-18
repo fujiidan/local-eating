@@ -10,7 +10,7 @@ module SignUpSupport
     fill_in 'address', with: profile.address
     fill_in 'age', with: profile.age
     find('#sex-id').find("option[value='1']").select_option
-    expect{click_on('新規登録')}.to change{User.count}.by(1).and change { Profile.count }.by(1)
+    expect { click_on('新規登録') }.to change { User.count }.by(1).and change { Profile.count }.by(1)
     expect(current_path).to eq root_path
   end
 end

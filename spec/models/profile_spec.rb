@@ -5,7 +5,7 @@ RSpec.describe Profile, type: :model do
     before do
       @profile = FactoryBot.build(:profile)
     end
-    
+
     it 'プロフィールを入力すると登録できる' do
       expect(@profile).to be_valid
     end
@@ -15,6 +15,6 @@ RSpec.describe Profile, type: :model do
       @profile.age = nil
       @profile.sex_id = nil
       expect(@profile).to be_valid
-    end  
-  end  
+    end
+  end
 end

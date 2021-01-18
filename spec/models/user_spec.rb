@@ -13,13 +13,13 @@ RSpec.describe User, type: :model do
     it 'ニックネームが必須であること' do
       @user.nickname = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+      expect(@user.errors.full_messages).to include('ニックネームを入力してください')
     end
 
     it 'メールアドレスが必須であること' do
       @user.email = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("Eメールを入力してください")
+      expect(@user.errors.full_messages).to include('Eメールを入力してください')
     end
 
     it 'メールアドレスが一意性であること' do
@@ -34,13 +34,13 @@ RSpec.describe User, type: :model do
     it 'メールアドレスは、@を含む必要があること' do
       @user.email = '123456'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Eメールは不正な値です")
+      expect(@user.errors.full_messages).to include('Eメールは不正な値です')
     end
 
     it 'パスワードが必須であること' do
       @user.password = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワードを入力してください")
+      expect(@user.errors.full_messages).to include('パスワードを入力してください')
     end
 
     it 'パスワードは、6文字以上での入力が必須であること' do
@@ -74,7 +74,7 @@ RSpec.describe User, type: :model do
     it 'パスワードとパスワード（確認用）、値の一致が必須であること' do
       @user.password_confirmation = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
     end
   end
 end
