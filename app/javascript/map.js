@@ -1,17 +1,36 @@
 // googleMapの初期位置を設定
 function initMap(){
-  mapInstance = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 35.662, lng: 139.704},
-  zoom: 10
-  });
+  if (gon.store) {
+    mapInstance = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: gon.store.latitude, lng: gon.store.longitude},
+      zoom: 16
+      });
+      let marker = new google.maps.Marker({
+        position: {lat: gon.store.latitude, lng: gon.store.longitude},
+        map: mapInstance
+      });
+      let infoWindow = new google.maps.InfoWindow({
+        content: `<div class="mapinfo">
+        <p>${gon.store.name}</p>
+        <p>${gon.store.address}</p>
+        <p>${gon.store.url}</p>
+        <a href="/stores/${gon.store.id}"/>リンク</a>
+        </div>`
+      });
+      infoWindow.open(mapInstance, marker);
+  } else {
+    mapInstance = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 35.662, lng: 139.704},
+    zoom: 10
+    });
+  }
 }
-
 // データベースからマーカーの情報取得
 function allMap () {
   gon.stores.forEach((store) => {
       let marker = new google.maps.Marker({
       position: {lat: store.latitude, lng: store.longitude},
-      map: mapInstance,
+      map: mapInstance
     });
       let infoWindow = new google.maps.InfoWindow({
         content: `<div class="mapinfo">
@@ -26,6 +45,5 @@ function allMap () {
       });
   });
 };
-
 window.addEventListener("load", initMap);
 window.addEventListener("load", allMap);

@@ -28,7 +28,9 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-  end  
+    gon.store = @store
+  end
+  
   private
 
   def store_params
