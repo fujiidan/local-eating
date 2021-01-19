@@ -2,7 +2,7 @@
   height: 100px;
   width: 100%;
   display: flex;
-  background-color: lightskyblue;
+  background-color: rgba(135, 206, 250, 0.75);
 }
 
 .title {
@@ -13,7 +13,7 @@
 }
 
 .title-name {
-  color: blanchedalmond;
+  color: black;
   font-size: 36px;
   font-weight: bolder;
 }

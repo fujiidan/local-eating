@@ -14,7 +14,7 @@ const preview = () => {
     inputHTML.setAttribute("id", `preview_image_${imageElementNum}`);
     inputHTML.setAttribute("name", "store[store_images][]");
     inputHTML.setAttribute("type", "file")
-    inputHTML.setAttribute("class", "form-image-btn")
+    inputHTML.setAttribute("class", "preview-image-btn")
     // 作成したHTML要素を結合
     imageElement.appendChild(blobImage);
     imageElement.appendChild(inputHTML)

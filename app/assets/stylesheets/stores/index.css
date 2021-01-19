@@ -2,29 +2,38 @@
   height: calc(100vh - 100px);
   width: 100％;
   display: flex;
+  background-color: rgba(255, 255, 255, 0.938);
 }
 
 .map-wrapper {
   height: calc(100vh - 100px);
   width: 60%;
-  background-color:lightblue;
 }
 
 .form-map {
-  height: 30%;
-  background-color: lightgoldenrodyellow;
+  height: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.search-title {
+  background-color: rgba(211, 211, 211, 0.504);
+  border-radius: 10px;
+  margin-right: 10px;
+}
 .map {
-  height: 70%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #map {
-  height: 300px;
-  border: 1px solid black;
+  height: 90%;
+  width: 90%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 
 .contents {
@@ -38,50 +47,63 @@
 
 .store-message {
   height: 30%;
-  background-color: lavender;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.store-message-title {
+  background-color: rgba(211, 211, 211, 0.504);
+  border-radius: 10px;
+}
+
 .store-link {
   height: 70%;
-  background-color: lightskyblue;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .store-btn {
-  border: 1px solid black;
-  padding: 30px;
-  background-color: burlywood;
+  border: 1px solid lightgray;
+  padding: 75px;
+  background-color: lightskyblue;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 20px;
 }
 
 .community-content {
   height: 50%;
-  background-color:lightgrey;
 }
 
 .community-message {
   height: 30%;
-  background-color: lavender;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.community-message-title {
+  background-color: rgba(211, 211, 211, 0.504);
+  border-radius: 10px;
+}
+
 .community-link {
   height: 70%;
-  background-color: lightskyblue;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .community-btn {
-  border: 1px solid black;
-  padding: 30px;
-  background-color: burlywood;
+  border: 1px solid lightgray;
+  padding: 75px;
+  background-color: lightskyblue;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 20px;
 }
 

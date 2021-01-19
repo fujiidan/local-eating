@@ -1,7 +1,8 @@
-// googleMapの初期位置を設定
+// googleMapの初期位置を設定トップページ、店舗詳細ページ
 function initMap(){
+  // 店舗詳細ページの場合の条件分岐
   if (gon.store) {
-    mapInstance = new google.maps.Map(document.getElementById('map'), {
+    mapInstance = new google.maps.Map(document.getElementById('store-map'), {
       center: {lat: gon.store.latitude, lng: gon.store.longitude},
       zoom: 16
       });
@@ -13,19 +14,18 @@ function initMap(){
         content: `<div class="mapinfo">
         <p>${gon.store.name}</p>
         <p>${gon.store.address}</p>
-        <p>${gon.store.url}</p>
-        <a href="/stores/${gon.store.id}"/>リンク</a>
         </div>`
       });
       infoWindow.open(mapInstance, marker);
+      // トップページ場合の条件分岐
   } else {
     mapInstance = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 35.662, lng: 139.704},
-    zoom: 10
+    zoom: 15
     });
   }
 }
-// データベースからマーカーの情報取得
+// データベースからマーカーの情報取得 トップページ
 function allMap () {
   gon.stores.forEach((store) => {
       let marker = new google.maps.Marker({
@@ -36,8 +36,7 @@ function allMap () {
         content: `<div class="mapinfo">
         <p>${store.name}</p>
         <p>${store.address}</p>
-        <p>${store.url}</p>
-        <a href="/stores/${store.id}"/>リンク</a>
+        <a href="/stores/${store.id}"/>店舗詳細ページへ！</a>
         </div>`
       });
       marker.addListener('click', function() {

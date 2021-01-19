@@ -2,3 +2,10 @@
   text-align: center;
   color: red;
 }
+
+.log-in-link {
+  display: block;
+  text-align: center;
+  padding-bottom: 30px;
+  
+}

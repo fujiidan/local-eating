@@ -1,4 +1,5 @@
 <div class="form-wrapper">
+  <%= render "shared/second_header" %>
   <%= form_with model: @user, url: session_path(@user), class: "form-wrap", local: true do |f| %>
     <div class="form-title">
       <h2 class="form-title-name">ログイン<h2>
@@ -9,7 +10,7 @@
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :email, "Email（必須）", class: "form-label-name" %>
+        <%= f.label :email, "Email", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
         <%= f.email_field :email, placeholder: "例: example@gmail.com", class: "form-input-area", id: "email" %>
@@ -17,7 +18,7 @@
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :password, "パスワード（必須）", class: "form-label-name" %>
+        <%= f.label :password, "パスワード", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
         <%= f.password_field :password, class: "form-input-area", autocomplete: "new-password", id: "password" %>
@@ -27,6 +28,8 @@
       <div class="form-submit">
         <%= f.submit "ログイン", class: "form-submit-btn" %>
       </div>
-    </div>  
+    </div>
+    <p><%= link_to "新規登録はこちらから",  new_user_registration_path, class: "log-in-link"%></p> 
   <% end %>
+  <%= render "shared/second_footer" %>
 </div>

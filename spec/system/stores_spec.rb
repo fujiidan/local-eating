@@ -12,6 +12,7 @@ RSpec.describe 'Stores', type: :system do
     #     create_store(@user, @store)
     #   end
     # end
+
     context '店舗登録できないとき' do
       it 'ログインしていないユーザーは、店舗登録ページを押すと、ログインページに遷移する' do
         visit root_path
@@ -29,4 +30,23 @@ RSpec.describe 'Stores', type: :system do
       end
     end
   end
+
+  describe '商品詳細ページ' do
+    before do
+      @store = FactoryBot.create(:store)
+      @user = FactoryBot.create(:user)
+    end
+
+    # it '商品出品時に登録した情報が見られるようになっていること' do
+    #   visit store_path(@store)
+    #   expect(page).to have_content(@store.name)
+    #   expect(page).to have_content(@store.url)
+    #   expect(page).to have_content(@store.genre.name)
+    #   expect(page).to have_content(@store.price.name)
+    #   expect(page).to have_content(@store.user.nickname)
+    #   expect(page).to have_content(@store.info)
+    #   expect(page).to have_content(@store.sale)
+    # end
+
+  end  
 end

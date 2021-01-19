@@ -1,45 +1,47 @@
 <div class="form-wrapper">
-  <%= form_with model: @user, url: user_registration_path, class: "form-wrap", local: true do |f| %>
-    <div class="form-title">
-      <h2 class="form-title-name">会員登録しよう！<h2>
-    </div>
-    <%= render "shared/error_messages", model: f.object %>
-    <div class="form-group">
-      <div class="form-label">
-        <%= f.label :nickname, "ニックネーム（必須）", class: "form-label-name" %>
-      </div> 
-      <div class="form-input"> 
-        <%= f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "form-input-area", id: "nickname" %>
+  <%= render "shared/second_header" %>
+    <%= form_with model: @user, url: user_registration_path, class: "form-wrap", local: true do |f| %>
+      <div class="form-title">
+        <h2 class="form-title-name">会員登録しよう！<h2>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="form-label">
-        <%= f.label :email, "Email（必須）", class: "form-label-name" %>
-      </div> 
-      <div class="form-input"> 
-        <%= f.email_field :email, placeholder: "例: example@gmail.com", class: "form-input-area", id: "email" %>
+      <%= render "shared/error_messages", model: f.object %>
+      <div class="form-group">
+        <div class="form-label">
+          <%= f.label :nickname, "ニックネーム", class: "form-label-name" %><span class="form-warning">必須</span>
+        </div> 
+        <div class="form-input"> 
+          <%= f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "form-input-area", id: "nickname" %>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="form-label">
-        <%= f.label :password, "パスワード（必須）", class: "form-label-name" %>
-      </div> 
-      <div class="form-input"> 
-        <%= f.password_field :password, placeholder: "6文字以上の半角英数字", class: "form-input-area", autocomplete: "new-password", id: "password" %>
+      <div class="form-group">
+        <div class="form-label">
+          <%= f.label :email, "Email", class: "form-label-name" %><span class="form-warning">必須</span>
+        </div> 
+        <div class="form-input"> 
+          <%= f.email_field :email, placeholder: "例: example@gmail.com", class: "form-input-area", id: "email" %>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="form-label">
-        <%= f.label :password_confirmation, "確認用パスワード（必須）", class: "form-label-name" %>
-      </div> 
-      <div class="form-input"> 
-        <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form-input-area", autocomplete: "new-password", id: "password-confirmation" %>
+      <div class="form-group">
+        <div class="form-label">
+          <%= f.label :password, "パスワード", class: "form-label-name" %><span class="form-warning">必須</span>
+        </div> 
+        <div class="form-input"> 
+          <%= f.password_field :password, placeholder: "6文字以上の半角英数字", class: "form-input-area", autocomplete: "new-password", id: "password" %>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="form-submit">
-        <%= f.submit "プロフィール情報入力へ", class: "form-submit-btn" %>
+      <div class="form-group">
+        <div class="form-label">
+          <%= f.label :password_confirmation, "確認用パスワード", class: "form-label-name" %><span class="form-warning">必須</span>
+        </div> 
+        <div class="form-input"> 
+          <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form-input-area", autocomplete: "new-password", id: "password-confirmation" %>
+        </div>
       </div>
-  <% end %>
-  </div>
+      <div class="form-group">
+        <div class="form-submit">
+          <%= f.submit "プロフィール情報入力へ", class: "form-submit-btn" %>
+        </div>
+      </div>
+    <% end %>
+  <%= render "shared/second_footer" %>  
 </div>

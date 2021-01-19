@@ -1,12 +1,13 @@
 <div class="form-wrapper">
+<%= render "shared/second_header" %>
   <%= form_with model: @store, class: "form-wrap", local: true do |f| %>
     <div class="form-title">
-      <h2 class="form-title-name">店舗情報編集！<h2>
+      <h2 class="form-title-name">店舗情報編集<h2>
     </div> 
     <%= render "shared/error_messages", model: f.object %>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :name, "飲食店の名前（必須）", class: "form-label-name" %>
+        <%= f.label :name, "飲食店の名前", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
         <%= f.text_field :name, autofocus: true, placeholder: "例: 飲食店の名前", class: "form-input-area", id: "name" %>
@@ -14,7 +15,7 @@
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :address, "住所（必須）", class: "form-label-name" %>
+        <%= f.label :address, "住所", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
         <%= f.text_field :address, placeholder: "例: 東京都渋谷区神南１−１−１", class: "form-input-area", id: "address" %>
@@ -22,7 +23,7 @@
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :url, "URL（任意）", class: "form-label-name" %>
+        <%= f.label :url, "URL", class: "form-label-name" %><span class="form-any">任意</span>
       </div> 
       <div class="form-input"> 
         <%= f.text_field :url, placeholder: "例: https://local-eating.herokuapp.com/", class: "form-input-area", id: "url" %>
@@ -30,7 +31,7 @@
     </div>    
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :genre_id, "ジャンル（必須）", class: "form-label-name" %>
+        <%= f.label :genre_id, "ジャンル", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
         <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select-btn", id: "genre-id" %>
@@ -38,7 +39,7 @@
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :price_id, "価格帯（必須）", class: "form-label-name" %>
+        <%= f.label :price_id, "価格帯", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
         <%= f.collection_select :price_id, Price.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select-btn", id: "price-id" %>
@@ -46,15 +47,15 @@
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :info, "店舗情報（必須）", class: "form-label-name" %>
+        <%= f.label :info, "店舗情報", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
-        <%= f.text_area :info, placeholder: "例: 焼き鳥がおすすめ！", class: "form-input-area", id: "info" %>
+        <%= f.text_area :info, placeholder: "例: 焼き鳥がおすすめ！", class: "form-text-area", id: "info" %>
       </div>
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :store_images, "画像（任意）", class: "form-label-name" %>
+        <%= f.label :store_images, "画像", class: "form-label-name" %><span class="form-any">任意</span>
       </div> 
       <div class="form-input"> 
         <%= f.file_field :store_images, name: "store[store_images][]",  class: "form-image-btn", id: "store_images" %>
@@ -63,8 +64,9 @@
     <div class="image-list", id="image-list"></div>      
     <div class="form-group">
       <div class="form-submit">
-        <%= f.submit "店舗登録", class: "form-submit-btn" %>
+        <%= f.submit "編集する", class: "form-submit-btn" %>
       </div>
     </div>
   <% end %>
+  <%= render "shared/second_footer" %>
 </div>

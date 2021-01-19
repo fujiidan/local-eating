@@ -2,8 +2,8 @@
 <div class="wrapper">
   <div class="map-wrapper">
     <div class="form-map">
-    <h2>住所を検索して見よう！</h2>
-    <%= form_with url: search_map_stores_path, method: :get do |f| %>
+    <h2 class="search-title">住所を検索して見よう！</h2>
+    <%= form_with url: search_map_stores_path, method: :get, id: "search-form" do |f| %>
       <%= f.text_field :address, class: "form-input-area"%>
       <%= f.submit '地図検索', class: "form-submit-btn" %>
     <% end %>  
@@ -16,7 +16,7 @@
   <div class="contents">
     <div class="store-content">
       <div class="store-message">
-        <h2>お気に入りの飲食店を登録しよう！</h2>
+        <h2 class="store-message-title">お気に入りの飲食店を登録しよう！</h2>
       </div>
       <div class="store-link">
         <%= link_to '飲食店を追加！', new_store_path, class: 'store-btn' %>
@@ -24,7 +24,7 @@
     </div>
     <div class="community-content">
       <div class="community-message">
-        <h2>近くの人と食を通して交流しよう！</h2>
+        <h2 class="community-message-title">近くの人と食を通して交流しよう！</h2>
       </div>
       <div class="community-link">  
         <%= link_to 'コミュニティ一覧ページへ', '#', class: 'community-btn' %>

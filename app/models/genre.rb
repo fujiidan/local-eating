@@ -13,7 +13,7 @@ class Genre < ActiveHash::Base
     { id: 11, name: 'パン・サンドイッチ' },
     { id: 12, name: 'スイーツ' },
     { id: 13, name: 'ドリンク' },
-    { id: 14, name: '惣菜惣菜' },
+    { id: 14, name: '惣菜' },
     { id: 15, name: 'テイクアウト' },
     { id: 16, name: 'その他' }
   ]

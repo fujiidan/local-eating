@@ -1,6 +1,6 @@
-.second-header {
+.second-footer {
   width: 50%;
-  height: 100px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,8 +8,8 @@
   margin: 0 auto;
 }
 
-.second-header-title {
+.second-footer-title {
     color: black;
-    font-size: 36px;
+    font-size: 20px;
     font-weight: bolder;
 }
