@@ -28,6 +28,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @comment = Comment.new  
     gon.store = @store
   end
   
@@ -35,7 +36,7 @@ class StoresController < ApplicationController
 
   def store_params
     params.require(:store).permit(
-      :name, :address, :latitude, :longitude, :url, :genre_id, :price_id, :info, images: []
+      :name, :address, :latitude, :longitude, :url, :genre_id, :price_id, :info, store_images: []
     ).merge(user_id: current_user.id)
   end
 end

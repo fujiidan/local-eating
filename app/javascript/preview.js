@@ -11,8 +11,8 @@ const preview = () => {
     blobImage.setAttribute("class", "preview-image");
     // 画像追加の為のinput要素作成
     const inputHTML = document.createElement("input");
-    inputHTML.setAttribute("id", `message_image_${imageElementNum}`);
-    inputHTML.setAttribute("name", "store[images][]");
+    inputHTML.setAttribute("id", `preview_image_${imageElementNum}`);
+    inputHTML.setAttribute("name", "store[store_images][]");
     inputHTML.setAttribute("type", "file")
     inputHTML.setAttribute("class", "form-image-btn")
     // 作成したHTML要素を結合
@@ -27,7 +27,7 @@ const preview = () => {
     });
   };
 
-  document.getElementById("images").addEventListener('change', (e) => {
+  document.getElementById("store_images").addEventListener('change', (e) => {
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
     createImageHTML(blob);

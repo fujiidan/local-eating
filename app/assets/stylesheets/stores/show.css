@@ -1,0 +1,63 @@
+.store-show {
+  height: 100vh;
+  width: 100%;
+  overflow: scroll;
+  background-color: lemonchiffon;
+}
+
+.store-box {
+  width: 100%;
+  background-color: lightblue;
+}
+
+.store-title {
+
+}
+
+.store-name {
+  font-size: 36px;
+  text-align: center;
+}
+
+.store-images {
+  display: flex;
+  justify-content: space-around;
+  overflow-x: scroll;
+}
+
+.store-categorys {
+  display: flex;
+  justify-content: space-around;
+  font-size: 24px;
+}
+
+.store-info-box {
+  width: 100%;
+  display: flex;
+  background-color: lightgreen;
+}
+
+.store-info {
+  width: 60%;
+}
+
+.store-map {
+  width: 40%;
+}
+
+.comment-box {
+
+}
+
+.comment-form {
+  display: flex;
+  justify-content: center;
+
+}
+
+.store-footer {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  background-color: lightsalmon;
+}

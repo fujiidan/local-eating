@@ -6,7 +6,7 @@ class Store < ApplicationRecord
   before_validation :geocode
 
   belongs_to :user
-  has_many_attached :images, dependent: :destroy
+  has_many_attached :store_images, dependent: :destroy
   has_many :comments, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre

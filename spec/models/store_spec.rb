@@ -16,7 +16,7 @@ RSpec.describe Store, type: :model do
     end
 
     it '画像が無くても店舗登録できること' do
-      @store.images = nil
+      @store.store_images = nil
       expect(@store).to be_valid
     end
 

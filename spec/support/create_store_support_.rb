@@ -10,7 +10,7 @@ module CreateStoreSupport
   find('#price-id').find("option[value='1']").select_option
   fill_in 'info', with: store.info
   image_path = Rails.root.join('public/images/test_image.png')
-  attach_file("store[images][]", image_path)
+  attach_file("store[store_images][]", image_path)
   expect{click_on('店舗登録')}.to change{Store.count}.by(1)
   expect(current_path).to eq root_path
   end

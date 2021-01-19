@@ -67,7 +67,7 @@
 
 - belongs_to :user
 - belongs_to :store
-- has_many_attached :images
+- has_many_attached :comment_images
 
 
 ## communities テーブル
@@ -95,4 +95,4 @@
 
 - belongs_to :user
 - belongs_to :community
-- has_many_attached :images
+- has_many_attached :message_images
