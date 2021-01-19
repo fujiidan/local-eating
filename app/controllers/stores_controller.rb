@@ -1,5 +1,8 @@
 class StoresController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, except: [:index, :search_map, :show]
+  before_action :find_store, except: [:index, :search_map, :new, :create]
+  before_action :move_to_index, only: [:edit, :destroy]
+
   def index
     @stores = Store.includes(:user)
     gon.stores = @stores
@@ -20,18 +23,34 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
-      redirect_to root_path
+      redirect_to store_path(@store)
     else
       render :new
     end
   end
 
   def show
-    @store = Store.find(params[:id])
-    @comment = Comment.new  
+    @comment = Comment.new
+    @comments = @store.comments.includes(:user)
     gon.store = @store
   end
+
+  def edit
+  end
   
+  def update
+    if @store.update(store_params)
+      redirect_to store_path(@store)
+    else
+      render :edit
+    end    
+  end
+  
+  def destroy
+    @store.destroy
+    redirect_to root_path
+  end
+
   private
 
   def store_params
@@ -39,4 +58,13 @@ class StoresController < ApplicationController
       :name, :address, :latitude, :longitude, :url, :genre_id, :price_id, :info, store_images: []
     ).merge(user_id: current_user.id)
   end
+
+  def move_to_index
+    redirect_to root_path if current_user.id != @store.user_id
+  end
+  
+  def find_store
+    @store = Store.find(params[:id])
+  end
+
 end

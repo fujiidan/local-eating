@@ -33,6 +33,7 @@
   <div class="comment-box">
     <div class="comment-field">
     </div>
+    <% if user_signed_in? %>
     <div class="comment-form">
     <%= form_with(model: [@store, @comment], id: "comment-form")  do |f| %>
     <%= render "shared/error_messages", model: f.object %>
@@ -60,10 +61,13 @@
       </div>
     <% end %>
     </div>
+    <% end %>
   </div>
 </div>
+<% if user_signed_in? && current_user.id == @store.user_id%>
 <div class="store-footer">
-  <%= link_to "編集する", "#"%>
-  <%= link_to "削除する", "#"%>
+  <%= link_to "編集する", edit_store_path(@store)%>
+  <%= link_to "削除する", store_path(@store), method: :delete %>
 </div>
+<% end %>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>" async defer></script>

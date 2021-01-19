@@ -12,6 +12,6 @@ module CreateStoreSupport
   image_path = Rails.root.join('public/images/test_image.png')
   attach_file("store[store_images][]", image_path)
   expect{click_on('店舗登録')}.to change{Store.count}.by(1)
-  expect(current_path).to eq root_path
+  expect(current_path).to eq store_path(1)
   end
 end
