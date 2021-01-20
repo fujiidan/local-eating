@@ -39,6 +39,12 @@ class StoresController < ApplicationController
   end
   
   def update
+    if params[:store][:store_image_ids]
+      params[:store][:store_image_ids].each do |store_image_id|
+        store_image = @store.store_images.find(store_image_id)
+        store_image.purge
+      end  
+    end
     if @store.update(store_params)
       redirect_to store_path(@store)
     else

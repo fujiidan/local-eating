@@ -55,13 +55,26 @@
     </div>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :store_images, "画像", class: "form-label-name" %><span class="form-any">任意</span>
+        <%= f.label :store_images, "画像", class: "form-label-name" %><span class="form-any">任意(複数枚可）</span>
       </div> 
       <div class="form-input"> 
-        <%= f.file_field :store_images, name: "store[store_images][]",  class: "form-image-btn", id: "store_images" %>
+        <%= f.file_field :store_images, multiple: true, name: "store[store_images][]",  class: "form-image-btn", id: "store_images" %>
       </div>
-    </div>  
-    <div class="image-list", id="image-list"></div>      
+    </div>
+    <div class="form-group">
+    <% if @store.store_images.present? %>
+      <p class="check-box-notice">現在登録されている画像</p><span class="form-any">削除するものはチェックをしてください</span>
+      <div class="check-box-images">
+        <% @store.store_images.each do |store_image| %>
+        <div class="check-box-image">
+          <%= f.check_box :store_image_ids, {multiple: true}, store_image.id, false %>
+          <%= image_tag store_image.variant(resize: '250x250'), class: "check-box-image-content" %>
+        </div>  
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+    <%# <div class="image-list", id="image-list"></div>       %>
     <div class="form-group">
       <div class="form-submit">
         <%= f.submit "編集する", class: "form-submit-btn" %>
