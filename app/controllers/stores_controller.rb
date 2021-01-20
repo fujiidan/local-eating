@@ -37,21 +37,21 @@ class StoresController < ApplicationController
 
   def edit
   end
-  
+
   def update
     if params[:store][:store_image_ids]
       params[:store][:store_image_ids].each do |store_image_id|
         store_image = @store.store_images.find(store_image_id)
         store_image.purge
-      end  
+      end
     end
     if @store.update(store_params)
       redirect_to store_path(@store)
     else
       render :edit
-    end    
+    end
   end
-  
+
   def destroy
     @store.destroy
     redirect_to root_path
@@ -68,9 +68,8 @@ class StoresController < ApplicationController
   def move_to_index
     redirect_to root_path if current_user.id != @store.user_id
   end
-  
+
   def find_store
     @store = Store.find(params[:id])
   end
-
 end

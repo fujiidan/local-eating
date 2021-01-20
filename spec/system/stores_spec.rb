@@ -73,13 +73,13 @@ RSpec.describe 'Stores', type: :system do
       expect(page).to have_no_selector('.form-submit-btn')
     end
   end
-    
+
   describe '店舗編集機能' do
     before do
       @user = FactoryBot.create(:user)
       @store = FactoryBot.create(:store)
     end
-  
+
     it '必要な情報を適切に入力すると、店舗情報をを編集できること' do
       sign_in(@store.user)
       visit edit_store_path(@store)
@@ -111,14 +111,14 @@ RSpec.describe 'Stores', type: :system do
   describe '商品削除機能' do
     before do
       @user = FactoryBot.create(:user)
-      @store = FactoryBot.create(:store)  
+      @store = FactoryBot.create(:store)
     end
-  
+
     it '出品者だけが商品情報を削除できること' do
       sign_in(@store.user)
       visit store_path(@store)
       expect { click_on('削除する') }.to change { Store.count }.by(-1)
       expect(current_path).to eq root_path
     end
-  end  
+  end
 end
