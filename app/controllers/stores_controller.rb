@@ -4,7 +4,7 @@ class StoresController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
-    @stores = Store.includes(:user)
+    @stores = Store.all
     gon.stores = @stores
   end
 
@@ -32,7 +32,7 @@ class StoresController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @store.comments.includes(:user).order("created_at DESC")
+    @comments = @store.comments.includes(:user).with_attached_comment_images.order("created_at DESC")
     gon.store = @store
   end
 

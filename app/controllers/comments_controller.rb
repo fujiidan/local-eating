@@ -3,14 +3,14 @@ class CommentsController < ApplicationController
   def create
     @store = Store.find(params[:store_id])
     @comment = @store.comments.build(comment_params)
-    if @comment.save
-      respond_to do |format|
-        format.js
-      end
-    else
-      @comments = @store.comments.includes(:user).order("created_at DESC")
-      render template: "stores/show"
-    end  
+    respond_to do |format|
+      if @comment.save
+          format.js
+      else
+        @comments = @store.comments.includes(:user).with_attached_comment_images.order("created_at DESC")
+        format.html {render template: "stores/show.html.erb"}
+      end  
+    end
   end
   
   private
