@@ -9,16 +9,17 @@ RSpec.describe "Comments", type: :system do
     end
 
     context 'コメント投稿できる時' do
-
       it 'コメント投稿すると、ページ遷移無くコメントが表示される' do
         sign_in(@store.user)
         visit store_path(@store)
         fill_in 'comment', with: @comment.comment
         image_path = Rails.root.join('public/images/test_image.png')
         attach_file('comment[comment_images][]', image_path)
-        expect { click_on('コメントする') }.to change { Comment.count }.by(1)
+        click_on('コメントする')
+        sleep 1
+        expect(Comment.count).to eq 1
         expect(current_path).to eq store_path(@store)
-        expect(page).to have_no_content(@comment.comment)
+        expect(page).to have_content(@comment.comment)
         expect(page).to have_selector("img[src$='test_image.png']")
       end
 
