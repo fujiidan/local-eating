@@ -4,9 +4,11 @@ class CommentsController < ApplicationController
     @store = Store.find(params[:store_id])
     @comment = @store.comments.build(comment_params)
     if @comment.save
-      render json: { post: @comment}
+      respond_to do |format|
+        format.js
+      end
     else
-      @comments = @store.comments.includes(:user)
+      @comments = @store.comments.includes(:user).order("created_at DESC")
       render template: "stores/show"
     end  
   end

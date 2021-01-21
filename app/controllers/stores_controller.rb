@@ -31,7 +31,7 @@ class StoresController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @store.comments.includes(:user)
+    @comments = @store.comments.includes(:user).order("created_at DESC")
     gon.store = @store
   end
 
