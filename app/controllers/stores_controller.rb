@@ -11,6 +11,7 @@ class StoresController < ApplicationController
   def search_map
     results = Geocoder.search(params[:address])
     @latlng = results.first.coordinates
+    @address = params[:address]
     respond_to do |format|
       format.js
     end
