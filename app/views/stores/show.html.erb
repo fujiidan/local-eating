@@ -1,80 +1,96 @@
 <div class="store-show">
   <%= render 'shared/header'%>
   <div class="store-wrapper">
-  <div class="store-box">
-    <div class="store-title">
-      <div class="store-name">
-        <%= @store.name %>
-      </div>  
-    </div>
-    <div class="store-images">
-    <% if @store.store_images.present?%>
-      <%  @store.store_images.each do |image|%>
-        <%= image_tag image.variant(resize: '300x300'), class: "store-image" %>
-      <% end%>
-    <% else %>
-      <%= image_tag '/images/test_image.png', class: "temporary-image"%>
-    <% end %>  
-    </div>
-    <div class="store-categorys">
-      <div class="store-genre"><%= "ジャンル: #{@store.genre.name}" %></div>
-      <div class="store-price"><%= "価格帯: #{@store.price.name}"%></div>
-      <div class="store-user"><%= "#{@store.user.nickname}さんのオススメ！"%></div>
-    </div>
-  </div>
-  <div class="store-info-box">
-    <div class="store-info">
-      <div class="store-url">
-        <%= "URL : #{@store.url}" %>
+    <div class="store-box">
+      <div class="store-title">
+        <div class="store-name">
+          <%= @store.name %>
+        </div>  
       </div>
-      <div class="store-info-text">
-        <%= "店舗情報 : #{@store.info}" %>
+      <div class="store-images">
+      <% if @store.store_images.present?%>
+        <%  @store.store_images.each do |image|%>
+          <%= image_tag image.variant(resize: '300x300'), class: "store-image" %>
+        <% end %>
+      <% else %>
+        <%= image_tag '/images/test_image.png', class: "temporary-image"%>
+      <% end %>  
+      </div>
+      <div class="store-categorys">
+        <div class="store-genre"><%= "ジャンル : #{@store.genre.name}" %></div>
+        <div class="store-price"><%= "価格帯 : #{@store.price.name}"%></div>
+        <div class="store-user"><%= "#{@store.user.nickname}さんのオススメ！"%></div>
+      </div>
+    </div>
+    <div class="store-info-box">
+      <div class="store-info">
+        <div class="store-url">
+          <%= "URL : #{@store.url}" %>
+        </div>
+        <div class="store-info-text">
+          <%= "店舗情報 : #{@store.info}" %>
+        </div>  
+      </div>
+      <div class="store-map">
+        <div id="store-map"></div>
       </div>  
     </div>
-    <div class="store-map">
-      <div id="store-map"></div>
-    </div>  
-  </div>
-  <div class="comment-box">
-    <div class="comment-field">
-    </div>
-    <% if user_signed_in? %>
-    <div class="comment-form-wrapper">
-      <%= form_with(model: [@store, @comment], class: "comment-form",  id: "comment-form")  do |f| %>
-      <%= render "shared/error_messages", model: f.object %>
-        <div class="form-group">
-          <div class="form-label">
-            <%= f.label :comment, "コメント入力欄", class: "form-label-name" %><span class="form-warning">コメントか画像どちらか必須</span>
-          </div> 
-          <div class="form-input"> 
-            <%= f.text_area :comment, placeholder: "例: この料理もオススメです！", class: "form-text-area", id: "comment" %>
+    <div class="comment-box">
+      <div class="comment-field">
+        <div class="comment">
+        <% @comments.each do |comment| %>
+          <div class="comment-upper">
+            <div class="comment-user"><%= "#{comment.user.nickname}さん" %></div>
+            <div class="comment-date"><%= l comment.created_at %></div>
           </div>
-        </div>
-        <div class="form-group">
-          <div class="form-label">
-            <%= f.label :comment_images, "画像", class: "form-label-name" %><span class="form-any">複数枚可</span>
-          </div> 
-          <div class="form-input"> 
-            <%= f.file_field :icomment_mages, multiple: true, name: "comment[comment_images][]",  class: "form-image-btn", id: "comment-images" %>
-          </div>        
-        </div>
-        <div class="image-list", id="image-list"></div>      
-        <div class="form-group">
-          <div class="form-submit">
-            <%= f.submit "コメントする", class: "form-submit-btn" %>
+          <div class="comment-lower">
+            <div class="comment-text"><%= comment.comment %></div>
+            <div class="comment-images">
+            <% comment.comment_images.each do |comment_image| %>
+              <div class="comment-image"><%= image_tag comment_image.variant(resize: "200x200") %></div>
+            <% end %>
+            </div>  
           </div>
+        <% end %>
         </div>
+      </div>
+      <% if user_signed_in? %>
+      <div class="comment-form-wrapper">
+        <%= form_with(model: [@store, @comment], class: "comment-form",  id: "comment-form")  do |f| %>
+        <%= render "shared/error_messages", model: f.object %>
+          <div class="form-group">
+            <div class="form-label">
+              <%= f.label :comment, "コメント入力欄", class: "form-label-name" %><span class="form-warning">コメントか画像どちらか必須</span>
+            </div> 
+            <div class="form-input"> 
+              <%= f.text_area :comment, placeholder: "例: この料理もオススメです！", class: "form-text-area", id: "comment" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label">
+              <%= f.label :comment_images, "画像", class: "form-label-name" %><span class="form-any">複数枚可</span>
+            </div> 
+            <div class="form-input"> 
+              <%= f.file_field :comment_images, multiple: true, name: "comment[comment_images][]",  class: "form-image-btn", id: "comment-images" %>
+            </div>        
+          </div>
+          <div class="image-list", id="image-list"></div>      
+          <div class="form-group">
+            <div class="form-submit">
+              <%= f.submit "コメントする", class: "form-submit-btn" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <% end %>
+    </div>
+    <% if user_signed_in? && current_user.id == @store.user_id %>
+    <div class="store-show-links">
+      <%= link_to "編集する", edit_store_path(@store), class: "store-show-link" %>
+      <%= link_to "削除する", store_path(@store), method: :delete, class: "store-show-link" %>
     </div>
     <% end %>
   </div>
-  <% if user_signed_in? && current_user.id == @store.user_id%>
-  <div class="store-show-links">
-    <%= link_to "編集する", edit_store_path(@store), class: "store-show-link" %>
-    <%= link_to "削除する", store_path(@store), method: :delete, class: "store-show-link" %>
-  </div>
-  <% end %>
-  </div>
   <%= render "shared/second_footer" %>
-</div>  
+</div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>" async defer></script>

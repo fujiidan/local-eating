@@ -126,6 +126,37 @@
   margin-top: 50px;
 }
 
+.comment-upper {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.comment-user {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.comment-date {
+  font-style: oblique;
+}
+
+.comment-lower {
+  margin-bottom: 20px;
+}
+
+.comment-text {
+  margin: 20px 0 40px;
+}
+
+.comment-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comment-image {
+  margin-right: 40px;
+}
+
 .comment-form-wrapper {
   margin-top: 30px;
   padding: 20px;

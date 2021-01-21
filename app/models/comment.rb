@@ -6,6 +6,6 @@ class Comment < ApplicationRecord
   has_many_attached :comment_images, dependent: :destroy
 
   def was_attached?
-    self.images.attached?
+    self.comment_images.attached?
   end
 end

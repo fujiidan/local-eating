@@ -11,3 +11,7 @@ ja:
       longitude: 経度
       genre_id: ジャンル
       price_id: 価格帯
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
