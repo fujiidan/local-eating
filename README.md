@@ -19,12 +19,14 @@
 
 ## profiles テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| address | string     |                                |
-| age     | integer    |                                |
-| sex_id  | integer    |                                |
-| user    | references | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| address   | string     | null: false                    |
+| latitude  | float      | null: false                    |
+| longitude | float      | null: false                    |
+| age       | integer    |                                |
+| sex_id    | integer    |                                |
+| user      | references | null: false, foreign_key: true |
 
 ### Association
 

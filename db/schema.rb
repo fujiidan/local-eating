@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(version: 2021_01_18_102228) do
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "address"
+    t.string "address", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.integer "age"
     t.integer "sex_id"
     t.bigint "user_id", null: false

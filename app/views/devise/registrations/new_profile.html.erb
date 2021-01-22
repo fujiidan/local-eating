@@ -7,7 +7,7 @@
     <%= render "shared/error_messages", model: f.object %>
     <div class="form-group">
       <div class="form-label">
-        <%= f.label :address, "住所", class: "form-label-name" %><span class="form-any">任意</span>
+        <%= f.label :address, "住所", class: "form-label-name" %><span class="form-warning">必須</span>
       </div> 
       <div class="form-input"> 
         <%= f.text_field :address, autofocus: true, placeholder: "例: 東京都渋谷区神南１−１−１", class: "form-input-area", id: "address" %>

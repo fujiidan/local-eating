@@ -3,16 +3,16 @@
     <%= link_to 'LocalEating', root_path, class: 'title-name'%>
   </div>
   <div class="links">
-    <%# ログイン時表示 マイページ実装する後で%>
+    <%# ログイン時表示%>
     <% if user_signed_in? %>
-      <%= link_to "#{current_user.nickname}さん", '#', class:'link'%>      
+      <%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user), class:'link'%>      
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: 'link' %>
-    <%# ログアウト時   %>
-      <% else %>
+    <%# ログアウト時表示%>
+    <% else %>
       <%= link_to 'ゲストさん', new_user_session_path, class:'link'%>
       <%= link_to 'ログイン', new_user_session_path, class: 'link' %>
       <%= link_to '新規登録', new_user_registration_path, class: 'link' %>
-      <% end %>
+    <% end %>
       <%= link_to '飲食店を追加する' , new_store_path, class: 'link' %>
       <%= link_to 'コミュニティ一覧へ', '#', class: 'link'%>
   </div>

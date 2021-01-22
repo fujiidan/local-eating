@@ -1,8 +1,8 @@
-// googleMapの初期位置を設定トップページ、店舗詳細ページ
+// googleMapの初期位置を設定トップページ、店舗詳細ページ、マイページ
 function initMap(){
   // 店舗詳細ページの場合の条件分岐
   if (gon.store) {
-    mapInstance = new google.maps.Map(document.getElementById('store-map'), {
+    let mapInstance = new google.maps.Map(document.getElementById('store-map'), {
       center: {lat: gon.store.latitude, lng: gon.store.longitude},
       zoom: 16
       });
@@ -11,9 +11,25 @@ function initMap(){
         map: mapInstance
       });
       let infoWindow = new google.maps.InfoWindow({
-        content: `<div class="mapinfo">
+        content: `<div class="map-info">
         <p>${gon.store.name}</p>
         <p>${gon.store.address}</p>
+        </div>`
+      });
+      infoWindow.open(mapInstance, marker);
+      // マイページ場合の条件分岐
+  } else if (gon.profile) {
+      mapInstance = new google.maps.Map(document.getElementById('user-map'), {
+      center: {lat: gon.profile.latitude, lng: gon.profile.longitude},
+      zoom: 15
+      });
+      let marker = new google.maps.Marker({
+        position: {lat: gon.profile.latitude, lng: gon.profile.longitude},
+        map: mapInstance
+      });
+      let infoWindow = new google.maps.InfoWindow({
+        content: `<div class="map-info">
+        <p>${gon.profile.address}</p>
         </div>`
       });
       infoWindow.open(mapInstance, marker);
@@ -25,7 +41,7 @@ function initMap(){
     });
   }
 }
-// データベースからマーカーの情報取得 トップページ
+// データベースからマーカーの情報取得 トップページ・マイページ
 function allMap () {
   gon.stores.forEach((store) => {
       let marker = new google.maps.Marker({
@@ -33,7 +49,7 @@ function allMap () {
       map: mapInstance
     });
       let infoWindow = new google.maps.InfoWindow({
-        content: `<div class="mapinfo">
+        content: `<div class="map-info">
         <p>${store.name}</p>
         <p>${store.address}</p>
         <a href="/stores/${store.id}"/>店舗詳細ページへ！</a>

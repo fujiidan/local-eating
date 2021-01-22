@@ -1,0 +1,92 @@
+<div class="user-show">
+ <%= render 'shared/header'%>
+  <div class="user-wrapper">
+    <div class="user-infobox">
+      <h2 class="table-title"><%="#{@user.nickname}さんの登録情報"%></h2>
+      <div class="user-info">
+        <table class="table">
+          <tbody>
+            <tr class="table-record"> 
+              <th class="table-column1">ニックネーム</th>
+              <td class="table-column2"><%= @user.nickname%></td>
+            </tr>
+            <tr class="table-record">
+              <th class="table-column1">Eメール</th>
+              <td class="table-column2"><%= @user.email%></td>
+            </tr>
+            <tr class="table-record">
+              <th class="table-column1">住所</th>
+              <td class="table-column2">
+              <% if @user.profile.address.present?%>
+                <%= @user.profile.address%>
+              <% else %>
+                <p>住所は登録されていません</p>
+              <% end %>
+              </td>
+            </tr>
+            <tr class="table-record">
+              <th class="table-column1">性別</th>
+              <td class="table-column2">
+              <% if @user.profile.sex.present?%>
+                <%= @user.profile.sex.name%>
+              <% else %>
+                <p>性別は登録されていません</p>
+              <% end %>
+              </td>
+            </tr>
+            <tr class="table-record">
+              <th class="table-column1">年齢</th>
+              <td class="table-column2">
+              <% if @user.profile.age.present?%>
+                <%= @user.profile.age%>
+              <% else %>
+                <p>年齢は登録されていません</p>
+              <% end %>
+              </td>
+            </tr>
+          </tbody>  
+        </table>
+        <div class="user-links">
+          <%= link_to '編集する', '#', class: "user-link"%>
+          <%= link_to '削除する', '#', class: "user-link"%>
+        </div>
+      </div>  
+    </div>
+    <div class="user-map-wrapper">
+      <div class="user-map-title">
+        <h2><%="#{@user.nickname}さんの周辺地図" %></h2>
+      </div>  
+      <div id="user-map"></div>
+      <script>let mapInstance</script>
+    </div>
+    <div class="user-store-wrapper">
+      <div class="user-store-title">
+        <h2><%= "#{@user.nickname}さんの登録店舗（#{@stores.length}店舗)"%></h2>
+      </div>
+      <table class="store-table">
+        <tbody>
+          <tr class="table-record">
+            <th class="table-column3">店舗登録日</th>
+            <th class="table-column3">店舗名</th>
+            <th class="table-column3">住所</th>
+            <th class="table-column5">リンク</th>
+          </tr>
+        <% @stores.each do |store| %>
+          <tr class="table-record">
+            <td class="table-column4"><%=l store.created_at %></td>
+            <td class="table-column4"><%= store.name %></td>
+            <td class="table-column4"><%= store.address %></td>
+            <td class="table-column6">
+              <%= link_to '詳細ページへ', store_path(store), class: "store-link" %>
+              <%= link_to '編集する', edit_store_path(store),class: "store-link" %>
+              <%= link_to '削除する', store_path(store), method: :delete,class: "store-link" %>
+            </td>  
+          </tr>         
+        <% end %>
+        </tbody>
+      </table>  
+    </div>  
+  </div>
+  <%= render "shared/second_footer" %>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>" async defer></script>  

@@ -3,6 +3,10 @@ ja:
    attributes:
      user:
       nickname: ニックネーム
+     profile:
+      address: 住所
+      latitude: 緯度
+      longitude: 経度      
      store:
       name: 店舗名
       address: 住所
