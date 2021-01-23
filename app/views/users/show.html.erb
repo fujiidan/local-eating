@@ -2,23 +2,23 @@
  <%= render 'shared/header'%>
   <div class="user-wrapper">
     <div class="user-infobox">
-      <h2 class="table-title"><%="#{@user.nickname}さんの登録情報"%></h2>
+      <h2 class="table-title"><%="#{current_user.nickname}さんの登録情報"%></h2>
       <div class="user-info">
         <table class="table">
           <tbody>
             <tr class="table-record"> 
               <th class="table-column1">ニックネーム</th>
-              <td class="table-column2"><%= @user.nickname%></td>
+              <td class="table-column2"><%= current_user.nickname%></td>
             </tr>
             <tr class="table-record">
               <th class="table-column1">Eメール</th>
-              <td class="table-column2"><%= @user.email%></td>
+              <td class="table-column2"><%= current_user.email%></td>
             </tr>
             <tr class="table-record">
               <th class="table-column1">住所</th>
               <td class="table-column2">
-              <% if @user.profile.address.present?%>
-                <%= @user.profile.address%>
+              <% if current_user.profile.address.present?%>
+                <%= current_user.profile.address%>
               <% else %>
                 <p>住所は登録されていません</p>
               <% end %>
@@ -27,8 +27,8 @@
             <tr class="table-record">
               <th class="table-column1">性別</th>
               <td class="table-column2">
-              <% if @user.profile.sex.present?%>
-                <%= @user.profile.sex.name%>
+              <% if current_user.profile.sex.present?%>
+                <%= current_user.profile.sex.name%>
               <% else %>
                 <p>性別は登録されていません</p>
               <% end %>
@@ -37,8 +37,8 @@
             <tr class="table-record">
               <th class="table-column1">年齢</th>
               <td class="table-column2">
-              <% if @user.profile.age.present?%>
-                <%= @user.profile.age%>
+              <% if current_user.profile.age.present?%>
+                <%= current_user.profile.age%>
               <% else %>
                 <p>年齢は登録されていません</p>
               <% end %>
@@ -48,20 +48,20 @@
         </table>
         <div class="user-links">
           <%= link_to '編集する', '#', class: "user-link"%>
-          <%= link_to '削除する', user_path(@user), method: :delete,  class: "user-link"%>
+          <%= link_to '削除する', user_path(current_user), method: :delete,  class: "user-link"%>
         </div>
       </div>  
     </div>
     <div class="user-map-wrapper">
       <div class="user-map-title">
-        <h2><%="#{@user.nickname}さんの周辺地図" %></h2>
+        <h2><%="#{current_user.nickname}さんの周辺地図" %></h2>
       </div>  
       <div id="user-map"></div>
       <script>let mapInstance</script>
     </div>
     <div class="user-store-wrapper">
       <div class="user-store-title">
-        <h2><%= "#{@user.nickname}さんの登録店舗（#{@stores.length}店舗)"%></h2>
+        <h2><%= "#{current_user.nickname}さんの登録店舗（#{@stores.length}店舗)"%></h2>
       </div>
       <table class="store-table">
         <tbody>

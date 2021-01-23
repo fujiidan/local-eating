@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
     @stores = Store.includes(:user).order("created_at DESC")
-    @profile = @user.profile
+    @profile = current_user.profile
     gon.stores = @stores
     gon.profile = @profile
   end
@@ -15,8 +14,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    current_user.destroy
     redirect_to root_path
   end
   
