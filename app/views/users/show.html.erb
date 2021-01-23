@@ -48,7 +48,7 @@
         </table>
         <div class="user-links">
           <%= link_to '編集する', '#', class: "user-link"%>
-          <%= link_to '削除する', '#', class: "user-link"%>
+          <%= link_to '削除する', user_path(@user), method: :delete,  class: "user-link"%>
         </div>
       </div>  
     </div>
@@ -77,9 +77,9 @@
             <td class="table-column4"><%= store.name %></td>
             <td class="table-column4"><%= store.address %></td>
             <td class="table-column6">
-              <%= link_to '詳細ページへ', store_path(store), class: "store-link" %>
-              <%= link_to '編集する', edit_store_path(store),class: "store-link" %>
-              <%= link_to '削除する', store_path(store), method: :delete,class: "store-link" %>
+              <%= link_to '詳細ページへ', store_path(store), class: "store-table-link" %>
+              <%= link_to '編集する', edit_store_path(store),class: "store-table-link" %>
+              <%= link_to '削除する', store_path(store), method: :delete, class: "store-table-link" %>
             </td>  
           </tr>         
         <% end %>
