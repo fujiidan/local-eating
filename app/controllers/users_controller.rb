@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :move_to_index
+
   def show
     @stores = Store.includes(:user).order("created_at DESC")
     @user_stores = current_user.stores.order("created_at DESC")
@@ -27,6 +30,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :email)
-  end  
+  end
+
+  def move_to_index
+    @user = User.find(params[:id])
+    redirect_to root_path if current_user.id != @user.id
+  end
 
 end

@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
-  
+  before_action :authenticate_user!
+  before_action :move_to_index
+
   def edit
   end
   
@@ -15,5 +17,10 @@ class ProfilesController < ApplicationController
   
   def profile_params
     params.require(:profile).permit(:address, :age, :sex_id, :latitude, :longitude)
-  end  
+  end
+
+  def move_to_index
+    @profile = Profile.find(params[:user_id])
+    redirect_to root_path if current_user.id != @profile.user_id
+  end
 end
