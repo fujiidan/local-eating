@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     post 'profiles', to: 'users/registrations#create_profile'
   end
 
-  resources :users, only: [:show, :edit, :update, :destroy]
-
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    resources :profiles, only: [:edit, :update]
+  end
+    
   resources :stores  do
     collection do 
       get 'search_map'

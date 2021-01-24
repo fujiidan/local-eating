@@ -47,8 +47,9 @@
           </tbody>  
         </table>
         <div class="user-links">
-          <%= link_to '編集する', '#', class: "user-link"%>
-          <%= link_to '削除する', user_path(current_user), method: :delete,  class: "user-link"%>
+          <%= link_to 'ユーザー情報編集', edit_user_path(current_user), class: "user-link"%>
+          <%= link_to 'プロフィール情報編集', edit_user_profile_path(current_user), class: "user-link"%>
+          <%= link_to 'アカウント削除', user_path(current_user), method: :delete,  class: "user-link"%>
         </div>
       </div>  
     </div>
@@ -61,7 +62,7 @@
     </div>
     <div class="user-store-wrapper">
       <div class="user-store-title">
-        <h2><%= "#{current_user.nickname}さんの登録店舗（#{@stores.length}店舗)"%></h2>
+        <h2><%= "#{current_user.nickname}さんの登録店舗（#{@user_stores.length}店舗)"%></h2>
       </div>
       <table class="store-table">
         <tbody>
@@ -71,7 +72,7 @@
             <th class="table-column3">住所</th>
             <th class="table-column5">リンク</th>
           </tr>
-        <% @stores.each do |store| %>
+        <% @user_stores.each do |store| %>
           <tr class="table-record">
             <td class="table-column4"><%=l store.created_at %></td>
             <td class="table-column4"><%= store.name %></td>
