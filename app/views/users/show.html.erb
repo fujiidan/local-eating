@@ -44,7 +44,7 @@
         </table>
         <div class="user-links">
           <%= link_to 'ユーザー情報編集', edit_user_path(current_user), class: "user-link"%>
-          <%= link_to 'プロフィール情報編集', edit_user_profile_path(current_user), class: "user-link"%>
+          <%= link_to 'プロフィール情報編集', edit_user_profile_path(current_user, current_user.profile), class: "user-link"%>
           <%= link_to 'アカウント削除', user_path(current_user), method: :delete,  class: "user-link"%>
         </div>
       </div>  

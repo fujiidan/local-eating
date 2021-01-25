@@ -112,6 +112,8 @@ RSpec.describe 'Stores', type: :system do
     before do
       @user = FactoryBot.create(:user)
       @store = FactoryBot.create(:store)
+      @profile = FactoryBot.create(:profile, user_id: @user.id)
+      FactoryBot.create_list(:store, 3, user_id: @user.id)
     end
 
     it '出品者だけが商品情報を削除できること' do
@@ -120,5 +122,14 @@ RSpec.describe 'Stores', type: :system do
       expect { click_on('削除する') }.to change { Store.count }.by(-1)
       expect(current_path).to eq root_path
     end
+
+    it 'ユーザーアカウントが削除されるとそれに紐づく店舗情報も削除されること' do
+      visit root_path
+      sign_in(@user)
+      click_on("#{@user.nickname}さんのマイページ")
+      expect{click_on("アカウント削除")}.to change{Store.count}.by(-3)
+      expect(current_path).to eq root_path
+    end      
+
   end
 end

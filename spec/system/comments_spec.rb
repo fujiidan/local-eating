@@ -49,13 +49,22 @@ RSpec.describe "Comments", type: :system do
   describe 'コメント削除' do
     before do
       @store = FactoryBot.create(:store)
-      FactoryBot.create_list(:comment, 5, store_id: @store.id, user_id: @store.user.id)
+      @profile = FactoryBot.create(:profile, user_id: @store.user.id)
+      FactoryBot.create_list(:comment, 3, store_id: @store.id, user_id: @store.user.id)
     end
+
+    it 'ユーザーアカウントが削除されるとそれに紐づくコメント情報も削除されること' do
+      visit root_path
+      sign_in(@store.user)
+      click_on("#{@store.user.nickname}さんのマイページ")
+      expect{click_on("アカウント削除")}.to change{Comment.count}.by(-3)
+      expect(current_path).to eq root_path
+    end      
 
     it '店舗情報を削除するとそれに紐づくコメントも削除されること' do
       sign_in(@store.user)
       visit store_path(@store)
-      expect { click_on('削除する') }.to change { @store.comments.count }.by(-5)
+      expect { click_on('削除する') }.to change { @store.comments.count }.by(-3)
       expect(current_path).to eq root_path
     end
   end

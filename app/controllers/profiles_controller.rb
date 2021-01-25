@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
   end
 
   def move_to_index
-    @profile = Profile.find(params[:user_id])
+    @profile = Profile.find(params[:id])
     redirect_to root_path if current_user.id != @profile.user_id
   end
 end
