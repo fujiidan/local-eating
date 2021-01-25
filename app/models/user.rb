@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :stores, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :communities, dependent: :destroy
 end

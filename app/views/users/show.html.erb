@@ -34,7 +34,7 @@
               <th class="table-column1">年齢</th>
               <td class="table-column2">
               <% if current_user.profile.age.present?%>
-                <%= current_user.profile.age%>
+                <%= "#{current_user.profile.age}歳"%>
               <% else %>
                 <p>年齢は登録されていません</p>
               <% end %>
