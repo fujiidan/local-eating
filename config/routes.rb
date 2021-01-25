@@ -17,5 +17,7 @@ Rails.application.routes.draw do
       get 'search_map'
     end
     resources :comments, only: :create
-  end    
+  end
+
+  resources :communities, only: [:index]
 end
