@@ -41,6 +41,8 @@
         <% @comments.each do |comment| %>
           <div class="comment-upper">
             <div class="comment-user"><%= "#{comment.user.nickname}さん" %></div>
+            <div class="comment-user"><%= "#{comment.user.profile.age}歳" if comment.user.profile.age %></div>
+            <div class="comment-user"><%= comment.user.profile.sex.name if comment.user.profile.sex %></div>            
             <div class="comment-date"><%= l comment.created_at %></div>
           </div>
           <div class="comment-lower">
