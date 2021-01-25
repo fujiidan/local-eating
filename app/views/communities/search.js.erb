@@ -1,0 +1,39 @@
+(function() {
+  const searchResultFirst = document.getElementById("search-result-first");
+  if (searchResultFirst) {
+  searchResultFirst.remove();
+  }
+  const HTML = `
+  <div id="search-result-first">
+    <h2 class="search-community-title"><%="検索結果！(#{@search_communities.length}個)" %></h2>
+      <table class="community-table">
+        <tbody>
+          <tr class="table-record" id="input-record">
+            <th class="table-column3">コミュニティ作成日</th>
+            <th class="table-column3">コミュニティの名前</th>
+            <th class="table-column3">スレッド数</th>            
+            <th class="table-column5">リンク</th>
+          </tr>
+          <% @search_communities.each do |community| %>
+          <tr class="table-record" >
+            <td class="table-column4"><%=l community.created_at %></td>
+            <td class="table-column4"><%= community.name %></td>
+            <%# <td class="table-column4"><%= community.messages.length %>
+            <td class="table-column6">
+              <%= link_to '詳細ページへ', "#", class: "store-table-link" %>
+              <% if user_signed_in? && current_user.id == community.user_id %>
+              <%= link_to '編集する', "#",class: "store-table-link" %>
+              <%= link_to '削除する', "#", method: :delete, class: "store-table-link" %>
+              <% end %>
+            </td>  
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>  
+  `;
+
+  const searchResult = document.getElementById("search-result");
+  searchResult.insertAdjacentHTML('afterbegin', HTML);
+  document.getElementById("search-input").value = "";
+})();

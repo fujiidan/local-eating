@@ -4,19 +4,18 @@
       <div class="search-form">
         <h2 class="search-community-title">コミュニティを検索！</h2>
         <div class="community-form">
-        <%= form_with url: "#", method: :get, id: "search-form" do |f| %>
-        <%= f.text_field :keyword, class: "form-input-area"%>
-        <%= f.submit '検索する', class: "form-submit-btn", id: "search-input" %>
+        <%= form_with url:  search_communities_path, method: :get, id: "search-form" do |f| %>
+        <%= f.text_field :keyword, class: "form-input-area", id: "search-input" %>
+        <%= f.submit '検索する', class: "form-submit-btn" %>
         <% end %>
         </div>
       </div>
-      <div class="search-result">
+      <div class="search-result" id="search-result">
       </div>
       <div class="create-community">
         <h2 class="create-title">コミュニティを作成しよう!</h2>
         <div class="community-form">
           <%= form_with model: @community, id: "community-form" do |f| %>
-          <%= render "shared/error_messages", model: f.object %>
           <%= f.label :name, "コミュ二ティの名前", class: "form-label-name" %><span class="form-warning">必須</span>
           <%= f.text_field :name, placeholder: "渋谷駅周辺の居酒屋", class: "form-input-area", id: "community-input"%>
           <%= f.submit '作成する', class: "form-submit-btn" %>

@@ -19,5 +19,9 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
 
-  resources :communities, only: [:index, :create, :edit, :update, :destroy]
+  resources :communities, only: [:index, :create, :edit, :update, :destroy] do
+    collection do
+      get 'search'
+    end  
+  end
 end

@@ -5,6 +5,17 @@ class CommunitiesController < ApplicationController
     @communities = Community.order('created_at DESC')
   end
 
+  def search
+    @search_communities = SearchCommunitiesService.search(params[:keyword])
+    respond_to do |format|
+      if @search_communities.present?
+        format.js
+      else 
+        format.html { render template: 'communities/index.html.erb' }
+      end
+    end    
+  end  
+
   def create
     @community = Community.new(community_params)
     @communities = Community.order('created_at DESC')
