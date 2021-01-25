@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Profiles", type: :system do
-
+RSpec.describe 'Profiles', type: :system do
   describe 'プロフィール編集機能' do
     before do
       @profile = FactoryBot.create(:profile)
@@ -11,16 +10,16 @@ RSpec.describe "Profiles", type: :system do
       visit root_path
       sign_in(@profile.user)
       click_on("#{@profile.user.nickname}さんのマイページ")
-      click_on("プロフィール情報編集")
+      click_on('プロフィール情報編集')
       expect(current_path).to eq edit_user_profile_path(@profile.user, @profile)
-      fill_in 'address', with: "テスト住所"
-      fill_in 'age', with: "100"
+      fill_in 'address', with: 'テスト住所'
+      fill_in 'age', with: '100'
       find('#sex-id').find("option[value='2']").select_option
       click_on('編集する')
       expect(current_path).to eq user_path(@profile.user)
-      expect(page).to have_content("テスト住所")
-      expect(page).to have_content("100")
-      expect(page).to have_content("女性")
+      expect(page).to have_content('テスト住所')
+      expect(page).to have_content('100')
+      expect(page).to have_content('女性')
     end
 
     it 'ログイン状態のユーザーのみがプロフィール情報編集ページに遷移できること' do
@@ -42,7 +41,7 @@ RSpec.describe "Profiles", type: :system do
       visit root_path
       visit edit_user_profile_path(@profile.user, @profile)
       expect(current_path).to eq new_user_session_path
-    end 
+    end
   end
 
   describe 'プロフィール削除機能' do
@@ -54,9 +53,8 @@ RSpec.describe "Profiles", type: :system do
       visit root_path
       sign_in(@profile.user)
       click_on("#{@profile.user.nickname}さんのマイページ")
-      expect{click_on("アカウント削除")}.to change{Profile.count}.by(-1)
+      expect { click_on('アカウント削除') }.to change { Profile.count }.by(-1)
       expect(current_path).to eq root_path
-    end      
+    end
   end
-
 end

@@ -24,7 +24,7 @@ RSpec.describe Comment, type: :model do
       @comment.comment = nil
       @comment.comment_images = nil
       @comment.valid?
-      expect(@comment.errors.full_messages).to include("コメントか画像は。どちらかは入力してください")
+      expect(@comment.errors.full_messages).to include('コメントか画像は。どちらかは入力してください')
     end
   end
 end

@@ -104,7 +104,7 @@ RSpec.describe 'Users', type: :system do
       visit root_path
       visit user_path(@user)
       expect(current_path).to eq new_user_session_path
-    end 
+    end
   end
 
   describe 'ユーザー編集機能' do
@@ -117,14 +117,14 @@ RSpec.describe 'Users', type: :system do
       visit root_path
       sign_in(@user)
       click_on("#{@user.nickname}さんのマイページ")
-      click_on("ユーザー情報編集")
+      click_on('ユーザー情報編集')
       expect(current_path).to eq edit_user_path(@user)
-      fill_in 'nickname', with: "テスト編集"
-      fill_in 'email', with: "test@test"
+      fill_in 'nickname', with: 'テスト編集'
+      fill_in 'email', with: 'test@test'
       click_on('編集する')
       expect(current_path).to eq user_path(@user)
-      expect(page).to have_content("テスト編集")
-      expect(page).to have_content("test@test")
+      expect(page).to have_content('テスト編集')
+      expect(page).to have_content('test@test')
     end
 
     it 'ログイン状態のユーザーのみがユーザー情報編集ページに遷移できること' do
@@ -146,7 +146,7 @@ RSpec.describe 'Users', type: :system do
       visit root_path
       visit edit_user_path(@user)
       expect(current_path).to eq new_user_session_path
-    end 
+    end
   end
 
   describe 'ユーザー削除機能' do
@@ -159,7 +159,7 @@ RSpec.describe 'Users', type: :system do
       visit root_path
       sign_in(@user)
       click_on("#{@user.nickname}さんのマイページ")
-      expect{click_on("アカウント削除")}.to change{User.count}.by(-1)
+      expect { click_on('アカウント削除') }.to change { User.count }.by(-1)
       expect(current_path).to eq root_path
     end
   end

@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Comments", type: :system do
+RSpec.describe 'Comments', type: :system do
   describe 'コメント投稿' do
-
     before do
       @store = FactoryBot.create(:store)
       @comment = FactoryBot.build(:comment)
@@ -26,24 +25,23 @@ RSpec.describe "Comments", type: :system do
       it 'ログインしているユーザーにはコメントフォームが表示される' do
         sign_in(@store.user)
         visit store_path(@store)
-        expect(page).to have_no_content("コメントする")
+        expect(page).to have_no_content('コメントする')
       end
     end
 
     context 'コメント投できない時' do
-
       it 'コメント投稿に失敗すると、ページ遷移なくページにとどまる' do
         sign_in(@store.user)
         visit store_path(@store)
-        click_on("コメントする")
+        click_on('コメントする')
         expect(current_path).to eq store_path(@store)
       end
 
       it 'ログインしていないユーザーはコメントフォームが表示されない' do
         visit store_path(@store)
-        expect(page).to have_no_content("コメントする")
+        expect(page).to have_no_content('コメントする')
       end
-    end 
+    end
   end
 
   describe 'コメント削除' do
@@ -57,9 +55,9 @@ RSpec.describe "Comments", type: :system do
       visit root_path
       sign_in(@store.user)
       click_on("#{@store.user.nickname}さんのマイページ")
-      expect{click_on("アカウント削除")}.to change{Comment.count}.by(-3)
+      expect { click_on('アカウント削除') }.to change { Comment.count }.by(-3)
       expect(current_path).to eq root_path
-    end      
+    end
 
     it '店舗情報を削除するとそれに紐づくコメントも削除されること' do
       sign_in(@store.user)

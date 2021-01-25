@@ -127,9 +127,8 @@ RSpec.describe 'Stores', type: :system do
       visit root_path
       sign_in(@user)
       click_on("#{@user.nickname}さんのマイページ")
-      expect{click_on("アカウント削除")}.to change{Store.count}.by(-3)
+      expect { click_on('アカウント削除') }.to change { Store.count }.by(-3)
       expect(current_path).to eq root_path
-    end      
-
+    end
   end
 end
