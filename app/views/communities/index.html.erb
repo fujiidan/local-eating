@@ -6,7 +6,7 @@
         <div class="community-form">
         <%= form_with url: "#", method: :get, id: "search-form" do |f| %>
         <%= f.text_field :keyword, class: "form-input-area"%>
-        <%= f.submit '検索する', class: "form-submit-btn" %>
+        <%= f.submit '検索する', class: "form-submit-btn", id: "search-input" %>
         <% end %>
         </div>
       </div>
@@ -15,30 +15,31 @@
       <div class="create-community">
         <h2 class="create-title">コミュニティを作成しよう!</h2>
         <div class="community-form">
-          <%= form_with url: "#", method: :get, id: "community-form" do |f| %>
+          <%= form_with model: @community, id: "community-form" do |f| %>
+          <%= render "shared/error_messages", model: f.object %>
           <%= f.label :name, "コミュ二ティの名前", class: "form-label-name" %><span class="form-warning">必須</span>
-          <%= f.text_field :name, placeholder: "渋谷駅周辺の居酒屋", class: "form-input-area"%>
+          <%= f.text_field :name, placeholder: "渋谷駅周辺の居酒屋", class: "form-input-area", id: "community-input"%>
           <%= f.submit '作成する', class: "form-submit-btn" %>
           <% end %>
         </div>  
       </div>
       <div class="community-lists">
         <div class="community-lists-title">
-          <h2>コミュニティ一覧</h2>
+          <h2 id="community-count"><%= "コミュニティ一覧(#{@communities.length}個)" %></h2>
         </div>
         <table class="community-table">
           <tbody>
-            <tr class="table-record">
+            <tr class="table-record" id="input-record">
               <th class="table-column3">コミュニティ作成日</th>
               <th class="table-column3">コミュニティの名前</th>
               <th class="table-column3">スレッド数</th>            
               <th class="table-column5">リンク</th>
             </tr>
-          <% @communities.each do |community| %>
-            <tr class="table-record">
+            <% @communities.each do |community| %>
+            <tr class="table-record" >
               <td class="table-column4"><%=l community.created_at %></td>
               <td class="table-column4"><%= community.name %></td>
-              <td class="table-column4"><%= community.messages.length %></td>
+              <%# <td class="table-column4"><%= community.messages.length %>
               <td class="table-column6">
                 <%= link_to '詳細ページへ', "#", class: "store-table-link" %>
                 <% if user_signed_in? && current_user.id == community.user_id %>
@@ -46,8 +47,8 @@
                 <%= link_to '削除する', "#", method: :delete, class: "store-table-link" %>
                 <% end %>
               </td>  
-            </tr>         
-          <% end %>
+            </tr>
+            <% end %>
           </tbody>
         </table>  
       </div>
