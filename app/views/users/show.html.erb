@@ -17,11 +17,7 @@
             <tr class="table-record">
               <th class="table-column1">住所</th>
               <td class="table-column2">
-              <% if current_user.profile.address.present?%>
                 <%= current_user.profile.address%>
-              <% else %>
-                <p>住所は登録されていません</p>
-              <% end %>
               </td>
             </tr>
             <tr class="table-record">
