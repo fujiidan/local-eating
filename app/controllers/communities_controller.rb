@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-
+  before_action :authenticate_user!, only: [:create]
   def index
     @community = Community.new
     @communities = Community.order('created_at DESC')
@@ -10,7 +10,7 @@ class CommunitiesController < ApplicationController
     respond_to do |format|
       if @search_communities.present?
         format.js
-      else 
+      else
         format.html { render template: 'communities/index.html.erb' }
       end
     end    
@@ -22,7 +22,7 @@ class CommunitiesController < ApplicationController
     respond_to do |format|
       if @community.save
         format.js
-      else 
+      else
         format.html { render template: 'communities/index.html.erb' }
       end
     end    

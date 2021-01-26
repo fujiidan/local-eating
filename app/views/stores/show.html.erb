@@ -82,7 +82,15 @@
               <%= f.submit "コメントする", class: "form-submit-btn" %>
             </div>
           </div>
-        <% end %>
+        </div>          
+        <% end %>        
+      <% else %>
+      <div class="store-signin">
+        <h4 class="signin-title">コメント投稿にはログインが必要です!</h4>
+        <div class="signin-links">
+          <%= link_to 'ログイン', new_user_session_path, class: "signin-link"%>
+          <%= link_to '新規登録',  new_user_registration_path , class: "signin-link"%>
+        </div>
       </div>
       <% end %>
     </div>

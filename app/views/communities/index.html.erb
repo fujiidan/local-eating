@@ -14,13 +14,23 @@
       </div>
       <div class="create-community">
         <h2 class="create-title">コミュニティを作成しよう!</h2>
+        <% if user_signed_in? %>
         <div class="community-form">
           <%= form_with model: @community, id: "community-form" do |f| %>
           <%= f.label :name, "コミュ二ティの名前", class: "form-label-name" %><span class="form-warning">必須</span>
           <%= f.text_field :name, placeholder: "渋谷駅周辺の居酒屋", class: "form-input-area", id: "community-input"%>
           <%= f.submit '作成する', class: "form-submit-btn" %>
           <% end %>
-        </div>  
+        </div>
+        <% else %>
+        <div class="community-signin">
+          <h4 class="signin-title">コミュニティ作成にはログインが必要です!</h4>
+          <div class="signin-links">
+            <%= link_to 'ログイン', new_user_session_path, class: "signin-link"%>
+            <%= link_to '新規登録',  new_user_registration_path , class: "signin-link"%>
+          </div>
+        </div>
+        <% end %>
       </div>
       <div class="community-lists">
         <div class="community-lists-title">

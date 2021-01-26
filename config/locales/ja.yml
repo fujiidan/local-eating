@@ -16,7 +16,9 @@ ja:
       genre_id: ジャンル
       price_id: 価格帯
      comment:
-      comment: コメント 
+      comment: コメント
+     community:
+      name: 名前 
  time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
