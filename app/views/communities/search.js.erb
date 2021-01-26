@@ -18,9 +18,9 @@
           <tr class="table-record" >
             <td class="table-column4"><%=l community.created_at %></td>
             <td class="table-column4"><%= community.name %></td>
-            <%# <td class="table-column4"><%= community.messages.length %>
+            <td class="table-column4"><%= community.messages.length %></td>
             <td class="table-column6">
-              <%= link_to '詳細ページへ', "#", class: "store-table-link" %>
+              <%= link_to '詳細ページへ', community_messages_path(community), class: "store-table-link" %>
               <% if user_signed_in? && current_user.id == community.user_id %>
               <%= link_to '編集する', "#",class: "store-table-link" %>
               <%= link_to '削除する', "#", method: :delete, class: "store-table-link" %>

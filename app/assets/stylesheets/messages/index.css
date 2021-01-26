@@ -1,0 +1,141 @@
+.message-wrapper {
+  display: flex;
+}
+
+.message-side-bar {
+  height: 100vh;
+  width: 300px;
+}
+
+.message-side-bar-header {
+  height: 100px;
+  background-color: lightskyblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.message-link {
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  background-color: lightgrey;
+  border-radius: 10px;
+}
+
+.message-side-bar-main {
+  height: calc(100vh - 100px);
+  background-color: lightblue;
+  padding: 20px;
+  overflow: scroll
+}
+
+.message-community {
+  padding-top : 20px;
+}
+
+.message-community a {
+
+}
+
+
+.message-main {
+  width: calc(100vw - 300px);
+}
+
+.message-header {
+  height: 100px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-field {
+  height: calc(100vh - 100px - 100px);
+  padding: 20px;
+  overflow: scroll;
+}
+
+.message-upper {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message-user {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.message-date {
+  font-style: oblique;
+}
+
+.message-lower {
+  margin-bottom: 20px;
+}
+
+.message-text {
+  margin: 20px 0 40px;
+}
+
+.message-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message-image {
+  margin-right: 40px;
+}
+
+.message-form-field {
+  height: 100px;
+  background-color:#f5f5f5;
+  padding: 30px;
+}
+
+.message-form {
+  display: flex;
+  align-items: center;
+}
+
+.message-form {
+  width: 100%;
+}
+
+.message-form-input {
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.message-form-label {
+  font-size: 12px;
+  background-color: lightskyblue;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  width: 60px;
+  margin: 5px 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.message-form-submit-btn {
+  background-color: lightskyblue;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+  margin-left: 15px;
+  padding: 0 20px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,61 @@
+<div class="message-wrapper">
+  <div class="message-side-bar">
+    <div class="message-side-bar-header">
+      <%= link_to "トップページへ", root_path, class: "message-link"%>
+      <%= link_to "コミュニティ一覧へ", communities_path, class: "message-link" %>
+    </div>
+    <div class="message-side-bar-main">
+      <div class="message-user">
+      <% if user_signed_in? %>
+      <%= "#{current_user.nickname}さんのコミュニティ一覧" %>
+      <% else %>
+      <%= link_to "ゲストさん", new_user_session_path %>
+      <% end %>
+      </div>
+      <% if user_signed_in? %>
+      <div class="message-communities">
+      <% current_user.communities.each do |community| %>
+        <div class="message-community">
+        <%= link_to community.name, community_messages_path(community) %>
+        </div>
+      <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="message-main">
+    <div class="message-header">
+    <h2><%= @community.name %></h2>
+    </div>
+    <div class="message-field">
+      <div class="message" id="message-input">
+      <% @messages.each do |message| %>
+        <div class="message-upper">
+          <div class="message-user"><%= "#{message.user.nickname}さん" %></div>
+          <div class="message-user"><%= "#{message.user.profile.age}歳" if message.user.profile.age %></div>
+          <div class="message-user"><%= message.user.profile.sex.name if message.user.profile.sex %></div>            
+          <div class="message-date"><%= l message.created_at %></div>
+        </div>
+        <div class="message-lower">
+          <div class="message-text"><%= message.message %></div>
+          <div class="message-images">
+          <% message.message_images.each do |message_image| %>
+            <div class="message-image"><%= image_tag message_image.variant(resize: "300x300") %></div>
+          <% end %>
+          </div>  
+        </div>
+      <% end %>
+      </div>    
+    </div>
+    <div class="message-form-field">
+      <%= form_with(model: [@community, @message], class: "message-form",  id: "message-form")  do |f| %>
+        <%= f.text_field :message, placeholder: "メッセージか画像どちらか必須", class: "message-form-input", id: "message" %>
+        <label class="message-form-label">
+          <span class="image-file">画像</span>
+          <%= f.file_field :message_images, multiple: true, class: "hidden", id: "message-images" %>
+        </label>
+        <%= f.submit "送信", class: "message-form-submit-btn" %>
+      <% end %>
+    </div>          
+  </div>
+</div>  
