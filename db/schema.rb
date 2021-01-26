@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_024348) do
+ActiveRecord::Schema.define(version: 2021_01_26_025425) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 2021_01_25_024348) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_communities_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "message", null: false
+    t.bigint "user_id", null: false
+    t.bigint "community_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["community_id"], name: "index_messages_on_community_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +105,8 @@ ActiveRecord::Schema.define(version: 2021_01_25_024348) do
   add_foreign_key "comments", "stores"
   add_foreign_key "comments", "users"
   add_foreign_key "communities", "users"
+  add_foreign_key "messages", "communities"
+  add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "stores", "users"
 end

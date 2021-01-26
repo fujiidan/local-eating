@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :communities, only: [:index, :create, :edit, :update, :destroy] do
     collection do
       get 'search'
-    end  
+    end
+    resources :messages, only: [:index, :create]
   end
 end
