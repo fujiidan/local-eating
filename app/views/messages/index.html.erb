@@ -40,7 +40,7 @@
           <div class="message-text"><%= message.message %></div>
           <div class="message-images">
           <% message.message_images.each do |message_image| %>
-            <div class="message-image"><%= image_tag message_image.variant(resize: "300x300") %></div>
+            <div class="message-image"><%= image_tag message_image.variant(resize: "200x200") %></div>
           <% end %>
           </div>  
         </div>
@@ -48,6 +48,7 @@
       </div>    
     </div>
     <div class="message-form-field">
+    <% if user_signed_in? %>
       <%= form_with(model: [@community, @message], class: "message-form",  id: "message-form")  do |f| %>
         <%= f.text_field :message, placeholder: "メッセージか画像どちらか必須", class: "message-form-input", id: "message" %>
         <label class="message-form-label">
@@ -56,6 +57,11 @@
         </label>
         <%= f.submit "送信", class: "message-form-submit-btn" %>
       <% end %>
+    <% else %>
+      <div class="signin_message">
+        <%= link_to "メッセージ投稿にはログインが必要です", new_user_session_path %>
+      </div>
+    <% end %>    
     </div>          
   </div>
 </div>  

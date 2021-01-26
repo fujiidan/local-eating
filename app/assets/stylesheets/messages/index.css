@@ -18,16 +18,16 @@
 }
 
 .message-link {
-  color: white;
+  color: black;
   font-weight: bold;
   padding: 5px;
-  background-color: lightgrey;
+  background-color: lightgray;
   border-radius: 10px;
 }
 
 .message-side-bar-main {
   height: calc(100vh - 100px);
-  background-color: lightblue;
+  background-color: lightskyblue;
   padding: 20px;
   overflow: scroll
 }
@@ -138,4 +138,10 @@
 
 .hidden {
   display: none;
+}
+
+.signin_message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
