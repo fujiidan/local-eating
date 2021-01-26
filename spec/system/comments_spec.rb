@@ -22,14 +22,14 @@ RSpec.describe 'Comments', type: :system do
         expect(page).to have_selector("img[src$='test_image.png']")
       end
 
-      it 'ログインしているユーザーにはコメントフォームが表示される' do
+      it 'ログインしているユーザーにはコメントフォームが表示されること' do
         sign_in(@store.user)
         visit store_path(@store)
         expect(page).to have_no_content('コメントする')
       end
     end
 
-    context 'コメント投できない時' do
+    context 'コメント投稿できない時' do
       it 'コメント投稿に失敗すると、ページ遷移なくページにとどまる' do
         sign_in(@store.user)
         visit store_path(@store)
@@ -37,7 +37,7 @@ RSpec.describe 'Comments', type: :system do
         expect(current_path).to eq store_path(@store)
       end
 
-      it 'ログインしていないユーザーはコメントフォームが表示されない' do
+      it 'ログインしていないユーザーにはコメントフォームが表示されない' do
         visit store_path(@store)
         expect(page).to have_no_content('コメントする')
       end
