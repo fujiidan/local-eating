@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Communities", type: :system do
-
+RSpec.describe 'Communities', type: :system do
   describe 'コミュニティ一覧ページ' do
     before do
       @user = FactoryBot.create(:user)
@@ -10,20 +9,20 @@ RSpec.describe "Communities", type: :system do
     it 'ログイン状態のユーザーのみコミュニティ作成フォームが表示されること' do
       sign_in(@user)
       visit communities_path
-      expect(page).to have_selector("#community-input")
+      expect(page).to have_selector('#community-input')
     end
 
     it 'ログインしているコミュニティ作成者本人のみ編集する・削除するのボタンが表示されること' do
       FactoryBot.create(:community, user_id: @user.id)
       sign_in(@user)
       visit communities_path
-      expect(page).to have_content("編集する")
-      expect(page).to have_content("削除する")
-    end  
+      expect(page).to have_content('編集する')
+      expect(page).to have_content('削除する')
+    end
 
     it '未ログインのユーザーにはコミュニティ作成フォームが表示されないこと' do
       visit communities_path
-      expect(page).to have_no_selector("#community-input")
+      expect(page).to have_no_selector('#community-input')
     end
 
     it 'ログイン済みであっても。コミュニティ作成者本人以外は編集する・削除するのボタンが表示されないこと' do
@@ -31,17 +30,16 @@ RSpec.describe "Communities", type: :system do
       another_user = FactoryBot.create(:user)
       sign_in(another_user)
       visit communities_path
-      expect(page).to have_no_content("編集する")
-      expect(page).to have_no_content("削除する")
+      expect(page).to have_no_content('編集する')
+      expect(page).to have_no_content('削除する')
     end
 
     it '未ログインのユーザーであっても。コミュニティ作成者本人以外は編集する・削除するのボタンが表示されないこと' do
       FactoryBot.create(:community, user_id: @user.id)
       visit communities_path
-      expect(page).to have_no_content("編集する")
-      expect(page).to have_no_content("削除する")
+      expect(page).to have_no_content('編集する')
+      expect(page).to have_no_content('削除する')
     end
-
   end
 
   describe 'コミュニティ作成' do
@@ -107,7 +105,6 @@ RSpec.describe "Communities", type: :system do
       expect(current_path).to eq new_user_session_path
     end
   end
-
 
   describe 'コミュニティ削除' do
     before do

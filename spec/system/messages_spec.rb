@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Messages", type: :system do
+RSpec.describe 'Messages', type: :system do
   describe 'メッセージ投稿' do
     before do
       @community = FactoryBot.create(:community)
@@ -66,6 +66,4 @@ RSpec.describe "Messages", type: :system do
       expect(current_path).to eq user_path(@community.user)
     end
   end
-  
-
 end

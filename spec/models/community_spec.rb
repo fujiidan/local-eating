@@ -23,7 +23,7 @@ RSpec.describe Community, type: :model do
   #   end
 
   #   context "一致するデータが存在する場合"  do
-    
+
   #     it "検索文字列に完全一致する配列を返すこと" do
   #       expect(SearchCommunitiesService.search("テストコミュニティ")).to include(@community)
   #     end

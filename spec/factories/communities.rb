@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :community do
-    name {"テストコミュニティ"}
+    name { 'テストコミュニティ' }
     association :user
   end
 end

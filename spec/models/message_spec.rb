@@ -27,5 +27,4 @@ RSpec.describe Message, type: :model do
       expect(@message.errors.full_messages).to include('メッセージか画像は。どちらかは入力してください')
     end
   end
-
 end
