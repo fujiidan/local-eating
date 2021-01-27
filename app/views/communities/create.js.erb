@@ -1,16 +1,5 @@
 (function() {
-  const HTML = `<tr class="table-record">
-                  <td class="table-column4"><%=l @community.created_at %></td>
-                  <td class="table-column4"><%= @community.name %></td>
-                  <td class="table-column4"><%= @community.messages.length %></td>
-                  <td class="table-column6">
-                    <%= link_to '詳細ページへ', community_messages_path(@community), class: "community-table-link" %>
-                    <% if user_signed_in? && current_user.id == @community.user_id %>
-                    <%= link_to '編集する', edit_community_path(@community),class: "community-table-link" %>
-                    <%= link_to '削除する', community_path(@community), method: :delete, class: "community-table-link" %>
-                    <% end %>
-                  </td>  
-                </tr>`;
+  const HTML = `<%= render partial: 'communities/community_table_record', locals: {community: @community} %>`;
 
   const inputRecord = document.getElementById("input-record");
   const communityCount = document.getElementById("community-count")

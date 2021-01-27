@@ -56,7 +56,7 @@
       <div id="user-map"></div>
       <script>let mapInstance</script>
     </div>
-    <div class="user-store-wrapper">
+    <div class="user-store-wrapper"> 
       <div class="user-store-title">
         <h2><%= "#{current_user.nickname}さんの登録店舗（#{@user_stores.length}店舗)"%></h2>
       </div>
@@ -82,7 +82,13 @@
         <% end %>
         </tbody>
       </table>  
-    </div>  
+    </div>
+    <div class="user-store-wrapper">
+      <div class="user-store-title">
+        <h2><%= "#{current_user.nickname}さんの作成コミュニティ（#{@user_communities.length}個)"%></h2>
+      </div>
+      <%= render partial: 'communities/community_table', locals: {communities: @user_communities} %>
+    </div>
   </div>
   <%= render "shared/second_footer" %>
 </div>

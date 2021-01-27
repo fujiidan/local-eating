@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @stores = Store.includes(:user).order('created_at DESC')
     @user_stores = current_user.stores.order('created_at DESC')
+    @user_communities = current_user.communities.includes(:messages).order('created_at DESC')
     @profile = current_user.profile
     gon.stores = @stores
     gon.profile = @profile

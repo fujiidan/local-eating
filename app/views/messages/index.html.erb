@@ -30,20 +30,7 @@
     <div class="message-field">
       <div class="message" id="message-input">
       <% @messages.each do |message| %>
-        <div class="message-upper">
-          <div class="message-user"><%= "#{message.user.nickname}さん" %></div>
-          <div class="message-user"><%= "#{message.user.profile.age}歳" if message.user.profile.age %></div>
-          <div class="message-user"><%= message.user.profile.sex.name if message.user.profile.sex %></div>            
-          <div class="message-date"><%= l message.created_at %></div>
-        </div>
-        <div class="message-lower">
-          <div class="message-text"><%= message.message %></div>
-          <div class="message-images">
-          <% message.message_images.each do |message_image| %>
-            <div class="message-image"><%= image_tag message_image.variant(resize: "200x200") %></div>
-          <% end %>
-          </div>  
-        </div>
+      <%= render partial: 'messages/message', locals: {message: message} %>
       <% end %>
       </div>    
     </div>

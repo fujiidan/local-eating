@@ -39,20 +39,7 @@
       <div class="comment-field">
         <div class="comment" id="comment-input">
         <% @comments.each do |comment| %>
-          <div class="comment-upper">
-            <div class="comment-user"><%= "#{comment.user.nickname}さん" %></div>
-            <div class="comment-user"><%= "#{comment.user.profile.age}歳" if comment.user.profile.age %></div>
-            <div class="comment-user"><%= comment.user.profile.sex.name if comment.user.profile.sex %></div>            
-            <div class="comment-date"><%= l comment.created_at %></div>
-          </div>
-          <div class="comment-lower">
-            <div class="comment-text"><%= comment.comment %></div>
-            <div class="comment-images">
-            <% comment.comment_images.each do |comment_image| %>
-              <div class="comment-image"><%= image_tag comment_image.variant(resize: "200x200") %></div>
-            <% end %>
-            </div>  
-          </div>
+        <%= render partial: 'comments/comment', locals: {comment: comment}%>
         <% end %>
         </div>
       </div>
