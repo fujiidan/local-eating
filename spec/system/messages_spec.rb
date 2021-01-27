@@ -55,16 +55,16 @@ RSpec.describe "Messages", type: :system do
       visit root_path
       sign_in(@community.user)
       click_on("#{@community.user.nickname}さんのマイページ")
-      expect { click_on('アカウント削除') }.to change { Message.count }.by(-3)
+      expect { click_on('アカウント削除') }.to change { @community.user.messages.count }.by(-3)
       expect(current_path).to eq root_path
     end
 
-    # it '店舗情報を削除するとそれに紐づくメッセージも削除されること' do
-    #   sign_in(@community.user.user)
-    #   visit user_path(@community.user)
-    #   expect { click_on('削除する') }.to change { @community.user.messages.count }.by(-3)
-    #   expect(current_path).to eq root_path
-    # end
+    it 'コミュニティを削除するとそれに紐づくメッセージも削除されること' do
+      sign_in(@community.user)
+      visit communities_path
+      expect { click_on('削除する') }.to change { @community.messages.count }.by(-3)
+      expect(current_path).to eq user_path(@community.user)
+    end
   end
   
 

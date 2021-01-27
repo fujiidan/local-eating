@@ -63,7 +63,7 @@ RSpec.describe 'Comments', type: :system do
       sign_in(@store.user)
       visit store_path(@store)
       expect { click_on('削除する') }.to change { @store.comments.count }.by(-3)
-      expect(current_path).to eq root_path
+      expect(current_path).to eq user_path(@store.user)
     end
   end
 end

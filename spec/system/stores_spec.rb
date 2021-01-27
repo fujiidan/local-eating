@@ -102,7 +102,7 @@ RSpec.describe 'Stores', type: :system do
       expect(current_path).to eq root_path
     end
 
-    it 'ログアウト状態のユーザーは、URLを直接入力して商品情報編集ページへ遷移しようとすると、ログインページに遷移すること' do
+    it 'ログアウト状態のユーザーは、URLを直接入力して店舗情報編集ページへ遷移しようとすると、ログインページに遷移すること' do
       visit edit_store_path(@store)
       expect(current_path).to eq new_user_session_path
     end
@@ -110,24 +110,23 @@ RSpec.describe 'Stores', type: :system do
 
   describe '商品削除機能' do
     before do
-      @user = FactoryBot.create(:user)
       @store = FactoryBot.create(:store)
-      @profile = FactoryBot.create(:profile, user_id: @user.id)
-      FactoryBot.create_list(:store, 3, user_id: @user.id)
+      @profile = FactoryBot.create(:profile, user_id: @store.user_id)
+      FactoryBot.create_list(:store, 3, user_id: @store.user_id)
     end
 
     it '出品者だけが商品情報を削除できること' do
       sign_in(@store.user)
       visit store_path(@store)
       expect { click_on('削除する') }.to change { Store.count }.by(-1)
-      expect(current_path).to eq root_path
+      expect(current_path).to eq user_path(@store.user)
     end
 
     it 'ユーザーアカウントが削除されるとそれに紐づく店舗情報も削除されること' do
       visit root_path
-      sign_in(@user)
-      click_on("#{@user.nickname}さんのマイページ")
-      expect { click_on('アカウント削除') }.to change { Store.count }.by(-3)
+      sign_in(@store.user)
+      click_on("#{@store.user.nickname}さんのマイページ")
+      expect { click_on('アカウント削除') }.to change { Store.count }.by(-4)
       expect(current_path).to eq root_path
     end
   end

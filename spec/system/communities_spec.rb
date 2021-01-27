@@ -72,20 +72,61 @@ RSpec.describe "Communities", type: :system do
         expect(Community.count).to eq 0
         expect(current_path).to eq communities_path
       end
-    end  
+    end
   end
+
+  describe 'コミュニティ編集機能' do
+    before do
+      @user = FactoryBot.create(:user)
+      @community = FactoryBot.create(:community)
+    end
+
+    it '必要な情報を適切に入力すると、コミュニティ情報をを編集できること' do
+      sign_in(@community.user)
+      visit edit_community_path(@community)
+      fill_in 'name', with: 'テストname'
+      click_on('編集する')
+      expect(current_path).to eq community_messages_path(@community)
+      expect(page).to have_content('テストname')
+    end
+
+    it 'ログイン状態の出品者だけがコミュニティ編集ページに遷移できること' do
+      sign_in(@community.user)
+      visit edit_community_path(@community)
+      expect(current_path).to eq edit_community_path(@community)
+    end
+
+    it 'ログイン状態のコミュニティ作成者以外のユーザーは、URLを直接入力してコミュニティ編集ページへ遷移しようとすると、トップページに遷移すること' do
+      sign_in(@user)
+      visit edit_community_path(@community)
+      expect(current_path).to eq root_path
+    end
+
+    it 'ログアウト状態のユーザーは、URLを直接入力してコミュニティ編集ページへ遷移しようとすると、ログインページに遷移すること' do
+      visit edit_community_path(@community)
+      expect(current_path).to eq new_user_session_path
+    end
+  end
+
 
   describe 'コミュニティ削除' do
     before do
-      @user = FactoryBot.create(:user)
-      @profile = FactoryBot.create(:profile, user_id: @user.id)
-      FactoryBot.create_list(:community, 3, user_id: @user.id)
+      @community = FactoryBot.create(:community)
+      @profile = FactoryBot.create(:profile, user_id: @community.user_id)
+      FactoryBot.create_list(:community, 3, user_id: @community.user_id)
     end
 
-    it 'ユーザーアカウントが削除されるとそれに紐づくコメント情報も削除されること' do
-      sign_in(@user)
-      click_on("#{@user.nickname}さんのマイページ")
-      expect { click_on('アカウント削除') }.to change { Community.count }.by(-3)
+    it 'コミュニティ作成者だけがコミュニティを削除できること' do
+      sign_in(@community.user)
+      visit communities_path
+      expect { click_on('削除する', match: :first) }.to change { Community.count }.by(-1)
+      expect(current_path).to eq user_path(@community.user)
+    end
+
+    it 'ユーザーアカウントが削除されるとそれに紐づくコミュニティも削除されること' do
+      sign_in(@community.user)
+      click_on("#{@community.user.nickname}さんのマイページ")
+      expect { click_on('アカウント削除') }.to change { Community.count }.by(-4)
       expect(current_path).to eq root_path
     end
   end
