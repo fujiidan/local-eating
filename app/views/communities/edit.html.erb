@@ -1,0 +1,23 @@
+<div class="form-wrapper">
+  <%= render "shared/second_header" %>
+    <%= form_with model: @community, class: "form-wrap", local: true do |f| %>
+      <div class="form-title">
+        <h2 class="form-title-name">コミュニティ情報編集<h2>
+      </div>
+      <%= render "shared/error_messages", model: f.object %>
+      <div class="form-group">      
+        <div class="form-label">
+          <%= f.label :name, "コミュニティの名前", class: "form-label-name" %><span class="form-warning">必須</span>
+        </div> 
+        <div class="form-input"> 
+          <%= f.text_field :name, autofocus: true, placeholder: "例：コミュニティの名前", class: "form-input-area", id: "name" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-submit">
+          <%= f.submit "編集する", class: "form-submit-btn" %>
+        </div>
+      </div>
+    <% end %>
+  <%= render "shared/second_footer" %>  
+</div>

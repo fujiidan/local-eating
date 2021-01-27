@@ -55,7 +55,7 @@ class StoresController < ApplicationController
 
   def destroy
     @store.destroy
-    redirect_to root_path
+    redirect_to user_path(@store.user)
   end
 
   private

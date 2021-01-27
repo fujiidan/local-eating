@@ -23,11 +23,11 @@
           <% end %>
         </div>
         <% else %>
-        <div class="community-signin">
-          <h4 class="signin-title">コミュニティ作成にはログインが必要です!</h4>
-          <div class="signin-links">
-            <%= link_to 'ログイン', new_user_session_path, class: "signin-link"%>
-            <%= link_to '新規登録',  new_user_registration_path , class: "signin-link"%>
+        <div class="community-sign-in">
+          <h4 class="sign-in-title">コミュニティ作成にはログインが必要です!</h4>
+          <div class="sign-in-links">
+            <%= link_to 'ログイン', new_user_session_path, class: "sign-in-link"%>
+            <%= link_to '新規登録',  new_user_registration_path , class: "sign-in-link"%>
           </div>
         </div>
         <% end %>
@@ -50,10 +50,10 @@
               <td class="table-column4"><%= community.name %></td>
               <td class="table-column4"><%= community.messages.length %></td>
               <td class="table-column6">
-                <%= link_to '詳細ページへ', community_messages_path(community), class: "store-table-link" %>
+                <%= link_to '詳細ページへ', community_messages_path(community), class: "community-table-link" %>
                 <% if user_signed_in? && current_user.id == community.user_id %>
-                <%= link_to '編集する', "#",class: "store-table-link" %>
-                <%= link_to '削除する', "#", method: :delete, class: "store-table-link" %>
+                <%= link_to '編集する', edit_community_path(community),class: "community-table-link" %>
+                <%= link_to '削除する', community_path(community), method: :delete, class: "community-table-link" %>
                 <% end %>
               </td>  
             </tr>
