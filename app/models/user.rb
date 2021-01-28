@@ -12,4 +12,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :communities, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
+  def liked?(store_id)
+    likes.where(store_id: store_id).exists?
+  end  
 end

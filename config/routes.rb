@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'search_map'
     end
     resources :comments, only: :create
+    resources :likes, only: [:create, :destroy]
   end
 
   resources :communities, only: [:index, :create, :edit, :update, :destroy] do

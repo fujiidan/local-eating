@@ -20,6 +20,9 @@
         <div class="store-genre"><%= "ジャンル : #{@store.genre.name}" %></div>
         <div class="store-price"><%= "価格帯 : #{@store.price.name}"%></div>
         <div class="store-user"><%= "#{@store.user.nickname}さんのオススメ！"%></div>
+        <div class="store-like" id="<%= @store.id %>">
+          <%= render partial: "shared/like", locals: {store: @store} %>
+        </div>
       </div>
     </div>
     <div class="store-info-box">

@@ -69,6 +69,20 @@
   padding: 20px; 
 }
 
+.like-link {
+  text-decoration: none;
+}
+
+.like-btn {
+  font-size: 100px;
+  color: #808080;
+}
+ 
+.unlike-btn {
+  font-size: 100px;
+  color: #e54747;
+}
+
 .store-info-box {
   width: 100%;
   height: 300px;
