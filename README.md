@@ -15,6 +15,7 @@
 - has_many :comments
 - has_many :communities
 - has_many :messages
+- has_many :likes
 
 
 ## profiles テーブル
@@ -55,6 +56,7 @@
 - has_many_attached :images
 - belongs_to_active_hash :genre
 - belongs_to_active_hash :price
+- has_many :likes
 
 
 ## comments テーブル
@@ -98,3 +100,16 @@
 - belongs_to :user
 - belongs_to :community
 - has_many_attached :message_images
+
+
+## likes テーブル
+
+| Column    | Type    | Options     |
+| --------- | --------| ----------- |
+| user_id   | integer | null: false |
+| store_id  | integer | null: false |
+
+### Association
+
+- belongs_to :user
+- belongs_to :store

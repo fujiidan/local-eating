@@ -1,3 +1,3 @@
 $(function(){
-  $('#flash').fadeOut(3000) 
+  $('#flash').fadeOut(5000) 
 })

@@ -3,6 +3,9 @@
   font-size: 1.5vw;
   color: white;
   font-weight: bold;
+  position: fixed;
+  z-index: 2;
+  width: 100vw;
 }
 
 .notice {
