@@ -10,10 +10,14 @@ class StoresController < ApplicationController
 
   def search_map
     results = Geocoder.search(params[:address])
-    @latlng = results.first.coordinates
-    @address = params[:address]
     respond_to do |format|
-      format.js
+      if results.present?
+        @latlng = results.first.coordinates
+        @address = params[:address]
+        format.js
+      else
+        format.html { render template: 'stores/index.html.erb' }
+      end  
     end
   end
 

@@ -7,7 +7,7 @@
   <div id="search-result-first">
     <h2 class="search-community-title"><%="検索結果！(#{@search_communities.length}個)" %></h2>
     <%= render partial: 'communities/community_table', locals: {communities: @search_communities} %>
-    </div>  
+  </div>  
   `;
 
   const searchResult = document.getElementById("search-result");
