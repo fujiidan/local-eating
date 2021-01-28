@@ -18,10 +18,9 @@
 }
 
 .search-title {
-  background-color: rgba(211, 211, 211, 0.504);
-  border-radius: 10px;
   margin-right: 10px;
 }
+
 .map {
   height: 80%;
   display: flex;
@@ -50,11 +49,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .store-message-title {
-  background-color: rgba(211, 211, 211, 0.504);
-  border-radius: 10px;
+  padding: 30px 0 10px;
 }
 
 .store-link {
@@ -66,12 +65,14 @@
 
 .store-btn {
   border: 1px solid lightgray;
-  padding: 75px;
+  padding: 30px;
   background-color: lightskyblue;
   color: white;
   font-weight: bold;
   font-size: 24px;
   border-radius: 20px;
+  width: 75%;
+  text-align: center;
 }
 
 .community-content {
@@ -83,11 +84,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .community-message-title {
-  background-color: rgba(211, 211, 211, 0.504);
-  border-radius: 10px;
+  padding: 30px 0 10px;
 }
 
 .community-link {
@@ -99,11 +100,13 @@
 
 .community-btn {
   border: 1px solid lightgray;
-  padding: 75px;
+  padding: 30px;
   background-color: lightskyblue;
   color: white;
   font-weight: bold;
   font-size: 24px;
   border-radius: 20px;
+  width: 75%;
+  text-align: center;
 }
 

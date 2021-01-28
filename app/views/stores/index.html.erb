@@ -9,25 +9,27 @@
     <% end %>  
     </div>
     <div class="map">
-    <div id="map"></div>
-    <script>let mapInstance</script>
+      <div id="map"></div>
+      <script>let mapInstance</script>
     </div>
   </div>
   <div class="contents">
     <div class="store-content">
       <div class="store-message">
         <h2 class="store-message-title">お気に入りの飲食店を登録しよう！</h2>
+        <p class="store-text">自分のお気に入りの店舗を登録できます、登録してシェアしましょう！</p>
       </div>
       <div class="store-link">
-        <%= link_to '飲食店を追加！', new_store_path, class: 'store-btn' %>
+        <%= link_to '飲食店を追加する！', new_store_path, class: 'store-btn' %>
       </div>
     </div>
     <div class="community-content">
       <div class="community-message">
         <h2 class="community-message-title">近くの人と食を通して交流しよう！</h2>
+        <p class="community-text">地元の人達とチャット形式で交流できます、コミュニティの輪を広げよう！<p>
       </div>
       <div class="community-link">  
-        <%= link_to 'コミュニティ一覧ページへ', communities_path, class: 'community-btn' %>
+        <%= link_to 'コミュニティ一覧ページへ！', communities_path, class: 'community-btn' %>
       </div>  
     </div>  
   </div>
