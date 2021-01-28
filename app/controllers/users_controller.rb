@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: 'ユーザー情報が更新されました'
     else
       render :edit
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def destroy
     current_user.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: 'ユーザーアカウントが削除されました'
   end
 
   private

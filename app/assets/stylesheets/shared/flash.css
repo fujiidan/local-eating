@@ -1,0 +1,14 @@
+.flash {
+  text-align: center;
+  font-size: 1.5vw;
+  color: white;
+  font-weight: bold;
+}
+
+.notice {
+  background-color: lightskyblue;
+}
+
+.alert {
+  background-color: lightcoral;
+}

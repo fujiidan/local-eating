@@ -9,7 +9,7 @@
 
 .message-side-bar-header {
   height: 100px;
-  background-color: lightskyblue;
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,13 +21,15 @@
   color: black;
   font-weight: bold;
   padding: 5px;
-  background-color: lightgray;
+  background-color: white;
   border-radius: 10px;
+  width: 175px;
+  text-align: center;
 }
 
 .message-side-bar-main {
   height: calc(100vh - 100px);
-  background-color: lightskyblue;
+  background-color: lightgray;
   padding: 20px;
   overflow: scroll
 }
@@ -37,7 +39,7 @@
 }
 
 .message-community a {
-
+  color: black;
 }
 
 

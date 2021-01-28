@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.save
     session['devise.regist_data']['user'].clear
     bypass_sign_in(@user)
-    redirect_to root_path
+    redirect_to root_path, notice: "ユーザーアカウントが作成されました"
   end
 
   private
