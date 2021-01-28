@@ -58,7 +58,7 @@
     </div>
     <div class="user-store-wrapper"> 
       <div class="user-store-title">
-        <h2><%= "#{current_user.nickname}さんの登録店舗（#{@user_stores.length}店舗)"%></h2>
+        <h2><%= "#{current_user.nickname}さんの登録店舗一覧" %></h2>
       </div>
       <table class="store-table">
         <tbody>
@@ -81,13 +81,15 @@
           </tr>         
         <% end %>
         </tbody>
-      </table>  
+      </table>
+      <%= paginate @user_stores, param_name: 'store_page' %>
     </div>
     <div class="user-store-wrapper">
       <div class="user-store-title">
-        <h2><%= "#{current_user.nickname}さんの作成コミュニティ（#{@user_communities.length}個)"%></h2>
+        <h2><%= "#{current_user.nickname}さんの作成コミュニティ一覧"%></h2>
       </div>
       <%= render partial: 'communities/community_table', locals: {communities: @user_communities} %>
+      <%= paginate @user_communities, param_name: 'community_page' %>
     </div>
   </div>
   <%= render "shared/second_footer" %>

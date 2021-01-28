@@ -4,7 +4,7 @@ class CommunitiesController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
   def index
     @community = Community.new
-    @communities = Community.order('created_at DESC')
+    @communities = Community.order('created_at DESC').page(params[:community_page]).per(10)
   end
 
   def search

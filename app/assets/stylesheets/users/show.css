@@ -143,4 +143,17 @@
   padding: 5px;
 }
 
+/* ページネーションで適用 */
+.pagination {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
 
+.pagination a {
+  color: gray;
+}
+
+.page {
+  padding: 0 10px;
+}

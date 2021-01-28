@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @stores = Store.includes(:user).order('created_at DESC')
-    @user_stores = current_user.stores.order('created_at DESC')
-    @user_communities = current_user.communities.includes(:messages).order('created_at DESC')
+    @user_stores = current_user.stores.order('created_at DESC').page(params[:store_page]).per(10)
+    @user_communities = current_user.communities.includes(:messages).order('created_at DESC').page(params[:community_page]).per(5)
     @profile = current_user.profile
     gon.stores = @stores
     gon.profile = @profile

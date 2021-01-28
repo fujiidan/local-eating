@@ -30,13 +30,14 @@
             <%= link_to '新規登録',  new_user_registration_path , class: "sign-in-link"%>
           </div>
         </div>
-        <% end %>
+      <% end %>
       </div>
       <div class="community-lists">
         <div class="community-lists-title">
-          <h2 id="community-count"><%= "コミュニティ一覧(#{@communities.length}個)" %></h2>
+          <h2 id="community-count">コミュニティ一覧</h2>
         </div>
         <%= render partial: 'communities/community_table', locals: {communities: @communities} %>
+        <%= paginate @communities, param_name: 'community_page' %>
       </div>
     </div>
   <%= render "shared/second_footer" %>

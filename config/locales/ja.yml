@@ -2,25 +2,32 @@ ja:
  activerecord:
    attributes:
      user:
-      nickname: ニックネーム
+       nickname: ニックネーム
      profile:
-      address: 住所
-      latitude: 緯度
-      longitude: 経度      
+       address: 住所
+       latitude: 緯度
+       longitude: 経度      
      store:
-      name: 店舗名
-      address: 住所
-      info: 店舗情報
-      latitude: 緯度
-      longitude: 経度
-      genre_id: ジャンル
-      price_id: 価格帯
+       name: 店舗名
+       address: 住所
+       info: 店舗情報
+       latitude: 緯度
+       longitude: 経度
+       genre_id: ジャンル
+       price_id: 価格帯
      comment:
-      comment: コメント
+       comment: コメント
      community:
-      name: 名前
+       name: 名前
      message:
-      message: メッセージ 
+       message: メッセージ 
  time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+ views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."      
