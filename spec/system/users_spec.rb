@@ -115,8 +115,8 @@ RSpec.describe 'Users', type: :system do
     it 'ログイン状態のユーザーのみがお気に入りページに遷移できること' do
       visit root_path
       sign_in(@profile.user)
-      click_on("お気に入りリスト")
-      expect(current_path).to eq  favorite_user_path(@profile.user)
+      click_on('お気に入りリスト')
+      expect(current_path).to eq favorite_user_path(@profile.user)
     end
 
     it 'ログイン状態でも本人以外のユーザーがURLを直接入力してお気に入りページに遷移しようとするとトップページに戻されること' do
@@ -132,7 +132,6 @@ RSpec.describe 'Users', type: :system do
       expect(current_path).to eq new_user_session_path
     end
   end
-
 
   describe 'ユーザー編集機能' do
     before do

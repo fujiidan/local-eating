@@ -24,5 +24,4 @@ class User < ApplicationRecord
   def favorited?(community_id)
     favorites.where(community_id: community_id).exists?
   end
-
 end

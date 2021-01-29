@@ -47,7 +47,7 @@ RSpec.describe 'Likes', type: :system do
       FactoryBot.create_list(:like, 3, user_id: @profile.user_id)
       sign_in(@profile.user)
       visit user_path(@profile.user)
-      expect{click_on("アカウント削除")}.to change{@profile.user.likes.count}.by(-3)
+      expect { click_on('アカウント削除') }.to change { @profile.user.likes.count }.by(-3)
     end
 
     it '店舗情報が削除されるとそれに紐づくいいねも削除されること' do

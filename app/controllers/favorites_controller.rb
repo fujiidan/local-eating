@@ -21,5 +21,4 @@ class FavoritesController < ApplicationController
   def find_community
     @community = Community.find(params[:community_id])
   end
-
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Favorites", type: :system do
+RSpec.describe 'Favorites', type: :system do
   describe 'お気に入り機能' do
     before do
       @community = FactoryBot.create(:community)
@@ -47,7 +47,7 @@ RSpec.describe "Favorites", type: :system do
       FactoryBot.create_list(:favorite, 3, user_id: @profile.user_id)
       sign_in(@profile.user)
       visit user_path(@profile.user)
-      expect{click_on("アカウント削除")}.to change{@profile.user.favorites.count}.by(-3)
+      expect { click_on('アカウント削除') }.to change { @profile.user.favorites.count }.by(-3)
     end
 
     it 'コミュニティが削除されるとそれに紐づくお気に入りも削除されること' do
