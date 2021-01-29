@@ -12,8 +12,8 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    @like_stores = current_user.like_stores
-    @favorite_communities = current_user.favorite_communities
+    @like_stores = current_user.like_stores.page(params[:like_page]).per(10)
+    @favorite_communities = current_user.favorite_communities.page(params[:favorite_page]).per(10)
   end  
 
   def edit

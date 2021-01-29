@@ -1,0 +1,26 @@
+<table class="store-table">
+  <tbody>
+    <tr class="table-record">
+      <th class="table-column3">店舗登録日</th>
+      <th class="table-column3">店舗名</th>
+      <th class="table-column3">住所</th>
+      <th class="table-column5">リンク</th>
+    </tr>
+  <% stores.each do |store| %>
+    <tr class="table-record" id="like-<%= store.id %>">
+      <td class="table-column4"><%=l store.created_at %></td>
+      <td class="table-column4"><%= store.name %></td>
+      <td class="table-column4"><%= store.address %></td>
+      <td class="table-column6">
+        <%= link_to '詳細ページへ', store_path(store), class: "store-table-link" %>
+      <% if params[:action] == "favorite" %>
+        <%= link_to '削除する', store_likes_path(store), remote: true, method: :delete, class: "store-table-link" %>
+      <% else %>  
+        <%= link_to '編集する', edit_store_path(store), class: "store-table-link" %>
+        <%= link_to '削除する', store_path(store), method: :delete, class: "store-table-link" %>
+      <% end %>  
+      </td>  
+    </tr>         
+  <% end %>
+  </tbody>
+</table>

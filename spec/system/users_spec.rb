@@ -107,6 +107,33 @@ RSpec.describe 'Users', type: :system do
     end
   end
 
+  describe 'ユーザーお気に入りページ' do
+    before do
+      @profile = FactoryBot.create(:profile)
+    end
+
+    it 'ログイン状態のユーザーのみがお気に入りページに遷移できること' do
+      visit root_path
+      sign_in(@profile.user)
+      click_on("お気に入りリスト")
+      expect(current_path).to eq  favorite_user_path(@profile.user)
+    end
+
+    it 'ログイン状態でも本人以外のユーザーがURLを直接入力してお気に入りページに遷移しようとするとトップページに戻されること' do
+      another_user = FactoryBot.create(:user)
+      visit root_path
+      sign_in(another_user)
+      favorite_user_path(@profile.user)
+      expect(current_path).to eq root_path
+    end
+
+    it '未ログインのユーザーがURLを直接入力してお気に入りページに遷移しようとするとログイン画面に戻されること' do
+      visit favorite_user_path(@profile.user)
+      expect(current_path).to eq new_user_session_path
+    end
+  end
+
+
   describe 'ユーザー編集機能' do
     before do
       @user = FactoryBot.create(:user)

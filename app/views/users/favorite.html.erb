@@ -1,7 +1,20 @@
-test
-<%= @like_stores.each do |store|%>
-  <%= store%>
-<% end %>  
-<%= @favorite_communities.each do |comunity|%>
-  <%= community%>
-<% end %>  
+<div class="user-show">
+ <%= render 'shared/header'%>
+  <div class="user-wrapper">
+    <div class="user-store-wrapper"> 
+      <div class="user-store-title">
+        <h2><%= "#{current_user.nickname}さんのお気に入り店舗一覧" %></h2>
+      </div>
+      <%= render partial: 'store_table', locals: {stores: @like_stores} %>
+      <%= paginate @like_stores, param_name: 'like_page' %>
+    </div>
+    <div class="user-store-wrapper">
+      <div class="user-store-title">
+        <h2><%= "#{current_user.nickname}さんのお気に入りコミュニティ一覧"%></h2>
+      </div>
+      <%= render partial: 'communities/community_table', locals: {communities: @favorite_communities} %>
+      <%= paginate @favorite_communities, param_name: 'favorite_page' %>
+    </div>
+  </div>
+  <%= render "shared/second_footer" %>
+</div>

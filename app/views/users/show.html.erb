@@ -60,28 +60,7 @@
       <div class="user-store-title">
         <h2><%= "#{current_user.nickname}さんの登録店舗一覧" %></h2>
       </div>
-      <table class="store-table">
-        <tbody>
-          <tr class="table-record">
-            <th class="table-column3">店舗登録日</th>
-            <th class="table-column3">店舗名</th>
-            <th class="table-column3">住所</th>
-            <th class="table-column5">リンク</th>
-          </tr>
-        <% @user_stores.each do |store| %>
-          <tr class="table-record">
-            <td class="table-column4"><%=l store.created_at %></td>
-            <td class="table-column4"><%= store.name %></td>
-            <td class="table-column4"><%= store.address %></td>
-            <td class="table-column6">
-              <%= link_to '詳細ページへ', store_path(store), class: "store-table-link" %>
-              <%= link_to '編集する', edit_store_path(store),class: "store-table-link" %>
-              <%= link_to '削除する', store_path(store), method: :delete, class: "store-table-link" %>
-            </td>  
-          </tr>         
-        <% end %>
-        </tbody>
-      </table>
+      <%= render partial: 'store_table', locals: {stores: @user_stores} %>
       <%= paginate @user_stores, param_name: 'store_page' %>
     </div>
     <div class="user-store-wrapper">

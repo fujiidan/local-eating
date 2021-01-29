@@ -1,4 +1,4 @@
-<%# users/show, communities/index, communities/search.js.erbで適用 %>
+<%# users/show, users/favorite, communities/index, communities/search.js.erbで適用 %>
 <table class="community-table">
   <tbody>
     <tr class="table-record" id="input-record">
@@ -8,16 +8,20 @@
       <th class="table-column5">リンク</th>
     </tr>
     <% communities.each do |community| %>
-    <tr class="table-record" >
+    <tr class="table-record" id="favorite-<%= community.id %>" >
       <td class="table-column4"><%=l community.created_at %></td>
       <td class="table-column4"><%= community.name %></td>
       <td class="table-column4"><%= community.messages.length %></td>
       <td class="table-column6">
         <%= link_to '詳細ページへ', community_messages_path(community), class: "community-table-link" %>
+      <% if params[:action] == "favorite" %>
+        <%= link_to '削除する', community_favorites_path(community), remote: true, method: :delete, class: "community-table-link" %>
+      <% else %>
         <% if user_signed_in? && current_user.id == community.user_id %>
         <%= link_to '編集する', edit_community_path(community),class: "community-table-link" %>
         <%= link_to '削除する', community_path(community), method: :delete, class: "community-table-link" %>
         <% end %>
+      <% end %>  
       </td>  
     </tr>
     <% end %>

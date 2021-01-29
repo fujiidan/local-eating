@@ -1,1 +1,7 @@
-document.getElementById("<%= @store.id %>").innerHTML = `<%= render partial: "like", locals: {store: @store} %> `;
+if (document.getElementById("like-<%= @store.id %>")) {
+  document.getElementById("like-<%= @store.id %>").remove();
+}
+if (document.getElementById("<%= @store.id %>")) {
+document.getElementById("<%= @store.id %>").innerHTML = `
+<%= render partial: "like", locals: {store: @store} %> `;
+}
