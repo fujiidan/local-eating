@@ -17,7 +17,7 @@ class StoresController < ApplicationController
         format.js
       else
         format.html { render template: 'stores/index.html.erb' }
-      end  
+      end
     end
   end
 
@@ -28,7 +28,7 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
-      redirect_to store_path(@store), notice: "店舗登録が完了しました"
+      redirect_to store_path(@store), notice: '店舗登録が完了しました'
     else
       render :new
     end
@@ -51,7 +51,7 @@ class StoresController < ApplicationController
       end
     end
     if @store.update(store_params)
-      redirect_to store_path(@store), notice: "店舗情報が更新されました"
+      redirect_to store_path(@store), notice: '店舗情報が更新されました'
     else
       render :edit
     end
@@ -59,7 +59,7 @@ class StoresController < ApplicationController
 
   def destroy
     @store.destroy
-    redirect_to user_path(@store.user), notice: "店舗情報が削除されました"
+    redirect_to user_path(@store.user), notice: '店舗情報が削除されました'
   end
 
   private

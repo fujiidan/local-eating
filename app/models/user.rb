@@ -16,5 +16,5 @@ class User < ApplicationRecord
 
   def liked?(store_id)
     likes.where(store_id: store_id).exists?
-  end  
+  end
 end

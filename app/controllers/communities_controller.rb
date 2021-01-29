@@ -37,7 +37,7 @@ class CommunitiesController < ApplicationController
 
   def update
     if @community.update(community_params)
-      redirect_to community_messages_path(@community), notice: "コミュニティ情報が更新されました"
+      redirect_to community_messages_path(@community), notice: 'コミュニティ情報が更新されました'
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class CommunitiesController < ApplicationController
 
   def destroy
     @community.destroy
-    redirect_to user_path(@community.user), notice: "コミュニティが削除されました"
+    redirect_to user_path(@community.user), notice: 'コミュニティが削除されました'
   end
 
   private
