@@ -1,0 +1,2 @@
+document.getElementById("favorite-#{<%= @community.id %>}").remove();
+document.getElementById("<%= @community.id %>").innerHTML = `<%= render partial: "favorite", locals: { community: @community } %>`;

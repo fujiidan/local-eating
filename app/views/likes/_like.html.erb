@@ -1,14 +1,14 @@
 <% if user_signed_in? %>
   <% if current_user.liked?(store.id)%>
-    <%= link_to store_like_path(store, current_user.likes), class: "like-link", method: :delete, remote: true do %>
+    <%= link_to store_likes_path(store), class: "like-link", method: :delete, remote: true do %>
       <i class="fa fa-heart unlike-btn"></i>
-      <h3><%="いいね#{store.likes.count}"%></h3>
     <% end %>
+      <h3><%="いいね#{store.likes.count}"%></h3>
   <% else  %>
     <%= link_to store_likes_path(store), class: "like-link", method: :post, remote: true do %>
       <i class="fa fa-heart like-btn"></i>
-      <h3><%="いいね#{store.likes.count}"%></h3>           
     <% end %>  
+      <h3><%="いいね#{store.likes.count}"%></h3>           
   <% end %>
 <% else %>
   <i class="fa fa-heart unlike-btn"></i>

@@ -1,0 +1,2 @@
+document.getElementById("message-communities").insertAdjacentHTML('beforeend', `<%= render partial: 'messages/message_community', locals: { community: @community }%>`);
+document.getElementById("<%= @community.id %>").innerHTML = `<%= render partial: "favorite", locals: { community: @community } %>`;

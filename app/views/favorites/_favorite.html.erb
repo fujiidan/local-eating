@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <% if current_user.favorited?(community.id)%>
+    <%= link_to  community_favorites_path(community), class: "favorite-link", method: :delete, remote: true do %>
+    <i class="fas fa-star unfavorite-btn"></i>
+    <% end %>
+      <h3><%="お気に入り登録#{community.favorites.count}人"%></h3>
+  <% else  %>
+    <%= link_to  community_favorites_path(community), class: "favorite-link", method: :post, remote: true do %>
+      <i class="fas fa-star favorite-btn"></i>
+    <% end %>  
+      <h3><%="お気に入り登録#{community.favorites.count}人"%></h3>           
+  <% end %>
+<% else %>
+  <i class="fas fa-star unfavorite-btn"></i>
+  <h3><%="お気に入り登録#{community.favorites.count}人"%></h3>
+<% end %>  

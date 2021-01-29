@@ -16,6 +16,10 @@
 - has_many :communities
 - has_many :messages
 - has_many :likes
+- has_many :like_stores, through: :likes, source: :store
+- has_many :favorites
+- has_many :favorite_communities, through: :favorites, source: :community
+
 
 
 ## profiles テーブル
@@ -85,6 +89,7 @@
 
 - belongs_to :user
 - has_many :messages
+- has_many :favorites
 
 
 ## messages テーブル
@@ -104,12 +109,25 @@
 
 ## likes テーブル
 
-| Column    | Type    | Options     |
-| --------- | --------| ----------- |
-| user_id   | integer | null: false |
-| store_id  | integer | null: false |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| store  | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :store
+
+
+## favorites テーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user       | references | null: false, foreign_key: true |
+| community  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :community

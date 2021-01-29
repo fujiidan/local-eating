@@ -55,6 +55,25 @@
   align-items: center;
 }
 
+.community-favorite {
+  display: flex;
+  align-items: center;
+}
+
+.favorite-link {
+  margin: 0 10px;
+}
+
+.favorite-btn {
+  font-size: 50px;
+  color: #808080;
+}
+
+.unfavorite-btn {
+  font-size: 50px;
+  color: lightskyblue;
+}
+
 .message-field {
   height: calc(100vh - 100px - 100px);
   padding: 20px;

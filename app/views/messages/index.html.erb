@@ -7,17 +7,16 @@
     <div class="message-side-bar-main">
       <div class="message-user">
       <% if user_signed_in? %>
-      <%= "#{current_user.nickname}さんのコミュニティ一覧" %>
+      <%= "#{current_user.nickname}さんのお気に入り一覧" %>
+      <i class="fas fa-star"></i>
       <% else %>
       <%= link_to "ゲストさん", new_user_session_path %>
       <% end %>
       </div>
       <% if user_signed_in? %>
-      <div class="message-communities">
-      <% current_user.communities.each do |community| %>
-        <div class="message-community">
-        <%= link_to community.name, community_messages_path(community) %>
-        </div>
+      <div class="message-communities" id="message-communities">
+      <% current_user.favorite_communities.each do |community| %>
+      <%= render partial: 'message_community', locals: { community: community }%>
       <% end %>
       </div>
       <% end %>
@@ -25,7 +24,10 @@
   </div>
   <div class="message-main">
     <div class="message-header">
-    <h2><%= @community.name %></h2>
+      <h2><%= @community.name %></h2>
+      <div class="community-favorite" id="<%= @community.id %>">
+        <%= render partial: "favorites/favorite", locals: {community: @community} %>
+      </div>
     </div>
     <div class="message-field">
       <div class="message" id="message-input">

@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     gon.profile = @profile
   end
 
+  def favorite
+    @like_stores = current_user.like_stores
+    @favorite_communities = current_user.favorite_communities
+  end  
+
   def edit
   end
 

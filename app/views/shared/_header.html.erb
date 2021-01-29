@@ -5,7 +5,8 @@
   <div class="links">
     <%# ログイン時表示%>
     <% if user_signed_in? %>
-      <%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user), class:'link'%>      
+      <%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user), class:'link'%>
+      <%= link_to "お気に入りリスト", favorite_user_path(current_user), class:'link'%>           
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: 'link' %>
     <%# ログアウト時表示%>
     <% else %>

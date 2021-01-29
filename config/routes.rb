@@ -9,21 +9,19 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update, :destroy] do
+    get 'favorite', on: :member
     resources :profiles, only: [:edit, :update]
   end
     
   resources :stores  do
-    collection do 
-      get 'search_map'
-    end
+    get 'search_map', on: :collection
     resources :comments, only: :create
-    resources :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
 
   resources :communities, only: [:index, :create, :edit, :update, :destroy] do
-    collection do
-      get 'search'
-    end
-    resources :messages, only: [:index, :create]
+    get 'search', on: :collection
+    resource :favorites, only: [:create, :destroy]
+    resources :messages, only: [:index, :create]  
   end
 end

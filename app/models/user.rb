@@ -13,8 +13,16 @@ class User < ApplicationRecord
   has_many :communities, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :like_stores, through: :likes, source: :store
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_communities, through: :favorites, source: :community
 
   def liked?(store_id)
     likes.where(store_id: store_id).exists?
   end
+
+  def favorited?(community_id)
+    favorites.where(community_id: community_id).exists?
+  end
+
 end

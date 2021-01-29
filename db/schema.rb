@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_074144) do
+ActiveRecord::Schema.define(version: 2021_01_29_033438) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -51,11 +51,22 @@ ActiveRecord::Schema.define(version: 2021_01_28_074144) do
     t.index ["user_id"], name: "index_communities_on_user_id"
   end
 
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "store_id", null: false
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "community_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["community_id"], name: "index_favorites_on_community_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "store_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_likes_on_store_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,6 +123,10 @@ ActiveRecord::Schema.define(version: 2021_01_28_074144) do
   add_foreign_key "comments", "stores"
   add_foreign_key "comments", "users"
   add_foreign_key "communities", "users"
+  add_foreign_key "favorites", "communities"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "likes", "stores"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "communities"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
