@@ -11,5 +11,8 @@ RSpec.describe Like, type: :model do
       expect(@like.user_id).to eq 1
       expect(@like.store_id).to eq 1
     end
+
+    # it '1人のユーザーは１つの店舗に対して、１つしかいいねをつけれないこと' do
+    # end  
   end
 end

@@ -109,11 +109,11 @@
 
 ## likes テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| store  | references | null: false, foreign_key: true |
-
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| user                | references | null: false, foreign_key: true |
+| store               | references | null: false, foreign_key: true |
+| [user_id, store_id] | index      | unique: true                   |
 ### Association
 
 - belongs_to :user
@@ -122,10 +122,11 @@
 
 ## favorites テーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user       | references | null: false, foreign_key: true |
-| community  | references | null: false, foreign_key: true |
+| Column                  | Type       | Options                        |
+| ----------------------- | ---------- | ------------------------------ |
+| user                    | references | null: false, foreign_key: true |
+| community               | references | null: false, foreign_key: true |
+| [user_id, community_id] | index      | unique: true                   |
 
 ### Association
 

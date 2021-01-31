@@ -11,5 +11,8 @@ RSpec.describe Favorite, type: :model do
       expect(@favorite.user_id).to eq 1
       expect(@favorite.community_id).to eq 1
     end
+    # it '1人のユーザーは１つのコミュニティに対して、１つしかおいに入りをつけれないこと' do
+    # end  
+    
   end
 end
