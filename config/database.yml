@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: local_eating_production
-  username: local_eating
-  password: <%= ENV['LOCAL_EATING_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
