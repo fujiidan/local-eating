@@ -1,3 +1,4 @@
+<%# messages/index, favorites/create.js.erb, favorites/destroy.js.erbで適用 %>
 <% if user_signed_in? %>
   <% if current_user.favorited?(community.id)%>
     <%= link_to  community_favorites_path(community), class: "favorite-link", method: :delete, remote: true do %>

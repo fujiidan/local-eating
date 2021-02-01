@@ -1,0 +1,39 @@
+<%# users/showで適用 %>
+<table class="user-table">
+  <tbody>
+    <tr class="table-record"> 
+      <th class="table-column1">ニックネーム</th>
+      <td class="table-column2"><%= current_user.nickname%></td>
+    </tr>
+    <tr class="table-record">
+      <th class="table-column1">Eメール</th>
+      <td class="table-column2"><%= current_user.email%></td>
+    </tr>
+    <tr class="table-record">
+      <th class="table-column1">住所</th>
+      <td class="table-column2">
+        <%= current_user.profile.address%>
+      </td>
+    </tr>
+    <tr class="table-record">
+      <th class="table-column1">性別</th>
+      <td class="table-column2">
+      <% if current_user.profile.sex.present?%>
+        <%= current_user.profile.sex.name%>
+      <% else %>
+        <p>性別は登録されていません</p>
+      <% end %>
+      </td>
+    </tr>
+    <tr class="table-record">
+      <th class="table-column1">年齢</th>
+      <td class="table-column2">
+      <% if current_user.profile.age.present?%>
+        <%= "#{current_user.profile.age}歳"%>
+      <% else %>
+        <p>年齢は登録されていません</p>
+      <% end %>
+      </td>
+    </tr>
+  </tbody>  
+</table>

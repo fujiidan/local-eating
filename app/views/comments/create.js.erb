@@ -1,5 +1,5 @@
 (function() {
-  const HTML = `<%= render partial: 'comments/comment', locals: {comment: @comment} %>`;
+  const HTML = `<%= render partial: 'comment', locals: {comment: @comment} %>`;
 
   const commentInput = document.getElementById("comment-input");
   commentInput.insertAdjacentHTML('afterbegin', HTML);

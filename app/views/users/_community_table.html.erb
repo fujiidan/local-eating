@@ -13,13 +13,13 @@
       <td class="table-column4"><%= community.name %></td>
       <td class="table-column4"><%= community.messages.length %></td>
       <td class="table-column6">
-        <%= link_to '詳細ページへ', community_messages_path(community), class: "community-table-link" %>
+        <%= link_to '詳細ページへ', community_messages_path(community), class: "table-link" %>
       <% if params[:action] == "favorite" %>
-        <%= link_to '削除する', community_favorites_path(community), remote: true, method: :delete, class: "community-table-link" %>
+        <%= link_to '削除する', community_favorites_path(community), remote: true, method: :delete, class: "table-link" %>
       <% else %>
         <% if user_signed_in? && current_user.id == community.user_id %>
-        <%= link_to '編集する', edit_community_path(community),class: "community-table-link" %>
-        <%= link_to '削除する', community_path(community), method: :delete, class: "community-table-link" %>
+        <%= link_to '編集する', edit_community_path(community),class: "table-link" %>
+        <%= link_to '削除する', community_path(community), method: :delete, class: "table-link" %>
         <% end %>
       <% end %>  
       </td>  

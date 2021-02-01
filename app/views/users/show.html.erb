@@ -1,47 +1,10 @@
-<div class="user-show">
+<div class="shared-wrappe">
  <%= render 'shared/header'%>
-  <div class="user-wrapper">
-    <div class="user-infobox">
+  <div class="shared-main">
+    <div class="user-info-box">
       <h2 class="table-title"><%="#{current_user.nickname}さんの登録情報"%></h2>
       <div class="user-info">
-        <table class="table">
-          <tbody>
-            <tr class="table-record"> 
-              <th class="table-column1">ニックネーム</th>
-              <td class="table-column2"><%= current_user.nickname%></td>
-            </tr>
-            <tr class="table-record">
-              <th class="table-column1">Eメール</th>
-              <td class="table-column2"><%= current_user.email%></td>
-            </tr>
-            <tr class="table-record">
-              <th class="table-column1">住所</th>
-              <td class="table-column2">
-                <%= current_user.profile.address%>
-              </td>
-            </tr>
-            <tr class="table-record">
-              <th class="table-column1">性別</th>
-              <td class="table-column2">
-              <% if current_user.profile.sex.present?%>
-                <%= current_user.profile.sex.name%>
-              <% else %>
-                <p>性別は登録されていません</p>
-              <% end %>
-              </td>
-            </tr>
-            <tr class="table-record">
-              <th class="table-column1">年齢</th>
-              <td class="table-column2">
-              <% if current_user.profile.age.present?%>
-                <%= "#{current_user.profile.age}歳"%>
-              <% else %>
-                <p>年齢は登録されていません</p>
-              <% end %>
-              </td>
-            </tr>
-          </tbody>  
-        </table>
+      <%= render 'user_table' %>
         <div class="user-links">
           <%= link_to 'ユーザー情報編集', edit_user_path(current_user), class: "user-link"%>
           <%= link_to 'プロフィール情報編集', edit_user_profile_path(current_user, current_user.profile), class: "user-link"%>
@@ -67,7 +30,7 @@
       <div class="user-store-title">
         <h2><%= "#{current_user.nickname}さんの作成コミュニティ一覧"%></h2>
       </div>
-      <%= render partial: 'communities/community_table', locals: {communities: @user_communities} %>
+      <%= render partial: 'community_table', locals: {communities: @user_communities} %>
       <%= paginate @user_communities, param_name: 'community_page' %>
     </div>
   </div>

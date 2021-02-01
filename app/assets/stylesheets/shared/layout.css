@@ -1,0 +1,29 @@
+/* users/show, users/favorite, stores/show, communities/indexに適用 */
+.shared-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.shared-main {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+/* ページネーションで適用 */
+.pagination {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.pagination a {
+  color: gray;
+}
+
+.page {
+  padding: 0 10px;
+}

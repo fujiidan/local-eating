@@ -1,3 +1,4 @@
+<%# stores/show, likes/create.js.erb, likes/destroy.js.erbで適用 %>
 <% if user_signed_in? %>
   <% if current_user.liked?(store.id)%>
     <%= link_to store_likes_path(store), class: "like-link", method: :delete, remote: true do %>

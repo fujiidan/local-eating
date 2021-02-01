@@ -12,12 +12,12 @@
       <td class="table-column4"><%= store.name %></td>
       <td class="table-column4"><%= store.address %></td>
       <td class="table-column6">
-        <%= link_to '詳細ページへ', store_path(store), class: "store-table-link" %>
+        <%= link_to '詳細ページへ', store_path(store), class: "table-link" %>
       <% if params[:action] == "favorite" %>
-        <%= link_to '削除する', store_likes_path(store), remote: true, method: :delete, class: "store-table-link" %>
+        <%= link_to '削除する', store_likes_path(store), remote: true, method: :delete, class: "table-link" %>
       <% else %>  
-        <%= link_to '編集する', edit_store_path(store), class: "store-table-link" %>
-        <%= link_to '削除する', store_path(store), method: :delete, class: "store-table-link" %>
+        <%= link_to '編集する', edit_store_path(store), class: "table-link" %>
+        <%= link_to '削除する', store_path(store), method: :delete, class: "table-link" %>
       <% end %>  
       </td>  
     </tr>         
