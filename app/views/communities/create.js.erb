@@ -4,6 +4,5 @@
   const inputRecord = document.getElementById("input-record");
   const communityCount = document.getElementById("community-count")
   inputRecord.insertAdjacentHTML('afterend', HTML);
-  communityCount.innerHTML = `<%= "コミュニティ一覧(#{@communities.length}個)" %>`;
   document.getElementById("community-input").value = "";
 })();

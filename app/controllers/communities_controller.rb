@@ -2,9 +2,10 @@ class CommunitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search]
   before_action :find_community, except: [:index, :search, :create]
   before_action :move_to_index, only: [:edit, :destroy]
+
   def index
     @community = Community.new
-    @communities = Community.order('created_at DESC').page(params[:community_page]).per(10)
+    @communities = Community.includes(:messages).order('created_at DESC').page(params[:community_page]).per(10)
   end
 
   def search
@@ -14,7 +15,7 @@ class CommunitiesController < ApplicationController
         format.js
       else
         @community = Community.new
-        @communities = Community.order('created_at DESC').page(params[:community_page]).per(10)
+        @communities = Community.includes(:messages).order('created_at DESC').page(params[:community_page]).per(10)
         format.html { render template: 'communities/index.html.erb' }
       end
     end
@@ -22,11 +23,11 @@ class CommunitiesController < ApplicationController
 
   def create
     @community = Community.new(community_params)
-    @communities = Community.order('created_at DESC').page(params[:community_page]).per(10)
     respond_to do |format|
       if @community.save
         format.js
       else
+        @communities = Community.includes(:messages).order('created_at DESC').page(params[:community_page]).per(10)
         format.html { render template: 'communities/index.html.erb' }
       end
     end
