@@ -4,37 +4,44 @@ RSpec.describe 'Favorites', type: :system do
   describe 'お気に入り機能' do
     before do
       @community = FactoryBot.create(:community)
+      @profile = FactoryBot.create(:profile, user_id: @community.user_id)
     end
 
-    it 'お気に入りボタンをクリックするとお気に入りできること' do
-      sign_in(@community.user)
-      visit community_messages_path(@community)
-      find('.favorite-link').click
-      sleep(1)
-      expect(Favorite.count).to eq 1
-      expect(page).to have_css('.unfavorite-btn')
-    end
+    context 'お気に入りできるとき' do
 
-    it 'お気に入り済みのボタンをクリックするとお気に入りを解除できること' do
-      FactoryBot.create(:favorite, user_id: @community.user_id, community_id: @community.id)
-      sign_in(@community.user)
-      visit community_messages_path(@community)
-      find('.favorite-link').click
-      sleep(1)
-      expect(Favorite.count).to eq 0
-      expect(page).to have_css('.favorite-btn')
-    end
+      it 'ログイン状態のユーザーのみお気に入りボタンが表示されること' do
+        sign_in(@community.user)
+        visit community_messages_path(@community)
+        expect(page).to have_css('.favorite-link')
+      end
 
-    it 'ログイン状態のユーザーのみいねボタンが表示されること' do
-      sign_in(@community.user)
-      visit community_messages_path(@community)
-      expect(page).to have_css('.favorite-link')
-    end
+      it 'お気に入りボタンをクリックするとお気に入りできること' do
+        sign_in(@community.user)
+        visit community_messages_path(@community)
+        find('.favorite-link').click
+        sleep(1)
+        expect(Favorite.count).to eq 1
+        expect(page).to have_css('.unfavorite-btn')
+      end
 
-    it 'ログイン済みでないユーザーにはお気に入りボタンが表示されないこと' do
-      visit community_messages_path(@community)
-      expect(page).to have_no_css('.favorite-link')
+      it 'お気に入り済みのボタンをクリックするとお気に入りを解除できること' do
+        FactoryBot.create(:favorite, user_id: @community.user_id, community_id: @community.id)
+        sign_in(@community.user)
+        visit community_messages_path(@community)
+        find('.favorite-link').click
+        sleep(1)
+        expect(Favorite.count).to eq 0
+        expect(page).to have_css('.favorite-btn')
+      end
     end
+    
+    context 'お気に入りできないとき' do
+
+      it 'ログイン済みでないユーザーにはお気に入りボタンが表示されないこと' do
+        visit community_messages_path(@community)
+        expect(page).to have_no_css('.favorite-link')
+      end
+    end  
   end
 
   describe 'お気に入り削除' do
