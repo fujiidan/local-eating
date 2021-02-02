@@ -17,7 +17,7 @@
   font-weight: bolder;
   font-style: italic;
   letter-spacing: .1em;
-  color: #fff;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .header-links {
