@@ -5,7 +5,7 @@ FactoryBot.define do
     association :store
 
     after(:build) do |comment|
-      comment.comment_images.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+      comment.comment_images.attach(io: File.open('public/images/test_image2.png'), filename: 'test_image2.png')
     end
   end
 end
