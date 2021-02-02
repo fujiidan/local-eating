@@ -1,12 +1,14 @@
 module SignUpSupport
   def sign_up(user, profile)
-    visit new_user_registration_path
+    visit root_path
+    click_on('新規登録')
+    expect(current_path).to eq new_user_registration_path
     fill_in 'nickname', with: user.nickname
     fill_in 'email', with: user.email
     fill_in 'password', with: user.password
     fill_in 'password-confirmation', with: user.password
     click_on('プロフィール情報入力へ')
-    expect(current_path).to eq new_user_registration_path
+    expect(current_path).to eq user_registration_path
     fill_in 'address', with: profile.address
     fill_in 'age', with: profile.age
     find('#sex-id').find("option[value='1']").select_option
