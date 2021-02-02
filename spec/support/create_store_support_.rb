@@ -1,6 +1,5 @@
 module CreateStoreSupport
   def create_store(user, store)
-    visit root_path
     sign_in(user)
     click_on('飲食店を追加する')
     fill_in 'name', with: store.name

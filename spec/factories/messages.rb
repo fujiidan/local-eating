@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :message do
-    message { 'テストメッセージ' }
+    message { Faker::Lorem.sentence }
     association :user
     association :community
 

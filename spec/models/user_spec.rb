@@ -16,6 +16,14 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include('ニックネームを入力してください')
     end
 
+    it 'ニックネームは一意性であること' do
+      @user.nickname = 'テストタロウ'
+      @user.save
+      another_user = FactoryBot.build(:user, nickname: @user.nickname)
+      another_user.valid?
+      expect(another_user.errors.full_messages).to include('ニックネームはすでに存在します')
+    end  
+
     it 'メールアドレスが必須であること' do
       @user.email = nil
       @user.valid?
@@ -25,8 +33,7 @@ RSpec.describe User, type: :model do
     it 'メールアドレスが一意性であること' do
       @user.email = 'aaa@aaa'
       @user.save
-      another_user = FactoryBot.build(:user)
-      another_user.email = @user.email
+      another_user = FactoryBot.build(:user, email: @user.email)
       another_user.valid?
       expect(another_user.errors.full_messages).to include('Eメールはすでに存在します')
     end
