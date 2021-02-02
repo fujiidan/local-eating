@@ -5,6 +5,7 @@
       <h2 class="search-community-title">コミュニティを検索！</h2>
       <div class="community-form">
       <%= form_with url:  search_communities_path, method: :get, id: "search-form" do |f| %>
+      <%= f.label :keyword, "検索ワード入力", class: "form-label-name" %><span class="form-warning">必須</span>
       <%= f.text_field :keyword, class: "form-input-area", id: "search-input" %>
       <%= f.submit '検索する', class: "form-submit-btn" %>
       <% end %>
@@ -18,7 +19,7 @@
       <div class="community-form">
         <%= form_with model: @community, id: "community-form" do |f| %>
         <%= f.label :name, "コミュ二ティの名前", class: "form-label-name" %><span class="form-warning">必須</span>
-        <%= f.text_field :name, placeholder: "渋谷駅周辺の居酒屋", class: "form-input-area", id: "community-input"%>
+        <%= f.text_field :name, placeholder: "例: 渋谷駅周辺の居酒屋", class: "form-input-area", id: "community-input"%>
         <%= f.submit '作成する', class: "form-submit-btn" %>
         <% end %>
       </div>

@@ -1,0 +1,9 @@
+<%# communities/search.js.erbで適用 %>
+<div id="search-result-first">
+  <% if search_communities.present? %>
+  <h2 class="search-community-title"><%="検索結果！(#{search_communities.length}個)" %></h2>
+  <%= render partial: 'users/community_table', locals: {communities: search_communities} %>
+  <% else %>
+  <h2 class="search-community-title">検索結果は見つかりませんでした</h2>
+  <% end %>
+</div>

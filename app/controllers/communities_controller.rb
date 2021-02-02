@@ -11,13 +11,7 @@ class CommunitiesController < ApplicationController
   def search
     @search_communities = SearchCommunitiesService.search(params[:keyword])
     respond_to do |format|
-      if @search_communities.present?
         format.js
-      else
-        @community = Community.new
-        @communities = Community.includes(:messages).order('created_at DESC').page(params[:community_page]).per(10)
-        format.html { render template: 'communities/index.html.erb' }
-      end
     end
   end
 
