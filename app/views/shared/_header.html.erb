@@ -1,20 +1,20 @@
 <header class="header">
-  <div class="title">
-    <%= link_to 'LocalEating', root_path, class: 'title-name'%>
+  <div class="header-title">
+    <%= link_to 'LocalEating', root_path, class: 'header-title-name'%>
   </div>
-  <div class="links">
+  <div class="header-links">
     <%# ログイン時表示%>
     <% if user_signed_in? %>
-      <%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user), class:'link'%>
-      <%= link_to "お気に入りリスト", favorite_user_path(current_user), class:'link'%>           
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: 'link' %>
+      <%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user), class:'header-link'%>
+      <%= link_to "お気に入りリスト", favorite_user_path(current_user), class:'header-link'%>           
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: 'header-link' %>
     <%# ログアウト時表示%>
     <% else %>
-      <%= link_to 'ゲストさん', new_user_session_path, class:'link'%>
-      <%= link_to 'ログイン', new_user_session_path, class: 'link' %>
-      <%= link_to '新規登録', new_user_registration_path, class: 'link' %>
+      <%= link_to 'ゲストさん', new_user_session_path, class:'header-link'%>
+      <%= link_to 'ログイン', new_user_session_path, class: 'header-link' %>
+      <%= link_to '新規登録', new_user_registration_path, class: 'header-link' %>
     <% end %>
-      <%= link_to '飲食店を追加する' , new_store_path, class: 'link' %>
-      <%= link_to 'コミュニティ一覧へ', communities_path, class: 'link'%>
+      <%= link_to '飲食店を追加する' , new_store_path, class: 'header-link' %>
+      <%= link_to 'コミュニティ一覧へ', communities_path, class: 'header-link'%>
   </div>
 </header>

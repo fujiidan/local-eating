@@ -23,10 +23,10 @@
       </div>
       <div class="form-group">
         <div class="form-label">
-          <%= f.label :password, "パスワード", class: "form-label-name" %><span class="form-warning">必須</span>
+          <%= f.label :password, "パスワード（６文字以上）", class: "form-label-name" %><span class="form-warning">必須</span>
         </div> 
         <div class="form-input"> 
-          <%= f.password_field :password, placeholder: "6文字以上の半角英数字", class: "form-input-area", autocomplete: "new-password", id: "password" %>
+          <%= f.password_field :password, placeholder: "半角英数字各1文字以上含む", class: "form-input-area", autocomplete: "new-password", id: "password" %>
         </div>
       </div>
       <div class="form-group">

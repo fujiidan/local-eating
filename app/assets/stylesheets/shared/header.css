@@ -2,30 +2,35 @@
   height: 100px;
   width: 100%;
   display: flex;
-  background-color: rgba(135, 206, 250, 0.75);
+  background-color: lightskyblue;
 }
 
-.title {
+.header-title {
   width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.title-name {
-  color: black;
+.header-title-name {
   font-size: 36px;
   font-weight: bolder;
+  font-style: italic;
+  letter-spacing: .1em;
+  color: #fff;
 }
 
-.links {
+.header-links {
  width: 70%;
  display: flex;
  align-items: center;
  justify-content: space-around;
 }
 
-.link {
+.header-link {
   font-size: 20px;
-  color: black;
+  font-weight: bolder;
+  font-style: italic;
+  letter-spacing: .1em;
+  color: #fff;
 }
