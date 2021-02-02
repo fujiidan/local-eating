@@ -9,7 +9,6 @@ RSpec.describe 'Messages', type: :system do
     end
 
     context 'メッセージ投稿できる時' do
-
       it 'ログインしているユーザーにはメッセージフォームが表示されること' do
         sign_in(@community.user)
         visit community_messages_path(@community)
@@ -32,7 +31,6 @@ RSpec.describe 'Messages', type: :system do
     end
 
     context 'メッセージ投稿できない時' do
-
       it 'ログインしていないユーザーにはメッセージフォームが表示されないこと' do
         visit community_messages_path(@community)
         expect(page).to have_no_content('送信')
@@ -44,7 +42,6 @@ RSpec.describe 'Messages', type: :system do
         click_on('送信')
         expect(current_path).to eq community_messages_path(@community)
       end
-
     end
   end
 

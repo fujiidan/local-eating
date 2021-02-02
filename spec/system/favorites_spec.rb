@@ -8,7 +8,6 @@ RSpec.describe 'Favorites', type: :system do
     end
 
     context 'お気に入りできるとき' do
-
       it 'ログイン状態のユーザーのみお気に入りボタンが表示されること' do
         sign_in(@community.user)
         visit community_messages_path(@community)
@@ -34,14 +33,13 @@ RSpec.describe 'Favorites', type: :system do
         expect(page).to have_css('.favorite-btn')
       end
     end
-    
-    context 'お気に入りできないとき' do
 
+    context 'お気に入りできないとき' do
       it 'ログイン済みでないユーザーにはお気に入りボタンが表示されないこと' do
         visit community_messages_path(@community)
         expect(page).to have_no_css('.favorite-link')
       end
-    end  
+    end
   end
 
   describe 'お気に入り削除' do

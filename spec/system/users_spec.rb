@@ -8,7 +8,6 @@ RSpec.describe 'Users', type: :system do
     end
 
     context '新規登録、ログインできるとき' do
-
       it '新規登録ができるとトップページに遷移すること' do
         sign_up(@user, @profile)
       end
@@ -20,7 +19,6 @@ RSpec.describe 'Users', type: :system do
     end
 
     context '新規登録、ログインできないとき' do
-
       it '新規登録に失敗すると再び新規登録画面に戻ってくること' do
         visit new_user_registration_path
         click_on('プロフィール情報入力へ')
@@ -36,7 +34,7 @@ RSpec.describe 'Users', type: :system do
         click_on('プロフィール情報入力へ')
         expect { click_on('新規登録') }.to change { User.count }.by(0).and change { Profile.count }.by(0)
         expect(current_path).to eq profiles_path
-      end      
+      end
 
       it 'ログインに失敗するとログイン画面に戻ってくること' do
         visit new_user_session_path
@@ -52,11 +50,10 @@ RSpec.describe 'Users', type: :system do
     end
 
     context 'ログイン時' do
-
       it 'ログイン状態では、ヘッダーにユーザーのマイページのリンク/お気に入りリスト/ログアウトボタンが表示されること' do
         sign_in(@profile.user)
         expect(page).to have_content("#{@profile.user.nickname}さんのマイページ")
-        expect(page).to have_content("お気に入りリスト")
+        expect(page).to have_content('お気に入りリスト')
         expect(page).to have_content('ログアウト')
       end
 
@@ -66,7 +63,7 @@ RSpec.describe 'Users', type: :system do
         expect(current_path).to eq root_path
         expect(page).to have_content('ログイン')
       end
-    end  
+    end
 
     context 'ログアウト時' do
       it 'ログアウト状態では、ヘッダーに新規登録/ログインボタン/ゲストさんが表示されること' do
@@ -75,16 +72,15 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content('ログイン')
         expect(page).to have_content('ゲストさん')
       end
-    end  
+    end
   end
 
   describe 'ユーザー詳細機能（マイページ)' do
     before do
       @profile = FactoryBot.create(:profile)
     end
-    
-    context 'マイページに遷移できるとき' do
 
+    context 'マイページに遷移できるとき' do
       it 'ログイン状態のユーザーのみがマイページに遷移できること' do
         sign_in(@profile.user)
         click_on("#{@profile.user.nickname}さんのマイページ")
@@ -100,10 +96,9 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content(@profile.sex.name)
         expect(page).to have_content(@profile.age)
       end
-    end  
+    end
 
     context 'マイページに遷移できないとき' do
-
       it 'ログイン状態でも本人以外のユーザーがURLを直接入力してマイページに遷移しようとするとトップページに戻されること' do
         another_user = FactoryBot.create(:profile)
         sign_in(another_user.user)
@@ -127,7 +122,6 @@ RSpec.describe 'Users', type: :system do
     end
 
     context 'お気に入りページに遷移できるとき' do
-
       it 'ログイン状態のユーザーのみがお気に入りページに遷移できること' do
         sign_in(@profile.user)
         click_on('お気に入りリスト')
@@ -143,7 +137,6 @@ RSpec.describe 'Users', type: :system do
     end
 
     context 'お気に入りページに遷移できないとき' do
-
       it 'ログイン状態でも本人以外のユーザーがURLを直接入力してお気に入りページに遷移しようとするとトップページに戻されること' do
         another_user = FactoryBot.create(:profile)
         sign_in(another_user.user)
@@ -155,7 +148,7 @@ RSpec.describe 'Users', type: :system do
         visit favorite_user_path(@profile.user)
         expect(current_path).to eq new_user_session_path
       end
-    end  
+    end
   end
 
   describe 'ユーザー編集機能' do
@@ -164,7 +157,6 @@ RSpec.describe 'Users', type: :system do
     end
 
     context 'ユーザー編集できるとき' do
-
       it 'ログイン状態のユーザーのみがユーザー情報編集ページに遷移できること' do
         sign_in(@profile.user)
         visit user_path(@profile.user)
@@ -182,18 +174,16 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content('テスト編集')
         expect(page).to have_content('test@test')
       end
-    end  
+    end
 
     context 'ユーザー編集できないとき' do
-
       it '編集に失敗するとユーザー編集ページに戻ってくること' do
         sign_in(@profile.user)
         visit edit_user_path(@profile.user)
-        fill_in 'nickname', with: ""
+        fill_in 'nickname', with: ''
         click_on('編集する')
         expect(current_path).to eq user_path(@profile.user)
-      end  
-
+      end
 
       it 'ログイン状態でも本人以外のユーザーがURLを直接入力してユーザー情報編集ページに遷移しようとするとトップページに戻されること' do
         another_user = FactoryBot.create(:profile)
@@ -206,7 +196,7 @@ RSpec.describe 'Users', type: :system do
         visit edit_user_path(@profile.user)
         expect(current_path).to eq new_user_session_path
       end
-    end  
+    end
   end
 
   describe 'ユーザー削除機能' do

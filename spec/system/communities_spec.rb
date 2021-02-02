@@ -47,7 +47,6 @@ RSpec.describe 'Communities', type: :system do
     end
 
     context 'コミュニテイ作成できるとき' do
-
       it 'コミュニテイ作成すると、ページ遷移無くコメントが表示される' do
         sign_in(@profile.user)
         visit communities_path
@@ -79,7 +78,6 @@ RSpec.describe 'Communities', type: :system do
     end
 
     context 'コミュニティ編集できるとき' do
-
       it 'ログイン状態の出品者だけがコミュニティ編集ページに遷移できること' do
         sign_in(@community.user)
         visit edit_community_path(@community)
@@ -94,10 +92,9 @@ RSpec.describe 'Communities', type: :system do
         expect(current_path).to eq community_messages_path(@community)
         expect(page).to have_content('テストname')
       end
-    end  
+    end
 
     context 'コミュニティ編集できないとき' do
-
       it '編集に失敗すると、コミュニティ編集ページに戻されること' do
         sign_in(@community.user)
         visit edit_community_path(@community)

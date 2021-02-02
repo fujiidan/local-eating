@@ -7,13 +7,12 @@ RSpec.describe 'Profiles', type: :system do
     end
 
     context 'プロフィール編集できるとき' do
-    
       it 'ログイン状態のユーザーのみがプロフィール情報編集ページに遷移できること' do
         sign_in(@profile.user)
         visit edit_user_profile_path(@profile.user, @profile)
         expect(current_path).to eq edit_user_profile_path(@profile.user, @profile)
       end
-    
+
       it '必要な情報を適切に入力すると、プロフィール情報をを編集できること' do
         sign_in(@profile.user)
         visit user_path(@profile.user)
@@ -29,16 +28,15 @@ RSpec.describe 'Profiles', type: :system do
         expect(page).to have_content('女性')
       end
     end
-    
-    context 'プロフィール編集できないとき' do
 
+    context 'プロフィール編集できないとき' do
       it '編集に失敗するとプロフィール編集ページに戻ってくること' do
         sign_in(@profile.user)
         visit edit_user_profile_path(@profile.user, @profile)
-        fill_in 'address', with: ""
+        fill_in 'address', with: ''
         click_on('編集する')
         expect(current_path).to eq user_profile_path(@profile.user, @profile)
-      end      
+      end
 
       it 'ログイン状態でも本人以外のユーザーがURLを直接入力してプロフィール情報編集ページに遷移しようとするとトップページに戻されること' do
         another_user = FactoryBot.create(:profile)
@@ -51,7 +49,7 @@ RSpec.describe 'Profiles', type: :system do
         visit edit_user_profile_path(@profile.user, @profile)
         expect(current_path).to eq new_user_session_path
       end
-    end  
+    end
   end
 
   describe 'プロフィール削除機能' do

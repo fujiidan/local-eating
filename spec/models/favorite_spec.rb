@@ -16,7 +16,7 @@ RSpec.describe Favorite, type: :model do
       @favorite.save
       another_favorite = FactoryBot.build(:favorite, user_id: @user.id, community_id: @community.id)
       another_favorite.valid?
-      expect(another_favorite.errors.full_messages).to include("Userはすでに存在します")
-    end  
+      expect(another_favorite.errors.full_messages).to include('Userはすでに存在します')
+    end
   end
 end

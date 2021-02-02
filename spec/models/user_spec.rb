@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
       another_user = FactoryBot.build(:user, nickname: @user.nickname)
       another_user.valid?
       expect(another_user.errors.full_messages).to include('ニックネームはすでに存在します')
-    end  
+    end
 
     it 'メールアドレスが必須であること' do
       @user.email = nil

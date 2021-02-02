@@ -8,14 +8,12 @@ RSpec.describe 'Stores', type: :system do
     end
 
     context '店舗登録できるとき' do
-
       it 'ログイン状態のユーザーのみが店舗登録ページに遷移でき、登録完了すると店舗詳細ページに遷移する' do
         create_store(@profile.user, @store)
       end
     end
 
     context '店舗登録できないとき' do
-
       it 'ログインしていないユーザーは、店舗登録ページに遷移しようとすると、ログインページに遷移する' do
         visit root_path
         click_on('飲食店を追加する')
@@ -69,7 +67,6 @@ RSpec.describe 'Stores', type: :system do
       expect(page).to have_no_content('削除する')
     end
 
-
     it '未ログイン状態のユーザーには、「コメントする」ボタンが表示されないこと' do
       visit store_path(@store)
       expect(page).to have_no_selector('.form-submit-btn')
@@ -83,7 +80,6 @@ RSpec.describe 'Stores', type: :system do
     end
 
     context '店舗情報編集できるとき' do
-
       it 'ログイン状態の出品者だけが店舗情報編集ページに遷移できること' do
         sign_in(@store.user)
         visit store_path(@store)
@@ -99,10 +95,9 @@ RSpec.describe 'Stores', type: :system do
         expect(current_path).to eq store_path(@store)
         expect(page).to have_content('テストname')
       end
-    end  
+    end
 
     context '店舗情報編集できないとき' do
-
       it '店舗編集に失敗すると編集画面に戻ってくること' do
         sign_in(@store.user)
         visit edit_store_path(@store)
@@ -122,7 +117,7 @@ RSpec.describe 'Stores', type: :system do
         visit edit_store_path(@store)
         expect(current_path).to eq new_user_session_path
       end
-    end  
+    end
   end
 
   describe '商品削除機能' do

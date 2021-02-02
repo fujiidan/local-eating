@@ -8,7 +8,6 @@ RSpec.describe 'Likes', type: :system do
     end
 
     context 'いいねできるとき' do
-
       it 'ログイン状態のユーザーのみいねボタンが表示されること' do
         sign_in(@store.user)
         visit store_path(@store)
@@ -34,14 +33,13 @@ RSpec.describe 'Likes', type: :system do
         expect(page).to have_css('.like-btn')
       end
     end
-    
-    context 'いいねできないとき' do
 
+    context 'いいねできないとき' do
       it 'ログイン済みでないユーザーにはいいねボタンが表示されないこと' do
         visit store_path(@store)
         expect(page).to have_no_css('.like-link')
       end
-    end  
+    end
   end
 
   describe 'いいね削除' do
