@@ -2,8 +2,6 @@ FactoryBot.define do
   factory :store do
     name            { Faker::Lorem.word }
     address         { Gimei.address.kanji }
-    latitude        { Faker::Address.latitude }
-    longitude       { Faker::Address.longitude }
     url             { Faker::Internet.url }
     genre_id        { rand(1..16) }
     price_id        { rand(1..10) }

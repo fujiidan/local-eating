@@ -5,10 +5,10 @@ class Store < ApplicationRecord
   geocoded_by :address
   before_validation :geocode
 
-  belongs_to :user
+  belongs_to        :user
   has_many_attached :store_images, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many          :comments,     dependent: :destroy
+  has_many          :likes,        dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to_active_hash :price
