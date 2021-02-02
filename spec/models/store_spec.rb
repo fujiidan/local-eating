@@ -32,17 +32,17 @@ RSpec.describe Store, type: :model do
       expect(@store.errors.full_messages).to include('住所を入力してください')
     end
 
-    # it '緯度が必須であること' do
-    #   @store.latitude = nil
-    #   @store.valid?
-    #   expect(@store.errors.full_messages).to include('緯度が算出されません、適切な住所を入力してください')
-    # end
+    it '緯度の算出には住所が必須であること' do
+      @store.address = nil
+      @store.valid?
+      expect(@store.errors.full_messages).to include('緯度が算出されません、適切な住所を入力してください')
+    end
 
-    # it '緯度が必須であること' do
-    #   @store.longitude = nil
-    #   @store.valid?
-    #   expect(@store.errors.full_messages).to include('経度が算出されません、適切な住所を入力してください')
-    # end
+    it '緯度の算出には住所が必須であること' do
+      @store.address = nil
+      @store.valid?
+      expect(@store.errors.full_messages).to include('経度が算出されません、適切な住所を入力してください')
+    end
 
     it 'ジャンルが必須であること' do
       @store.genre_id = nil
