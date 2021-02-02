@@ -4,37 +4,44 @@ RSpec.describe 'Likes', type: :system do
   describe 'いいね機能' do
     before do
       @store = FactoryBot.create(:store)
+      @profile = FactoryBot.create(:profile, user_id: @store.user_id)
     end
 
-    it 'いいねボタンをクリックするといいねできること' do
-      sign_in(@store.user)
-      visit store_path(@store)
-      find('.like-link').click
-      sleep(1)
-      expect(Like.count).to eq 1
-      expect(page).to have_css('.unlike-btn')
-    end
+    context 'いいねできるとき' do
 
-    it 'いいね済みのボタンをクリックするといいねを解除できること' do
-      FactoryBot.create(:like, user_id: @store.user_id, store_id: @store.id)
-      sign_in(@store.user)
-      visit store_path(@store)
-      find('.like-link').click
-      sleep(1)
-      expect(Like.count).to eq 0
-      expect(page).to have_css('.like-btn')
-    end
+      it 'ログイン状態のユーザーのみいねボタンが表示されること' do
+        sign_in(@store.user)
+        visit store_path(@store)
+        expect(page).to have_css('.like-link')
+      end
 
-    it 'ログイン状態のユーザーのみいねボタンが表示されること' do
-      sign_in(@store.user)
-      visit store_path(@store)
-      expect(page).to have_css('.like-link')
-    end
+      it 'いいねボタンをクリックするといいねできること' do
+        sign_in(@store.user)
+        visit store_path(@store)
+        find('.like-link').click
+        sleep(1)
+        expect(Like.count).to eq 1
+        expect(page).to have_css('.unlike-btn')
+      end
 
-    it 'ログイン済みでないユーザーにはいいねボタンが表示されないこと' do
-      visit store_path(@store)
-      expect(page).to have_no_css('.like-link')
+      it 'いいね済みのボタンをクリックするといいねを解除できること' do
+        FactoryBot.create(:like, user_id: @store.user_id, store_id: @store.id)
+        sign_in(@store.user)
+        visit store_path(@store)
+        find('.like-link').click
+        sleep(1)
+        expect(Like.count).to eq 0
+        expect(page).to have_css('.like-btn')
+      end
     end
+    
+    context 'いいねできないとき' do
+
+      it 'ログイン済みでないユーザーにはいいねボタンが表示されないこと' do
+        visit store_path(@store)
+        expect(page).to have_no_css('.like-link')
+      end
+    end  
   end
 
   describe 'いいね削除' do
