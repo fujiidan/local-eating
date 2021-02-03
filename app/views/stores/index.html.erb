@@ -7,8 +7,9 @@
     <%= form_with url: search_map_stores_path, method: :get, id: "search-form" do |f| %>
       <%= f.text_field :address, placeholder: "例: 東京都渋谷区神南１−１−１",  class: "form-input-area"%>
       <%= f.submit '地図検索', class: "form-submit-btn" %>
-    <% end %>  
+    <% end %>
     </div>
+    <p class="map-text">地図上のマーカーをクリックすると、店舗詳細ページを確認できます！</p>
     <div class="map">
       <div id="map"></div>
       <script>let mapInstance</script>
@@ -28,7 +29,7 @@
     <div class="content">
       <div class="content-message">
         <h2 class="content-message-title">近くの人と食を通して交流しよう！</h2>
-        <p class="content-text">地元の人達とチャット形式で交流して、コミュニティの輪を広げよう！<p>
+        <p class="content-text">地元のみんなとチャット形式で交流して、コミュニティの輪を広げよう！<p>
         <i class="fas fa-users"></i>
       </div>
       <div class="content-link">  

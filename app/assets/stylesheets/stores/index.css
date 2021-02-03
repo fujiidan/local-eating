@@ -11,16 +11,23 @@
 }
 
 .form-map {
-  height: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .search-title {
   margin-right: 10px;
   font-style: italic;
   border-bottom: 2px solid black;
+}
+
+.map-text {
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 20px;
 }
 
 .fa-search-location {
@@ -40,6 +47,7 @@
   width: 90%;
   border: 1px solid lightgray;
   border-radius: 5px;
+  
 }
 
 .contents {

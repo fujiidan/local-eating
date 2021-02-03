@@ -1,4 +1,4 @@
-<div class="shared-wrrappe">
+<div class="shared-wrapper">
  <%= render 'shared/header'%>
   <div class="shared-main">
     <div class="user-info-box">
@@ -19,15 +19,15 @@
       <div id="user-map"></div>
       <script >let mapInstance</script>
     </div>
-    <div class="user-store-wrapper"> 
-      <div class="user-store-title">
+    <div class="user-table-wrapper"> 
+      <div class="user-table-title">
         <h2><%= "#{current_user.nickname}さんの登録店舗一覧" %></h2>
       </div>
       <%= render partial: 'store_table', locals: {stores: @user_stores} %>
       <%= paginate @user_stores, param_name: 'store_page' %>
     </div>
-    <div class="user-store-wrapper">
-      <div class="user-store-title">
+    <div class="user-table-wrapper">
+      <div class="user-table-title">
         <h2><%= "#{current_user.nickname}さんの作成コミュニティ一覧"%></h2>
       </div>
       <%= render partial: 'community_table', locals: {communities: @user_communities} %>

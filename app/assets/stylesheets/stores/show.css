@@ -1,60 +1,45 @@
-.store-box {
-  width: 100%;
-}
-
 .store-title {
   height: 100px;
-}
-
-.store-name {
+  font-weight: bold;
+  font-style: italic;
   font-size: 36px;
-  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .store-images {
+  height: 300px;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
   overflow-x: scroll;
 }
 
 .store-image {
-  margin: 0 20px;
-}
-
-.temporary-image {
+  margin-right: 30px;
   height: 300px;
   width: 300px;
+  object-fit: cover;
 }
-.store-categorys {
+
+.store-categories {
   height: 100px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  margin-top: 50px;
   font-size: 24px;
-  margin-top: 30px;
 }
 
-.store-genre {
-  background-color: lightgray;
+.store-category {
+  background-color: lightskyblue;
   border-radius: 20px;
   padding: 20px;
+  font-weight: bold;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.75);
 }
 
-.store-price{
-  background-color: lightgray;
-  border-radius: 20px;
-  padding: 20px; 
-}
-
-.store-user{
-  background-color: lightgray;
-  border-radius: 20px;
-  padding: 20px; 
-}
 
 .like-btn {
   font-size: 100px;
@@ -71,22 +56,23 @@
   height: 300px;
   display: flex;
   margin-top: 50px;
-  padding: 20px;
 }
 
 .store-info {
   width: 50%;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 5px;
   margin-right: 20px;
-  background-color: rgba(211, 211, 211, 0.209);
+  background-color: rgba(211, 211, 211, 0.25);
 }
 
 .store-url {
   font-size: 16px;
-  border-bottom: 1px solid black;
+  padding: 5px 0;
+  border-bottom: 1px solid  lightgray;
   border-radius: 5px;
   font-weight: bold;
+  font-style: italic;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,6 +80,7 @@
 
 .store-info-text {
   font-size: 16px;
+  font-style: italic;
   padding: 10px;
   overflow-y: scroll;
 }
@@ -111,30 +98,34 @@
 .comment-box {
   width: 100%;
   padding: 20px;
+  margin-top: 50px;
+}
+
+.comment-title {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
 }
 
 .comment-field {
-  height: 400px;
+  height: 500px;
   width: 80%;
   padding: 20px;
   overflow-y: scroll;
-  background-color: rgba(211, 211, 211, 0.196);
+  background-color: rgba(211, 211, 211, 0.25);
   margin: 0 auto;
-  margin-top: 50px;
 }
 
 .comment-upper {
   display: flex;
   margin-bottom: 10px;
+  font-style: italic;
+
 }
 
 .comment-user {
   margin-right: 10px;
   font-weight: bold;
-}
-
-.comment-date {
-  font-style: oblique;
 }
 
 .comment-lower {
@@ -170,8 +161,8 @@
 
 .store-show-link {
   padding: 20px;
-  background-color: lightgrey;
+  background-color: lightskyblue;
   border-radius: 20px;
   font-size: 24px;
-  color: black;
+  color: white;
 }

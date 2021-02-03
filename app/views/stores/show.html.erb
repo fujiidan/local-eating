@@ -1,25 +1,21 @@
  <div class="shared-wrapper">
   <%= render 'shared/header'%>
   <div class="shared-main">
-    <div class="store-box">
-      <div class="store-title">
-        <div class="store-name">
-          <%= @store.name %>
-        </div>  
-      </div>
+    <div class="store-upper">
+      <div class="store-title"><%= @store.name %></div>
       <div class="store-images">
       <% if @store.store_images.present?%>
         <%  @store.store_images.each do |image|%>
-          <%= image_tag image.variant(resize: '300x300'), class: "store-image" %>
+          <%= image_tag image , class: "store-image" %>
         <% end %>
       <% else %>
-        <%= image_tag '/images/test_image.png', class: "temporary-image"%>
-      <% end %>  
+        <%= image_tag '/images/test_image.png', class: "store-image" %>
+      <% end %>
       </div>
-      <div class="store-categorys">
-        <div class="store-genre"><%= "ジャンル : #{@store.genre.name}" %></div>
-        <div class="store-price"><%= "価格帯 : #{@store.price.name}"%></div>
-        <div class="store-user"><%= "#{@store.user.nickname}さんのオススメ！"%></div>
+      <div class="store-categories">
+        <div class="store-category"><%= "ジャンル : #{@store.genre.name}" %></div>
+        <div class="store-category"><%= "価格帯 : #{@store.price.name}"%></div>
+        <div class="store-category"><%= "#{@store.user.nickname}さんのオススメ！"%></div>
         <div class="store-like" id="<%= @store.id %>">
           <%= render partial: "likes/like", locals: {store: @store} %>
         </div>
@@ -32,13 +28,14 @@
         </div>
         <div class="store-info-text">
           <%= "店舗情報 : #{@store.info}" %>
-        </div>  
+        </div>
       </div>
       <div class="store-map">
         <div id="store-map"></div>
       </div>  
     </div>
     <div class="comment-box">
+      <h3 class="comment-title">コメント欄</h3>
       <div class="comment-field">
         <div class="comment" id="comment-input">
         <% @comments.each do |comment| %>

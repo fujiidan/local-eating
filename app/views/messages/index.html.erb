@@ -39,7 +39,7 @@
     <div class="message-form-field">
     <% if user_signed_in? %>
       <%= form_with(model: [@community, @message], class: "message-form",  id: "message-form")  do |f| %>
-        <%= f.text_field :message, placeholder: "メッセージか画像どちらか必須", class: "message-form-input", id: "message" %>
+        <%= f.text_field :message,autofocus: true,  placeholder: "メッセージか画像どちらか必須", class: "message-form-input", id: "message" %>
         <label class="message-form-label">
           <span class="image-file">画像</span>
           <%= f.file_field :message_images, multiple: true, class: "hidden", id: "message-images" %>
@@ -47,7 +47,7 @@
         <%= f.submit "送信", class: "message-form-submit-btn" %>
       <% end %>
     <% else %>
-      <div class="signin_message">
+      <div class="sign_in_message">
         <%= link_to "メッセージ投稿にはログインが必要です", new_user_session_path %>
       </div>
     <% end %>    

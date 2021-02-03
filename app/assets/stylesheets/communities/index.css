@@ -11,7 +11,7 @@
 .community-form {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .sign-in-title {
@@ -35,10 +35,9 @@
 
 .community-lists {
   margin: 0 auto;
-  width: 100%;
+  margin-top: 50px;
 }
 
 .community-lists-title {
   text-align: center;
-  margin-top: 50px;
 }

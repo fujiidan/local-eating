@@ -1,15 +1,22 @@
 <div class="shared-wrapper">
  <%= render 'shared/header'%>
   <div class="shared-main">
-    <div class="user-store-wrapper"> 
-      <div class="user-store-title">
+    <div class="user-favorite-map-wrapper">
+      <div class="user-map-title">
+        <h2><%="#{current_user.nickname}さんのお気に入り店舗地図" %></h2>
+      </div>  
+      <div id="user-map"></div>
+      <script >let mapInstance</script>
+    </div>    
+    <div class="user-table-wrapper"> 
+      <div class="user-table-title">
         <h2><%= "#{current_user.nickname}さんのお気に入り店舗一覧" %></h2>
       </div>
       <%= render partial: 'store_table', locals: {stores: @like_stores} %>
       <%= paginate @like_stores, param_name: 'like_page' %>
     </div>
-    <div class="user-store-wrapper">
-      <div class="user-store-title">
+    <div class="user-table-wrapper">
+      <div class="user-table-title">
         <h2><%= "#{current_user.nickname}さんのお気に入りコミュニティ一覧"%></h2>
       </div>
       <%= render partial: 'community_table', locals: {communities: @favorite_communities} %>
@@ -18,3 +25,4 @@
   </div>
   <%= render "shared/second_footer" %>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>" async defer></script>  

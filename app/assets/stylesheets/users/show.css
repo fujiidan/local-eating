@@ -1,9 +1,5 @@
-.user-info-box {
-  width: 100%;
-}
-
 .table-title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .user-info {
@@ -31,11 +27,11 @@
 
 .user-map-wrapper {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .user-map-title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 #user-map {
@@ -44,13 +40,12 @@
   border-radius: 5px;
 }
 
-.user-store-wrapper{
-  margin: 30px 0 ;
-  width: 100%;
+.user-table-wrapper{
+  margin-top: 50px ;
 }
 
-.user-store-title {
-  margin-bottom: 20px;
+.user-table-title {
+  margin-bottom: 30px;
 }
 
 /* テーブル関係 */

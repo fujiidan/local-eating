@@ -17,7 +17,7 @@ function initMap(){
         </div>`
       });
       infoWindow.open(mapInstance, marker);
-    // マイページ場合の条件分岐
+    // マイページ、お気に入りページ場合の条件分岐
   } else if (document.getElementById('user-map')) {
       mapInstance = new google.maps.Map(document.getElementById('user-map'), {
       center: {lat: gon.profile.latitude, lng: gon.profile.longitude},
@@ -41,7 +41,7 @@ function initMap(){
     });
   }
 }
-// データベースからマーカーの情報取得 トップページ・マイページ
+// データベースからマーカーの情報取得 トップページ、マイページ、お気に入りページ
 function allMap () {
   gon.stores.forEach((store) => {
       let marker = new google.maps.Marker({
@@ -60,9 +60,10 @@ function allMap () {
       });
   });
 };
-if (location.pathname.match(/users.+\d$/) || location.pathname.match(/stores.+\d$/) || location.pathname.match(/^\/$/)) {
-  window.addEventListener("load", initMap, allMap);
+// urlで発火イベント制限
+if (location.pathname.match(/users.+\d$/) || location.pathname.match(/users.+favorite$/) || location.pathname.match(/stores.+\d$/) || location.pathname.match(/^\/$/)) {
+  window.addEventListener("load", initMap);
 }
-if (location.pathname.match(/users.+\d$/) || location.pathname.match(/^\/$/)) {
+if (location.pathname.match(/users.+\d$/) || location.pathname.match(/users.+favorite$/) || location.pathname.match(/^\/$/)) {
   window.addEventListener("load", allMap);
 }

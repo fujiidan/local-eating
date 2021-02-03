@@ -5,11 +5,11 @@
 .message-side-bar {
   height: 100vh;
   width: 300px;
+  background-color: lightskyblue;
 }
 
 .message-side-bar-header {
   height: 100px;
-  background-color: lightgray;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@
   color: black;
   font-weight: bold;
   padding: 5px;
-  background-color: white;
+  background-color: #f5f5f5;
   border-radius: 10px;
   width: 175px;
   text-align: center;
@@ -29,7 +29,6 @@
 
 .message-side-bar-main {
   height: calc(100vh - 100px);
-  background-color: lightgray;
   padding: 20px;
   overflow: scroll
 }
@@ -49,7 +48,7 @@
 
 .message-header {
   height: 100px;
-  background-color: #f5f5f5;
+  background-color:#f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,15 +82,12 @@
 .message-upper {
   display: flex;
   margin-bottom: 10px;
+  font-style: italic;
 }
 
 .message-user {
   margin-right: 10px;
   font-weight: bold;
-}
-
-.message-date {
-  font-style: oblique;
 }
 
 .message-lower {
@@ -113,7 +109,7 @@
 
 .message-form-field {
   height: 100px;
-  background-color:#f5f5f5;
+  background-color: lightgrey;
   padding: 30px;
 }
 
@@ -161,7 +157,7 @@
   display: none;
 }
 
-.signin_message {
+.sign_in_message {
   display: flex;
   justify-content: center;
   align-items: center;
