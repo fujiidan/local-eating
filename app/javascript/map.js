@@ -11,7 +11,7 @@ function initMap(){
         map: mapInstance
       });
       let infoWindow = new google.maps.InfoWindow({
-        content: `<div class="map-info">
+        content: `<div class="map-info" id="map-info">
         <p>${gon.store.name}</p>
         <p>${gon.store.address}</p>
         </div>`
@@ -28,7 +28,7 @@ function initMap(){
         map: mapInstance
       });
       let infoWindow = new google.maps.InfoWindow({
-        content: `<div class="map-info">
+        content: `<div class="map-info id="map-info">
         <p>${gon.profile.address}</p>
         </div>`
       });
@@ -36,7 +36,7 @@ function initMap(){
     // トップページ場合の条件分岐
   } else {
       mapInstance = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 35.662, lng: 139.704},
+      center: {lat: 35.658581, lng: 139.745433},
       zoom: 15
     });
   }
@@ -49,7 +49,7 @@ function allMap () {
       map: mapInstance
     });
       let infoWindow = new google.maps.InfoWindow({
-        content: `<div class="map-info">
+        content: `<div class="map-store-info" id="${store.id}">
         <p>${store.name}</p>
         <p>${store.address}</p>
         <a href="/stores/${store.id}"/>店舗詳細ページへ！</a>
