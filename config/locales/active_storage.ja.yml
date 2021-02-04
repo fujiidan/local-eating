@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      store:
+        store_images: 画像
+      comment:
+        comment_images: 画像
+      message:
+        message_images: 画像

@@ -6,10 +6,12 @@ ja:
      profile:
        address: 住所
        latitude: 緯度
-       longitude: 経度      
+       longitude: 経度
+       age: 年齢
      store:
        name: 店舗名
        address: 住所
+       url: URL
        info: 店舗情報
        latitude: 緯度
        longitude: 経度
@@ -30,4 +32,4 @@ ja:
       last: "最後 &raquo;"
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
-      truncate: "..."      
+      truncate: "..."

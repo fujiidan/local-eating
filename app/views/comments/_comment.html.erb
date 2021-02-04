@@ -9,7 +9,7 @@
   <div class="comment-text"><%= comment.comment %></div>
   <div class="comment-images">
   <% comment.comment_images.each do |comment_image| %>
-    <div class="comment-image"><%= image_tag comment_image.variant(resize: "200x200") %></div>
+    <div class="comment-image-box"><%= image_tag comment_image, class: "comment-image" %></div>
   <% end %>
   </div>  
 </div>

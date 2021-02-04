@@ -9,7 +9,7 @@
   <div class="message-text"><%= message.message %></div>
   <div class="message-images">
   <% message.message_images.each do |message_image| %>
-    <div class="message-image"><%= image_tag message_image.variant(resize: "200x200") %></div>
+    <div class="message-image-box"><%= image_tag message_image, class: "message-image" %></div>
   <% end %>
   </div>  
 </div>

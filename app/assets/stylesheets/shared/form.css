@@ -109,25 +109,13 @@
   padding: 0 0 30px 50px;
 }
 
+.check-box-image-content {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}
+
 .check-box-notice {
   font-weight: bold;
   margin: 10px 0;
 }
-.image-list {
-  margin-top: 50px;
-  width: 720px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.image-element {
-  width: 50%;
-  padding: 0 0 30px 50px;
-}
-
-.preview-image {
-  height: 250px;
-  width: 250px;
-}
-

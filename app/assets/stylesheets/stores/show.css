@@ -141,8 +141,14 @@
   flex-wrap: wrap;
 }
 
+.comment-image-box {
+  margin-right: 30px;
+}
+
 .comment-image {
-  margin-right: 40px;
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
 }
 
 .comment-form-wrapper {

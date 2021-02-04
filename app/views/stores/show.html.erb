@@ -52,15 +52,15 @@
               <%= f.label :comment, "コメント入力欄", class: "form-label-name" %><span class="form-warning">コメントか画像どちらか必須</span>
             </div> 
             <div class="form-input"> 
-              <%= f.text_area :comment, placeholder: "例: この料理もオススメです！", class: "form-text-area", id: "comment" %>
+              <%= f.text_area :comment, placeholder: "200文字以内", class: "form-text-area", id: "comment" %>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label">
-              <%= f.label :comment_images, "画像", class: "form-label-name" %><span class="form-any">複数枚可</span>
+              <%= f.label :comment_images, "画像", class: "form-label-name" %><span class="form-any">6枚まで</span>
             </div> 
             <div class="form-input"> 
-              <%= f.file_field :comment_images, multiple: true, name: "comment[comment_images][]",  class: "form-image-btn", id: "comment-images" %>
+              <%= f.file_field :comment_images, accept: 'image/jpg,image/jpeg,image/png,image/gif', multiple: true, name: "comment[comment_images][]",  class: "form-image-btn", id: "comment-images" %>
             </div>        
           </div>
           <div class="form-group">

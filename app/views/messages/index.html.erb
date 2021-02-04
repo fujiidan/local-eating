@@ -39,10 +39,10 @@
     <div class="message-form-field">
     <% if user_signed_in? %>
       <%= form_with(model: [@community, @message], class: "message-form",  id: "message-form")  do |f| %>
-        <%= f.text_field :message,autofocus: true,  placeholder: "メッセージか画像どちらか必須", class: "message-form-input", id: "message" %>
+        <%= f.text_field :message,autofocus: true,  placeholder: "メッセージか画像どちらか必須（50文字以内、画像8枚まで）", class: "message-form-input", id: "message" %>
         <label class="message-form-label">
           <span class="image-file">画像</span>
-          <%= f.file_field :message_images, multiple: true, class: "hidden", id: "message-images" %>
+          <%= f.file_field :message_images, accept: 'image/jpg,image/jpeg,image/png,image/gif', multiple: true, class: "hidden", id: "message-images" %>
         </label>
         <%= f.submit "送信", class: "message-form-submit-btn" %>
       <% end %>

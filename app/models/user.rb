@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true, uniqueness: { case_sensitive: true }
+  validates :nickname, presence: true, uniqueness: { case_sensitive: true }, length: {maximum: 10}
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/, message: 'は半角英数字をそれぞれ１文字以上含めてください' }, on: :create
 
   has_one  :profile,     dependent: :destroy
