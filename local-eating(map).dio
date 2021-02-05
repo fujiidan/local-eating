@@ -1,87 +1,47 @@
-<mxfile host="65bd71144e" modified="2021-01-13T01:57:44.660Z" agent="5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="nKjaRGztWImmqkfTQU3S" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-05T09:57:51.482Z" agent="5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="K72u5bhJuYJzZ7xmN_GO" version="13.10.0" type="embed">
     <diagram id="PkXVh8sz4eZBX68_o71-" name="ページ1">
-        <mxGraphModel dx="1016" dy="739" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1016" dy="735" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="message一覧ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
+                <mxCell id="2" value="メッセージ一覧ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="620" y="160" width="178.66" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="4" target="5" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="4" target="8" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="4" target="10" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="4" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="200" y="420" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="4" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="369" y="250" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="4" value="TOPページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
+                <mxCell id="4" value="トップページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="324" y="360" width="178.66" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="5" target="4" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="ユーザー情報編集ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="620" y="360" width="178.66" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="6" target="12" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="6" value="STORE詳細ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
+                <mxCell id="6" value="店舗情報詳細ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="20" y="360" width="178.66" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeWidth=3;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" parent="1" source="7" target="36" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;fillColor=#ffe6cc;strokeColor=#d79b00;" edge="1" parent="1" source="7" target="2">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" edge="1" parent="1" source="7" target="39">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="7" value="Community一覧ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
+                <mxCell id="7" value="コミュニティ一覧ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="320" y="160" width="178.66" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="8" target="4" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="サインインページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="620" y="560" width="178.66" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="10" target="4" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="10" value="STORE作成ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
+                <mxCell id="10" value="店舗情報作成ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="20" y="560" width="178.66" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;fontSize=16;fontColor=#000000;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="12" target="6" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="12" value="STORE編集ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
+                <mxCell id="12" value="店舗情報編集ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="20" y="160" width="178.66" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" parent="1" source="36" target="7" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="36" value="Community作成ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
+                <mxCell id="36" value="マイページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="320" y="10" width="178.66" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;gradientColor=#ffa500;fillColor=#ffcd28;strokeColor=#d79b00;" edge="1" parent="1" source="39" target="7">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="39" value="Community編集ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" vertex="1" parent="1">
+                <mxCell id="39" value="コミュニティ編集ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="620" y="10" width="178.66" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="ユーザー情報登録ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="560" width="178.66" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="プロフィール編集ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="420" width="178.66" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="プロフィール登録ページ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;fontColor=#000000;aspect=fixed;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="490" width="178.66" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
