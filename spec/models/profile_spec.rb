@@ -7,7 +7,6 @@ RSpec.describe Profile, type: :model do
     end
 
     context 'プロフィール登録できるとき' do
-
       it 'プロフィールを入力すると登録できること' do
         expect(@profile).to be_valid
       end
@@ -22,11 +21,10 @@ RSpec.describe Profile, type: :model do
         expect(@profile).to be_valid
       end
     end
-    
-    context 'プロフィール登録できないとき' do
 
+    context 'プロフィール登録できないとき' do
       it '年齢は４文字以上は登録できないこと' do
-        @profile.age = "1234"
+        @profile.age = '1234'
         @profile.valid?
         expect(@profile.errors.full_messages).to include('年齢は3文字以内で入力してください')
       end
@@ -48,6 +46,6 @@ RSpec.describe Profile, type: :model do
         @profile.valid?
         expect(@profile.errors.full_messages).to include('経度が算出されません、適切な住所を入力してください')
       end
-    end  
+    end
   end
 end

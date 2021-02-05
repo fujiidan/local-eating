@@ -8,16 +8,13 @@ RSpec.describe Favorite, type: :model do
   end
 
   describe 'お気に入り機能' do
-
     context 'お気に入りできるとき' do
-
       it 'お気に入りを保存するにはuser_idとcommunity_idが必須であること' do
         expect(@favorite).to be_valid
       end
     end
 
     context 'お気に入りできないとき' do
-
       it '1人のユーザーは１つのコミュニティに対して、１つしかお気に入りをつけれないこと' do
         @favorite.save
         another_favorite = FactoryBot.build(:favorite, user_id: @user.id, community_id: @community.id)

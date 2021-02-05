@@ -1,5 +1,5 @@
 class Community < ApplicationRecord
-  validates :name, presence: true, length: {maximum: 20 }
+  validates :name, presence: true, length: { maximum: 20 }
 
   belongs_to :user
   has_many   :messages,  dependent: :destroy

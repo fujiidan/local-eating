@@ -4,8 +4,9 @@ class Store < ApplicationRecord
     validates :address
     validates :info, length: { maximum: 400 }
   end
-  validates :url, format: {with: /https?:\/{2}[\w\/:%#\$&\?\(\)~\.=\+\-]+/, message: 'にはhttpまたはhttpsを含む必要があります' }, allow_blank: true
-  validates :store_images, content_type: ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'], limit: {max: 10}
+  validates :url, format: { with: %r{https?:/{2}[\w/:%#{Regexp.last_match(0)}?()~.=+\-]+}, message: 'にはhttpまたはhttpsを含む必要があります' },
+                  allow_blank: true
+  validates :store_images, content_type: ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'], limit: { max: 10 }
   validates :latitude, :longitude, numericality: { message: 'が算出されません、適切な住所を入力してください' }
   validates :genre_id, :price_id, numericality: { only_integer: true, message: 'を選択してください' }
   geocoded_by :address

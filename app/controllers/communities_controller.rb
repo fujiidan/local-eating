@@ -11,7 +11,7 @@ class CommunitiesController < ApplicationController
   def search
     @search_communities = SearchCommunitiesService.search(params[:keyword])
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 

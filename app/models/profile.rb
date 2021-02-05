@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  validates :age, length: {maximum: 3 }
+  validates :age, length: { maximum: 3 }
   validates :address, presence: true
   validates :latitude, :longitude, numericality: { message: 'が算出されません、適切な住所を入力してください' }
   geocoded_by :address

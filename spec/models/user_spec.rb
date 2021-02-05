@@ -7,12 +7,11 @@ RSpec.describe User, type: :model do
     end
 
     context 'ユーザー登録できるとき' do
-
       it '全ての情報を適切に入力すれば新規登録できること' do
         expect(@user).to be_valid
       end
     end
-    
+
     context 'ユーザー登録できないとき' do
       it 'ニックネームが必須であること' do
         @user.nickname = nil
@@ -29,7 +28,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'ニックネームは11文字以上は登録できないこと' do
-        @user.nickname = "12345678901"
+        @user.nickname = '12345678901'
         @user.valid?
         expect(@user.errors.full_messages).to include('ニックネームは10文字以内で入力してください')
       end
@@ -93,6 +92,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
-    end  
+    end
   end
 end

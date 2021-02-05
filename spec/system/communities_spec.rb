@@ -43,23 +43,23 @@ RSpec.describe 'Communities', type: :system do
   describe 'コミュニティ検索機能' do
     before do
       @profile = FactoryBot.create(:profile)
-      FactoryBot.create_list(:community, 3,  name: "テスト" )
+      FactoryBot.create_list(:community, 3, name: 'テスト')
     end
 
     it '検索ワードが該当がある場合' do
       visit communities_path
-      fill_in 'search-input', with: "テスト"
+      fill_in 'search-input', with: 'テスト'
       click_on('検索する')
       sleep 1
-      expect(page).to have_content("検索結果！(3個)")
+      expect(page).to have_content('検索結果！(3個)')
     end
 
     it '検索ワードが該当がないとき' do
       visit communities_path
-      fill_in 'search-input', with: "test"
+      fill_in 'search-input', with: 'test'
       click_on('検索する')
       sleep 1
-      expect(page).to have_content("検索結果は見つかりませんでした")
+      expect(page).to have_content('検索結果は見つかりませんでした')
     end
   end
 

@@ -21,9 +21,8 @@ RSpec.describe Store, type: :model do
         expect(@store).to be_valid
       end
     end
-    
-    context '店舗登録できないとき' do
 
+    context '店舗登録できないとき' do
       it '店舗名が必須であること' do
         @store.name = nil
         @store.valid?
@@ -86,7 +85,7 @@ RSpec.describe Store, type: :model do
 
       it '画像の拡張子は.jpeg, .jpg, .gif, .png,以外では登録できないこと' do
         @store.store_images = nil
-        file = fixture_file_upload("/files/test.bmp", 'image/bmp')
+        file = fixture_file_upload('/files/test.bmp', 'image/bmp')
         @store.store_images.attach(file)
         @store.valid?
         expect(@store.errors.full_messages).to include('画像のContent Typeが不正です')
@@ -94,13 +93,13 @@ RSpec.describe Store, type: :model do
 
       it '画像は11枚以上一度に保存できないこと' do
         @store.store_images = nil
-        file = fixture_file_upload("/files/test.png", 'image/png')
+        file = fixture_file_upload('/files/test.png', 'image/png')
         11.times do
           @store.store_images.attach(file)
-        end          
+        end
         @store.valid?
         expect(@store.errors.full_messages).to include('画像の数が許容範囲外です')
-      end  
-    end  
+      end
+    end
   end
 end

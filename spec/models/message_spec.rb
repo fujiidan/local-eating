@@ -6,9 +6,7 @@ RSpec.describe Message, type: :model do
   end
 
   describe 'メッセージ投稿' do
-
     context 'メッセージ投稿できるとき' do
-
       it '全ての情報を適切に入力すればメッセージ投稿できること' do
         expect(@message).to be_valid
       end
@@ -25,7 +23,6 @@ RSpec.describe Message, type: :model do
     end
 
     context 'メッセージ投稿できないとき' do
-
       it 'メッセージか画像どちらかは必須であること' do
         @message.message = nil
         @message.message_images = nil
@@ -41,7 +38,7 @@ RSpec.describe Message, type: :model do
 
       it '画像の拡張子は.jpeg, .jpg, .gif, .png,以外では登録できないこと' do
         @message.message_images = nil
-        file = fixture_file_upload("/files/test.bmp", 'image/bmp')
+        file = fixture_file_upload('/files/test.bmp', 'image/bmp')
         @message.message_images.attach(file)
         @message.valid?
         expect(@message.errors.full_messages).to include('画像のContent Typeが不正です')
@@ -49,13 +46,13 @@ RSpec.describe Message, type: :model do
 
       it '画像は9枚以上一度に保存できないこと' do
         @message.message_images = nil
-        file = fixture_file_upload("/files/test.png", 'image/png')
+        file = fixture_file_upload('/files/test.png', 'image/png')
         9.times do
           @message.message_images.attach(file)
-        end          
+        end
         @message.valid?
         expect(@message.errors.full_messages).to include('画像の数が許容範囲外です')
-      end  
-    end  
+      end
+    end
   end
 end

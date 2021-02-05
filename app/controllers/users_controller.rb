@@ -46,5 +46,5 @@ class UsersController < ApplicationController
   def set_profile
     @profile = current_user.profile
     gon.profile = @profile
-  end  
+  end
 end
