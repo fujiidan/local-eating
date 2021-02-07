@@ -1,4 +1,4 @@
-# アプリケーション名: LocalEating
+# LocalEating
 
 ![d5acbdef574f3f6e591158a512e293b2](https://user-images.githubusercontent.com/75054906/107138811-fd715180-6959-11eb-86c9-af30e47e570b.jpg)
 
