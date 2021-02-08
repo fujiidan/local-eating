@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def check_guest
     if current_user.email == 'guest@gmail.com'
-      redirect_to user_path(current_user), alert: 'ゲストユーザーの変更・削除できません'
+      redirect_to user_path(current_user), alert: 'ゲストユーザーの変更・削除はできません'
     end
   end
 end
