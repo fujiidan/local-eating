@@ -10,7 +10,7 @@
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: 'header-link' %>
     <%# ログアウト時表示%>
     <% else %>
-      <%= link_to 'ゲストさん', new_user_session_path, class:'header-link'%>
+      <%= link_to 'ゲストユーザーでログイン',  users_guest_sign_in_path, method: :post,  class:'header-link'%>
       <%= link_to 'ログイン', new_user_session_path, class: 'header-link' %>
       <%= link_to '新規登録', new_user_registration_path, class: 'header-link' %>
     <% end %>

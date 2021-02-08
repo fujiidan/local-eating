@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'profiles', to: 'users/registrations#new_profile'
     post 'profiles', to: 'users/registrations#create_profile'
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
   resources :users, only: [:show, :edit, :update, :destroy] do

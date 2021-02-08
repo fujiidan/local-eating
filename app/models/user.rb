@@ -24,4 +24,11 @@ class User < ApplicationRecord
   def favorited?(community_id)
     favorites.where(community_id: community_id).exists?
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@gmail.com') do |user|
+      user.nickname = "ゲストユーザー"
+      user.password = "guest1234"
+    end
+  end
 end
