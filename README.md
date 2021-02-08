@@ -13,7 +13,7 @@
 
 ## App URL
 
-http://18.176.242.139/
+https://local-eating-d.com/
 
 
 ## ID/Pass
