@@ -32,10 +32,11 @@ https://local-eating-d.com/
 ![店舗登録](https://user-images.githubusercontent.com/75054906/107311176-341da800-6ad1-11eb-9ade-6ebb609875f7.gif)
 
 #### お気に入りリストページ→googlemap上にいいねした店舗の情報が表示される
-https://user-images.githubusercontent.com/75054906/107307357-e81b3500-6ac9-11eb-98b9-8a3ad68951d3.mp4
+![お気に入り](https://user-images.githubusercontent.com/75054906/107311815-64b21180-6ad2-11eb-93fe-8557d0f12be2.gif)
+
 
 #### コミュニティ一覧ページへ！→詳細ページへ→チャット一覧画面
-https://user-images.githubusercontent.com/75054906/107307838-d7b78a00-6aca-11eb-9c54-53d82af6b77c.mp4
+![コミュニティ](https://user-images.githubusercontent.com/75054906/107311860-83180d00-6ad2-11eb-824e-345daeaf43cf.gif)
 
 
 ## 機能一覧
