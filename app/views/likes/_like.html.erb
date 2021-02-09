@@ -4,14 +4,14 @@
     <%= link_to store_likes_path(store), class: "like-link", method: :delete, remote: true do %>
       <i class="fa fa-heart unlike-btn"></i>
     <% end %>
-      <h3><%="いいね#{store.likes.count}"%></h3>
+      <h3 class="like-text"><%="いいね#{store.likes.count}"%></h3>
   <% else  %>
     <%= link_to store_likes_path(store), class: "like-link", method: :post, remote: true do %>
       <i class="fa fa-heart like-btn"></i>
     <% end %>  
-      <h3><%="いいね#{store.likes.count}"%></h3>           
+      <h3 class="like-text"><%="いいね#{store.likes.count}"%></h3>           
   <% end %>
 <% else %>
   <i class="fa fa-heart unlike-btn"></i>
-  <h3><%="いいね#{store.likes.count}"%></h3>
+  <h3 class="like-text"><%="いいね#{store.likes.count}"%></h3>
 <% end %>  

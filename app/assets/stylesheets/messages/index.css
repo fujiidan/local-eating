@@ -33,6 +33,12 @@
   overflow: scroll
 }
 
+.message-favorite {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
 .message-community {
   padding-top : 20px;
 }

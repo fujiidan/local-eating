@@ -28,7 +28,7 @@
   justify-content: space-evenly;
   align-items: center;
   margin-top: 50px;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .store-category {
@@ -40,6 +40,9 @@
   color: rgba(0, 0, 0, 0.75);
 }
 
+.like-text {
+  text-align: center;
+}
 
 .like-btn {
   font-size: 100px;

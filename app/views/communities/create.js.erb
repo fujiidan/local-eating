@@ -1,8 +1,6 @@
 (function() {
   const HTML = `<%= render partial: 'communities/community_table_record', locals: {community: @community} %>`;
-
   const inputRecord = document.getElementById("input-record");
-  const communityCount = document.getElementById("community-count")
   inputRecord.insertAdjacentHTML('afterend', HTML);
   document.getElementById("community-input").value = "";
 })();

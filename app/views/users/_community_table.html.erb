@@ -1,7 +1,12 @@
 <%# users/show, users/favorite, communities/index, communities/search.js.erbで適用 %>
 <table class="community-table">
   <tbody>
+    <%# searchアクションの際はidを無くす %>
+    <% if params[:action] == "search" %>
+    <tr class="table-record">
+    <% else %>
     <tr class="table-record" id="input-record">
+    <% end %>
       <th class="table-column3">コミュニティ作成日</th>
       <th class="table-column3">コミュニティの名前</th>
       <th class="table-column3">スレッド数</th>            

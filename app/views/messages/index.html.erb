@@ -5,9 +5,9 @@
       <%= link_to "コミュニティ一覧へ", communities_path, class: "message-link" %>
     </div>
     <div class="message-side-bar-main">
-      <div class="message-user">
+      <div class="message-favorite">
       <% if user_signed_in? %>
-      <%= "#{current_user.nickname}さんのお気に入り一覧" %>
+      <p>お気に入り登録一覧</p>
       <i class="fas fa-star"></i>
       <% else %>
       <%= link_to "ゲストさん", new_user_session_path %>

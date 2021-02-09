@@ -61,7 +61,9 @@
 
 .table-link {
   float: left;
-  margin-right: 55px;
+  margin : 0 5px;
+  width: 30%;
+  text-align: center;
   background-color: lightskyblue;
   color: white;
   font-weight: bold;
