@@ -29,7 +29,7 @@ https://local-eating-d.com/
 ## 利用方法
 
 #### 飲食店を追加する！→店舗情報入力・登録→店舗詳細画面にていいねする
-https://user-images.githubusercontent.com/75054906/107305518-78f01180-6ac6-11eb-9ba4-bedc016da6a3.mp4
+![店舗登録](https://user-images.githubusercontent.com/75054906/107311176-341da800-6ad1-11eb-9ade-6ebb609875f7.gif)
 
 #### お気に入りリストページ→googlemap上にいいねした店舗の情報が表示される
 https://user-images.githubusercontent.com/75054906/107307357-e81b3500-6ac9-11eb-98b9-8a3ad68951d3.mp4
