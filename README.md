@@ -16,7 +16,7 @@
 https://local-eating-d.com/
 
 
-## Basic ID/Pass
+## Basic認証 ID/Pass
 
 - ID   : fujiidan
 - Pass : 2607
