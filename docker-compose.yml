@@ -1,0 +1,27 @@
+version: '3' 
+services:
+  db:
+    image: mysql@sha256:e29f4d4b43951c766cd6bacca8d05ac545ec76bb7f42e798bed5e2038c5e2753 #macM1OSの為、ハッシュ指定でエラーとならないように5.6を指定
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - "4306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/local-eating
+      - bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    env_file: my_env_file.env  
+    tty: true
+    stdin_open: true
+volumes:
+  mysql-data:
+  bundle:
