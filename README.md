@@ -64,7 +64,7 @@ https://local-eating-d.com/
 
 ## インフラ構成図
 
-![インフラ構成図](https://user-images.githubusercontent.com/75054906/107140699-44197880-6967-11eb-8431-df67a52e2e48.png)
+![インフラ構成図](https://user-images.githubusercontent.com/75054906/107958869-fbf0fa80-6fe5-11eb-8f8a-cc7054274ace.png)
 
 ## 制作背景
 
