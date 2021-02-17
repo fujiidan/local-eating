@@ -19,9 +19,17 @@ services:
       - 3000:3000
     depends_on:
       - db
+      - chrome
     env_file: my_env_file.env  
     tty: true
     stdin_open: true
+    environment:
+      SELENIUM_DRIVER_URL: http://chrome:4444/wd/hub
+
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - 4444:4444  
 volumes:
   mysql-data:
   bundle:
