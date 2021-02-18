@@ -23,7 +23,7 @@ RSpec.describe 'Likes', type: :system do
         expect(page).to have_css('.unlike-btn')
       end
 
-      it 'いいね済みのボタンをクリックするといいねを解除できること' do, js: true 
+      it 'いいね済みのボタンをクリックするといいねを解除できること', js: true  do 
         FactoryBot.create(:like, user_id: @store.user_id, store_id: @store.id)
         sign_in(@store.user)
         visit store_path(@store)
