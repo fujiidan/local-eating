@@ -23,7 +23,7 @@ RSpec.describe 'Profiles', type: :system do
         find('#sex-id').find("option[value='2']").select_option
         click_on('編集する')
         expect(current_path).to eq user_path(@profile.user)
-        expect(page).to have_content('テスト住所')
+        expect(page).to have_content('東京タワー')
         expect(page).to have_content('100')
         expect(page).to have_content('女性')
       end

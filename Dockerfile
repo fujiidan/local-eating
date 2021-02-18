@@ -12,8 +12,6 @@ RUN gem install bundler -v 2.1.4
 
 RUN bundle install
 
-RUN gem install rspec_junit_formatter
-
 COPY entrypoint.sh /usr/bin/
 
 RUN chmod +x /usr/bin/entrypoint.sh
