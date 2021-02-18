@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :store do
     name            { Faker::Lorem.word }
-    address         { Gimei.address.kanji }
+    address         { '東京タワー' }
     url             { Faker::Internet.url }
     genre_id        { rand(1..16) }
     price_id        { rand(1..10) }

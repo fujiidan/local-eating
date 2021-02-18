@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :profile do
-    address       { Gimei.address.kanji }
+    address       { '東京タワー' }
     age           { rand(1..100) }
     sex_id        { rand(1..2) }
     association :user
