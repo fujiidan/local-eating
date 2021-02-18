@@ -1,4 +1,4 @@
-if RAILS_ENV == 'test'
+if Rails.env.test?
   Geocoder.configure(lookup: :test)
   Geocoder::Lookup::Test.add_stub(
       '東京タワー', [{
