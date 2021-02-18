@@ -87,7 +87,7 @@ https://local-eating-d.com/
 ## 課題点と実装予定の機能
 - webmockを利用したgoogleAPIのRspecテストの実装
 - Dockerテスト環境構築(js: trueの結合テストが通らず)
-- CD環境構築及び、DockerでのAWSデプロイ
+- CD環境構築及び、Docker環境をAWSへデプロイ
 - レスポンシブデザイン対応（スマホ・タブレット)
 - FirstViewの作成
 
