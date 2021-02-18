@@ -15,7 +15,7 @@ RSpec.describe 'Messages', type: :system do
         expect(page).to have_no_content('送信')
       end
       # docker環境でjs動かない為一旦コメントアウト
-      # it 'メッセージ投稿すると、ページ遷移無くメッセージが表示される' do, js: true 
+      # it 'メッセージ投稿すると、ページ遷移無くメッセージが表示される', js: true do
       #   sign_in(@community.user)
       #   visit community_messages_path(@community)
       #   fill_in 'message', with: @message.message

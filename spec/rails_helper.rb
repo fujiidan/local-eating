@@ -39,7 +39,7 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :rack_test
   end
-# js:trueのテスト動かず
+  # js:trueのテスト動かず
   config.before(:each, type: :system, js: true) do
     driven_by :remote_chrome
     Capybara.server_host = IPSocket.getaddress(Socket.gethostname)

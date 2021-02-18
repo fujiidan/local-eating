@@ -45,7 +45,7 @@ RSpec.describe 'Communities', type: :system do
   #     @profile = FactoryBot.create(:profile)
   #     FactoryBot.create_list(:community, 3, name: 'テスト')
   #   end
-  #   it '検索ワードが該当がある場合' do, js: true 
+  #   it '検索ワードが該当がある場合', js: true  do
   #     visit communities_path
   #     fill_in 'search-input', with: 'テスト'
   #     click_on('検索する')
@@ -53,7 +53,7 @@ RSpec.describe 'Communities', type: :system do
   #     expect(page).to have_content('検索結果！(3個)')
   #   end
 
-  #   it '検索ワードが該当がないとき' do, js: true 
+  #   it '検索ワードが該当がないとき', js: true  do
   #     visit communities_path
   #     fill_in 'search-input', with: 'test'
   #     click_on('検索する')
@@ -69,7 +69,7 @@ RSpec.describe 'Communities', type: :system do
     end
     # docker環境でjs動かない為一旦コメントアウト
     # context 'コミュニテイ作成できるとき' do
-    #   it 'コミュニテイ作成すると、ページ遷移無くコメントが表示される' do, js: true 
+    #   it 'コミュニテイ作成すると、ページ遷移無くコメントが表示される', js: true do
     #     sign_in(@profile.user)
     #     visit communities_path
     #     fill_in 'community-input', with: @community.name

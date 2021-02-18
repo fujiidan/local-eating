@@ -11,9 +11,9 @@ class Profile < ApplicationRecord
 
   def self.guest(user)
     find_or_create_by!(user_id: user.id) do |profile|
-      profile.address = "東京タワー"
-      profile.age = "20"
-      profile.sex_id = "1"
+      profile.address = '東京タワー'
+      profile.age = '20'
+      profile.sex_id = '1'
     end
   end
 end

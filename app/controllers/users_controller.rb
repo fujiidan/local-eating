@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :check_guest, only: [:destroy, :update]
   before_action :set_profile, only: [:show, :favorite]
 
-
   def show
     @stores = Store.order('created_at DESC')
     @user_stores = current_user.stores.order('created_at DESC').page(params[:store_page]).per(10)
@@ -51,8 +50,6 @@ class UsersController < ApplicationController
   end
 
   def check_guest
-    if current_user.email == 'guest@gmail.com'
-      redirect_to user_path(current_user), alert: 'ゲストユーザーの変更・削除はできません'
-    end
+    redirect_to user_path(current_user), alert: 'ゲストユーザーの変更・削除はできません' if current_user.email == 'guest@gmail.com'
   end
 end

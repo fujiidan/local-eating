@@ -14,7 +14,7 @@ RSpec.describe 'Favorites', type: :system do
         expect(page).to have_css('.favorite-link')
       end
       # docker環境でjs動かない為一旦コメントアウト
-      # it 'お気に入りボタンをクリックするとお気に入りできること' do, js: true 
+      # it 'お気に入りボタンをクリックするとお気に入りできること', js: true do
       #   sign_in(@community.user)
       #   visit community_messages_path(@community)
       #   find('.favorite-link').click
@@ -23,7 +23,7 @@ RSpec.describe 'Favorites', type: :system do
       #   expect(page).to have_css('.unfavorite-btn')
       # end
 
-      # it 'お気に入り済みのボタンをクリックするとお気に入りを解除できること' do, js: true 
+      # it 'お気に入り済みのボタンをクリックするとお気に入りを解除できること', js: true do
       #   FactoryBot.create(:favorite, user_id: @community.user_id, community_id: @community.id)
       #   sign_in(@community.user)
       #   visit community_messages_path(@community)

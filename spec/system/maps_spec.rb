@@ -62,7 +62,7 @@
 
 #     context '地図検索できるとき' do
 
-#       it 'トップページにて検索を行うと地図上に検索結果が表示されたピンがたつこと' do, js: true 
+#       it 'トップページにて検索を行うと地図上に検索結果が表示されたピンがたつこと', js: true do
 #         visit root_path
 #         fill_in 'address', with: '東京タワー'
 #         click_on('地図検索')

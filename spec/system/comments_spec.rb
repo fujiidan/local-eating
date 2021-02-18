@@ -32,7 +32,7 @@ RSpec.describe 'Comments', type: :system do
     end
 
     context 'コメント投稿できない時' do
-      # # docker環境でjs動かない為一旦コメントアウト      
+      # # docker環境でjs動かない為一旦コメントアウト
       # it 'コメント投稿に失敗すると、ページ遷移なくページにとどまる', js: true  do
       #   sign_in(@store.user)
       #   visit store_path(@store)
