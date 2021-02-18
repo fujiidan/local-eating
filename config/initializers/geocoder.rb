@@ -2,7 +2,7 @@ if Rails.env.test?
   Geocoder.configure(lookup: :test)
   Geocoder::Lookup::Test.add_stub(
       '東京タワー', [{
-      'geometry' => { 'location' => { 'lat' => 35.7090259, 'lng' => 139.7319925 } }
+        'coordinates'  => [40.7143528, -74.0059731]
   }]
   )
   Geocoder::Lookup::Test.add_stub(
