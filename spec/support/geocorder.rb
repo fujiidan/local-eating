@@ -1,5 +1,4 @@
-# geocordermockメモ
-# module CreateStoreSupport
+# module GSupport
 #   def geocorder
 
 #     Geocoder.configure(lookup: :test)
@@ -9,7 +8,7 @@
 #     }]
 #     )
 #     Geocoder::Lookup::Test.add_stub(
-#         'ダメなキーワード', []
+#         '', []
 #     )
 #       end
 # end
