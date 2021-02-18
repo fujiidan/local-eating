@@ -18,7 +18,7 @@ RSpec.describe 'Profiles', type: :system do
         visit user_path(@profile.user)
         click_on('プロフィール情報編集')
         expect(current_path).to eq edit_user_profile_path(@profile.user, @profile)
-        fill_in 'address', with: 'テスト住所'
+        fill_in 'address', with: '東京タワー'
         fill_in 'age', with: '100'
         find('#sex-id').find("option[value='2']").select_option
         click_on('編集する')
