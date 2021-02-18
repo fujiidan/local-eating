@@ -16,7 +16,7 @@
 https://local-eating-d.com/
 
 
-## Basic認証 ID/Pass
+## Basic認証 ID/Pass (要求された場合のみ)
 
 - ID   : fujiidan
 - Pass : 2607
@@ -56,15 +56,15 @@ https://local-eating-d.com/
 ## 使用技術
 
 - HTML / CSS / JavaScript / Ruby(2.6.5) / Ruby on Rails(6.0.0)
-- AWS( EC2 / Nginx / Unicorn / MariaDB / S3 / ROUTE53 / ACM / ALB )
 - Google API ( Maps Javascript API / Geocoding API )
-- Rubocop / Rspec / Capistrano
+- AWS( EC2 / Nginx / Unicorn / MariaDB / S3 / ROUTE53 / ACM / ALB )
+- Rubocop / Rspec / Capistrano / Docker / DockerHub / CircleCI
 - Git / GitHub / Visual Studio Code
 
 
 ## インフラ構成図
 
-![インフラ構成図](https://user-images.githubusercontent.com/75054906/107958869-fbf0fa80-6fe5-11eb-8f8a-cc7054274ace.png)
+![インフラ構成図](https://user-images.githubusercontent.com/75054906/108313039-f7e9f600-71fa-11eb-84fc-fafde041dbb5.png)
 
 ## 制作背景
 
@@ -81,13 +81,14 @@ https://local-eating-d.com/
 - ひと目見るだけで使い方がわかるように、親しみやすい配色・シンプルなレイアウト構成
 - ユーザービリティを第一に考え、検索機能や非同期でストレスのないウェブページを作成しました。
 - 150個以上のテストコードの実装、N+1問題を考慮した通信速度の担保、画像ファイル形式など細かいバリデーションを考慮し、アプリケーションとしてエラーや不具合が起きないように配慮した設計を目指しました.
+- Dockerを使用した開発環境構築、CircleCIによる自動テストの実装、URLのHttps化
 
 
 ## 課題点と実装予定の機能
-- mockを利用したgoogleAPIのRspecテストの実装
+- webmockを利用したgoogleAPIのRspecテストの実装
+- Dockerテスト環境構築(js: trueの結合テストが通らず)
+- CD環境構築及び、DockerでのAWSデプロイ
 - レスポンシブデザイン対応（スマホ・タブレット)
-- Docker環境構築(js: trueの結合テストが通らず)
-- CI/CDパイプラインの環境構築
 - FirstViewの作成
 
 
