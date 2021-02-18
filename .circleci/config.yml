@@ -32,9 +32,6 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       
-      # 開発環境だとインストールできない為
-      - run: gem install rspec_junit_formatter
-
       - restore_cache:
           keys:
             - rails-demo-yarn-{{ checksum "yarn.lock" }}
