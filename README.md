@@ -58,13 +58,13 @@ https://local-eating-d.com/
 - HTML / CSS / JavaScript / Ruby(2.6.5) / Ruby on Rails(6.0.0)
 - Google API ( Maps Javascript API / Geocoding API )
 - AWS( EC2 / Nginx / Unicorn / MariaDB / S3 / ROUTE53 / ACM / ALB )
-- Rubocop / Rspec / Capistrano / Docker / DockerHub / CircleCI
+- Docker / DockerHub / CircleCI / Rubocop / Rspec / Capistrano
 - Git / GitHub / Visual Studio Code
 
 
 ## インフラ構成図
 
-![インフラ構成図](https://user-images.githubusercontent.com/75054906/108313039-f7e9f600-71fa-11eb-84fc-fafde041dbb5.png)
+![インフラ構成図](https://user-images.githubusercontent.com/75054906/108618883-eb68d600-7464-11eb-8f90-d8979fc5bd95.png)
 
 ## 制作背景
 
@@ -81,15 +81,15 @@ https://local-eating-d.com/
 - ひと目見るだけで使い方がわかるように、親しみやすい配色・シンプルなレイアウト構成
 - ユーザービリティを第一に考え、検索機能や非同期でストレスのないウェブページを作成しました。
 - 150個以上のテストコードの実装、N+1問題を考慮した通信速度の担保、画像ファイル形式など細かいバリデーションを考慮し、アプリケーションとしてエラーや不具合が起きないように配慮した設計を目指しました.
-- Dockerを使用した開発環境構築、CircleCIによる自動テストの実装、URLのHttps化
+- Dockerを使用した開発環境構築、CircleCIによるCI/CDパイプラインの実装、URLのHttps化
 
 
 ## 課題点と実装予定の機能
 - webmockを利用したgoogleAPIのRspecテストの実装
 - Dockerテスト環境構築(js: trueの結合テストが通らず)
-- CD環境構築及び、Docker環境をAWSへデプロイ
+- Docker環境でのAWSデプロイ
+- タグづけ機能やユーザーアイコン登録などの追加実装
 - レスポンシブデザイン対応（スマホ・タブレット)
-- FirstViewの作成
 
 
 ## ER図
