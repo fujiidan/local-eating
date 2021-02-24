@@ -16,7 +16,7 @@ services:
       - .:/local-eating
       - bundle:/usr/local/bundle
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - db
       - chrome
@@ -29,7 +29,7 @@ services:
   chrome:
     image: selenium/standalone-chrome:latest
     ports:
-      - 4444:4444  
+      - "4444:4444"  
 volumes:
   mysql-data:
   bundle:
