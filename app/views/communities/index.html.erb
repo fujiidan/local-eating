@@ -2,7 +2,7 @@
   <%= render 'shared/header'%>
   <div class="shared-main">
     <div class="search-form">
-      <h2 class="search-community-title">コミュニティを検索！</h2>
+      <h2 class="search-community-title"><span><i class="fas fa-search-location fa-flip-horizontal"></i></span>コミュニティを検索！</h2>
       <div class="community-form">
       <%= form_with url:  search_communities_path, method: :get, id: "search-form" do |f| %>
       <%= f.label :keyword, "検索ワード入力", class: "form-label-name" %><span class="form-warning">必須</span>
@@ -14,7 +14,7 @@
     <div class="search-result" id="search-result">
     </div>
     <div class="create-community">
-      <h2 class="create-title">コミュニティを作成しよう!</h2>
+      <h2 class="create-title"><span><i class="far fa-comments"></i></span>コミュニティを作成しよう!</h2>
       <% if user_signed_in? %>
       <div class="community-form">
         <%= form_with model: @community, id: "community-form" do |f| %>
@@ -35,7 +35,7 @@
     </div>
     <div class="community-lists">
       <div class="community-lists-title">
-        <h2 id="community-count">コミュニティ一覧</h2>
+        <h2 id="community-count"><span><i class="fas fa-table"></span></i>コミュニティ一覧</h2>
       </div>
       <%= render partial: 'users/community_table', locals: {communities: @communities} %>
       <%= paginate @communities, param_name: 'community_page' %>

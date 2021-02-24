@@ -8,6 +8,11 @@
   margin-top: 50px;
 }
 
+.fa-comments {
+font-size: 25px;
+margin-right: 10px;
+}
+
 .community-form {
   display: flex;
   justify-content: center;
@@ -40,4 +45,9 @@
 
 .community-lists-title {
   text-align: center;
+}
+
+.fa-table {
+  font-size: 25px;
+  margin-right: 10px;
 }
