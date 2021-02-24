@@ -34,6 +34,13 @@
         <div id="store-map"></div>
       </div>  
     </div>
+    <div class="sns-share">
+      <%= link_to "https://twitter.com/share?text=オススメの飲食店#{@store.name}&url=#{request.url}", target: '_blank', class: "sns twitter" do %>
+      <i class="fab fa-twitter"></i>Twitterでシェアする
+      <% end %>
+      <div class="line-it-button line" data-lang="ja" data-type="share-a" data-ver="3" data-url=<%= request.url %> data-color="default" data-size="large" data-count="false" style="display: none;"></div>
+        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+      </div>
     <div class="comment-box">
       <h3 class="comment-title">コメント欄</h3>
       <div class="comment-field">

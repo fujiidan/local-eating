@@ -98,6 +98,25 @@
   border-radius: 5px;
 }
 
+.sns-share {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sns {
+  font-size: 15px;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.twitter {
+  background-color: #55acee;
+}
+
 .comment-box {
   width: 100%;
   padding: 20px;
