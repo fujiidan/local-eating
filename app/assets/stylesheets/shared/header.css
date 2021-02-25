@@ -12,6 +12,14 @@
   align-items: center;
 }
 
+.profile-image {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50px;
+
+}
+
 .header-title-name {
   font-size: 36px;
   font-weight: bolder;

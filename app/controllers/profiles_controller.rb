@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:address, :age, :sex_id, :latitude, :longitude)
+    params.require(:profile).permit(:address, :age, :sex_id, :latitude, :longitude, :profile_image)
   end
 
   def move_to_index

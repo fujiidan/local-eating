@@ -23,8 +23,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @profile = Profile.new(profile_params)
     render :new_profile and return unless @profile.valid?
 
-    @user.build_profile(@profile.attributes)
+    # @user.build_profile(@profile.attributes)
     @user.save
+    @profile.user_id = @user.id
+    @profile.save
     session['devise.regist_data']['user'].clear
     bypass_sign_in(@user)
     redirect_to root_path, notice: 'ユーザーアカウントが作成されました'
@@ -33,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def profile_params
-    params.require(:profile).permit(:address, :age, :sex_id)
+    params.require(:profile).permit(:address, :latitude, :longitude, :age, :sex_id, :profile_image)
   end
 
   # GET /resource/sign_up
