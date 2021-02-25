@@ -1,3 +1,9 @@
+.user-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .table-title {
   margin-bottom: 30px;
 }
@@ -7,11 +13,20 @@
 }
 
 .user-links {
+  margin-top: 30px;
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.profile-user-image {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 100px;
+  margin-right: 120px;
 }
 
 .user-link {

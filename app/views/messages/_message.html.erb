@@ -1,5 +1,10 @@
 <%# messages/index, messages/create.js.erbで適用 %>
 <div class="message-upper">
+  <% if message.user.profile.profile_image.attached? %>
+  <%= image_tag message.user.profile.profile_image, class: "profile-image" %>
+  <% else %>
+  <%= image_tag 'profile_icon.png', class: "profile-image" %>
+  <% end %>
   <div class="message-user"><%= "#{message.user.nickname}さん" %></div>
   <div class="message-user"><%= "#{message.user.profile.age}歳" if message.user.profile.age %></div>
   <div class="message-user"><%= message.user.profile.sex.name if message.user.profile.sex %></div>            

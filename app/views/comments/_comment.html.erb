@@ -1,5 +1,10 @@
 <%# stores/show, commnets/create.js.erbで適用 %>
 <div class="comment-upper">
+  <% if comment.user.profile.profile_image.attached? %>
+  <%= image_tag comment.user.profile.profile_image, class: "profile-image" %>
+  <% else %>
+  <%= image_tag 'profile_icon.png', class: "profile-image" %>
+  <% end %>
   <div class="comment-user"><%= "#{comment.user.nickname}さん" %></div>
   <div class="comment-user"><%= "#{comment.user.profile.age}歳" if comment.user.profile.age %></div>
   <div class="comment-user"><%= comment.user.profile.sex.name if comment.user.profile.sex %></div>            

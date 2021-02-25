@@ -2,7 +2,14 @@
  <%= render 'shared/header'%>
   <div class="shared-main">
     <div class="user-info-box">
-      <h2 class="table-title"><%="#{current_user.nickname}さんの登録情報"%></h2>
+      <div class="user-image">
+        <h2 class="table-title"><%="#{current_user.nickname}さんの登録情報"%></h2>
+        <% if current_user.profile.profile_image.attached? %>
+        <%= image_tag current_user.profile.profile_image, class: "profile-user-image" %>
+        <% else %>
+        <%= image_tag 'profile_icon.png', class: "profile-user-image" %>
+        <% end %>
+      </div>
       <div class="user-info">
       <%= render 'user_table' %>
         <div class="user-links">
