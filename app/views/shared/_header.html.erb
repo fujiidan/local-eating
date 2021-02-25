@@ -5,7 +5,11 @@
   <div class="header-links">
     <%# ログイン時表示%>
     <% if user_signed_in? %>
+      <% if current_user.profile.profile_image.attached? %>
       <%= image_tag current_user.profile.profile_image, class: "profile-image" %>
+      <% else %>
+      <%= image_tag 'profile_icon.png', class: "profile-image" %>
+      <% end %>
       <%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user), class:'header-link'%>
       <%= link_to "お気に入りリスト", favorite_user_path(current_user), class:'header-link'%>           
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: 'header-link' %>
