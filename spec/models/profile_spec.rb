@@ -20,6 +20,11 @@ RSpec.describe Profile, type: :model do
         @profile.sex_id = nil
         expect(@profile).to be_valid
       end
+
+      it 'プロフィール画像が無くても店舗登録できること' do
+        @profile.profile_image = nil
+        expect(@profile).to be_valid
+      end
     end
 
     context 'プロフィール登録できないとき' do
@@ -45,6 +50,14 @@ RSpec.describe Profile, type: :model do
         @profile.address = nil
         @profile.valid?
         expect(@profile.errors.full_messages).to include('経度が算出されません、適切な住所を入力してください')
+      end
+
+      it '画像の拡張子は.jpeg, .jpg, .png,以外では登録できないこと' do
+        @profile.profile_image = nil
+        file = fixture_file_upload('/files/test.bmp', 'image/bmp')
+        @profile.profile_image.attach(file)
+        @profile.valid?
+        expect(@profile.errors.full_messages).to include('画像のContent Typeが不正です')
       end
     end
   end

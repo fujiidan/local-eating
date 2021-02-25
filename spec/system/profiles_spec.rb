@@ -21,11 +21,14 @@ RSpec.describe 'Profiles', type: :system do
         fill_in 'address', with: '東京タワー'
         fill_in 'age', with: '100'
         find('#sex-id').find("option[value='2']").select_option
+        image_path = Rails.root.join('public/images/test_image.png')
+        attach_file('profile_image', image_path)
         click_on('編集する')
         expect(current_path).to eq user_path(@profile.user)
         expect(page).to have_content('東京タワー')
         expect(page).to have_content('100')
         expect(page).to have_content('女性')
+        expect(page).to have_selector("img[src$='test_image.png']")
       end
     end
 

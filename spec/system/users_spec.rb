@@ -95,6 +95,7 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content(@profile.address)
         expect(page).to have_content(@profile.sex.name)
         expect(page).to have_content(@profile.age)
+        expect(page).to have_selector("img[src$='test_image.png']")
       end
     end
 
