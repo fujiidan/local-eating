@@ -173,6 +173,15 @@
   width: 200px;
 }
 
+.spam {
+  margin-left: 20px;
+}
+
+.fa-trash-alt {
+  margin-left: 20px;
+  color: black;
+}
+
 .comment-form-wrapper {
   margin-top: 30px;
   padding: 20px;

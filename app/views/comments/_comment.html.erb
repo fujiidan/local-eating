@@ -9,6 +9,14 @@
   <div class="comment-user"><%= "#{comment.user.profile.age}歳" if comment.user.profile.age %></div>
   <div class="comment-user"><%= comment.user.profile.sex.name if comment.user.profile.sex %></div>            
   <div class="comment-date"><%= l comment.created_at %></div>
+  <% if user_signed_in? %>
+  <%= link_to '不適切なコメントを報告する', '#',  class: "spam" if comment.user_id != current_user.id %>
+    <% if comment.user_id == current_user.id || comment.store.user_id == current_user.id %>
+      <%= link_to store_comment_path(comment.store, comment), method: :delete, remote: true, class: "comment-destory" do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
 <div class="comment-lower">
   <div class="comment-text"><%= comment.comment %></div>
