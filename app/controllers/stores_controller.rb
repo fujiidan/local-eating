@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search_map, :show]
-  before_action :find_store, except: [:index, :search_map, :new, :create]
+  before_action :find_store, except: [:index, :show, :search_map, :new, :create]
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
@@ -35,6 +35,7 @@ class StoresController < ApplicationController
   end
 
   def show
+    @store = Store.with_attached_store_images.find(params[:id])
     @comment = Comment.new
     @comments = @store.comments.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
                 .with_attached_comment_images.order('created_at DESC')
