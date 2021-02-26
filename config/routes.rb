@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     
   resources :stores  do
     get 'search_map', on: :collection
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
 
