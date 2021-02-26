@@ -10,7 +10,9 @@
   <div class="comment-user"><%= comment.user.profile.sex.name if comment.user.profile.sex %></div>            
   <div class="comment-date"><%= l comment.created_at %></div>
   <% if user_signed_in? %>
+  <%# 投稿者本人の場合スパム報告は表示しない %>
   <%= link_to '不適切なコメントを報告する', '#',  class: "spam" if comment.user_id != current_user.id %>
+  <%# 投稿者本人と店舗作成者のみがコメント削除ができる %>
     <% if comment.user_id == current_user.id || comment.store.user_id == current_user.id %>
       <%= link_to store_comment_path(comment.store, comment), method: :delete, remote: true, class: "comment-destory" do %>
         <i class="fas fa-trash-alt"></i>
