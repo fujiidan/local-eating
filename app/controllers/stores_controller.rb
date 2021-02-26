@@ -36,7 +36,8 @@ class StoresController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @store.comments.includes(:user, [user: :profile]).with_attached_comment_images.order('created_at DESC')
+    @comments = @store.comments.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
+                .with_attached_comment_images.order('created_at DESC')
     gon.store = @store
   end
 

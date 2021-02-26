@@ -3,7 +3,8 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @community.messages.includes(:user, [user: :profile]).with_attached_message_images.order('created_at DESC')
+    @messages = @community.messages.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
+                .with_attached_message_images.order('created_at DESC')
   end
 
   def create
@@ -12,7 +13,8 @@ class MessagesController < ApplicationController
       if @message.save
         format.js
       else
-        @messages = @community.messages.includes(:user, [user: :profile]).with_attached_message_images.order('created_at DESC')
+        @messages = @community.messages.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
+                    .with_attached_message_images.order('created_at DESC')
         format.html { render template: 'messages/index.html.erb' }
       end
     end

@@ -6,10 +6,15 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js
       else
-        @comments = @store.comments.includes(:user, [user: :profile]).with_attached_comment_images.order('created_at DESC')
+        @comments = @store.comments.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
+                    .with_attached_comment_images.order('created_at DESC')
         format.html { render template: 'stores/show.html.erb' }
       end
     end
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
   end
 
   private
