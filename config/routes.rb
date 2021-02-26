@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :communities, only: [:index, :create, :edit, :update, :destroy] do
     get 'search', on: :collection
-    resources :messages, only: [:index, :create]  
+    resources :messages, only: [:index, :create, :destroy]  
     resource :favorites, only: [:create, :destroy]
   end
 end

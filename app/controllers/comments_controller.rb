@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_comment, except: :create
-  before_action :move_to_index, only: :destroy
 
   def create
     @store = Store.find(params[:store_id])
@@ -18,6 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
       format.js
@@ -28,13 +27,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:comment, comment_images: []).merge(user_id: current_user.id)
-  end
-
-  def move_to_index
-    redirect_to root_path if @comment.user_id != current_user.id || @comment.store.user_id != current_user.id
-  end
-
-  def find_comment
-    @comment = Comment.find(params[:id])
   end
 end

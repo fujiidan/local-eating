@@ -1,20 +1,32 @@
-<%# messages/index, messages/create.js.erbで適用 %>
-<div class="message-upper">
-  <% if message.user.profile.profile_image.attached? %>
-  <%= image_tag message.user.profile.profile_image, class: "profile-image" %>
-  <% else %>
-  <%= image_tag 'profile_icon.png', class: "profile-image" %>
-  <% end %>
-  <div class="message-user"><%= "#{message.user.nickname}さん" %></div>
-  <div class="message-user"><%= "#{message.user.profile.age}歳" if message.user.profile.age %></div>
-  <div class="message-user"><%= message.user.profile.sex.name if message.user.profile.sex %></div>            
-  <div class="message-date"><%= l message.created_at %></div>
-</div>
-<div class="message-lower">
-  <div class="message-text"><%= message.message %></div>
-  <div class="message-images">
-  <% message.message_images.each do |message_image| %>
-    <div class="message-image-box"><%= image_tag message_image, class: "message-image" %></div>
-  <% end %>
-  </div>  
+<%# messages/index, messages/create.js.erb・destroy.js.erbで適用 %>
+<div id=<%= message.id %>>
+  <div class="message-upper">
+    <% if message.user.profile.profile_image.attached? %>
+    <%= image_tag message.user.profile.profile_image, class: "profile-image" %>
+    <% else %>
+    <%= image_tag 'profile_icon.png', class: "profile-image" %>
+    <% end %>
+    <div class="message-user"><%= "#{message.user.nickname}さん" %></div>
+    <div class="message-user"><%= "#{message.user.profile.age}歳" if message.user.profile.age %></div>
+    <div class="message-user"><%= message.user.profile.sex.name if message.user.profile.sex %></div>            
+    <div class="message-date"><%= l message.created_at %></div>
+    <% if user_signed_in? %>
+    <%# 投稿者本人の場合スパム報告は表示しない、（通知機能作成までコメントアウトとする） %>
+    <%# <%= link_to '不適切なコメントを報告する', '#',  class: "spam" if message.user_id != current_user.id %>
+    <%# 投稿者本人と店舗作成者のみがコメント削除ができる %>
+      <% if message.user_id == current_user.id || message.community.user_id == current_user.id %>
+        <%= link_to community_message_path(message.community, message), method: :delete, remote: true, class: "message-destory" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="message-lower">
+    <div class="message-text"><%= message.message %></div>
+    <div class="message-images">
+    <% message.message_images.each do |message_image| %>
+      <div class="message-image-box"><%= image_tag message_image, class: "message-image" %></div>
+    <% end %>
+    </div>  
+  </div>
 </div>

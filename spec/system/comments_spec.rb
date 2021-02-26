@@ -78,6 +78,7 @@ RSpec.describe 'Comments', type: :system do
       #   find(".fa-trash-alt").click
       #   sleep(1)
       #   expect(Comment.count).to eq 0
+      #   expect(current_path).to eq store_path(@store)
       # end
 
       it 'ユーザーアカウントが削除されるとそれに紐づくコメント情報も削除されること' do

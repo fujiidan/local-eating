@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!, except: :index
   before_action :find_community
+
 
   def index
     @message = Message.new
@@ -20,6 +22,14 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def message_params
@@ -29,4 +39,5 @@ class MessagesController < ApplicationController
   def find_community
     @community = Community.find(params[:community_id])
   end
+
 end
