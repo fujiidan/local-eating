@@ -55,11 +55,10 @@ RSpec.describe 'Comments', type: :system do
     end
 
     context 'コメント削除できる時' do
-
       it 'コメント作成者には削除ボタンが表示されること' do
         sign_in(@store.user)
         visit store_path(@store)
-        expect(page).to have_css(".fa-trash-alt")
+        expect(page).to have_css('.fa-trash-alt')
       end
 
       it '店舗作成者は自身が作成していないコメントでも削除ボタンが表示されること' do
@@ -68,8 +67,8 @@ RSpec.describe 'Comments', type: :system do
         FactoryBot.create(:comment, store_id: @another_store.id, user_id: @store.user_id)
         sign_in(@another_store.user)
         visit store_path(@another_store)
-        expect(page).to have_css(".fa-trash-alt")
-      end  
+        expect(page).to have_css('.fa-trash-alt')
+      end
 
       # # docker環境でjs動かない為一旦コメントアウト
       # it 'コメント削除するとページ遷移なく画面に留まること', js: true  do
@@ -99,18 +98,17 @@ RSpec.describe 'Comments', type: :system do
     end
 
     context 'コメント削除できない時' do
-
       it 'ログインしていないユーザーには削除ボタンが表示されないこと' do
         visit store_path(@store)
-        expect(page).to have_no_css(".fa-trash-alt")
+        expect(page).to have_no_css('.fa-trash-alt')
       end
 
       it 'ログイン済みでもコメント作成者または店舗作成者以外のユーザーには削除ボタンが表示されないこと' do
         another_user = FactoryBot.create(:profile)
         sign_in(another_user.user)
         visit store_path(@store)
-        expect(page).to have_no_css(".fa-trash-alt")
+        expect(page).to have_no_css('.fa-trash-alt')
       end
-    end  
+    end
   end
 end

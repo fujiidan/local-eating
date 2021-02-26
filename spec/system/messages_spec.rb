@@ -56,7 +56,7 @@ RSpec.describe 'Messages', type: :system do
       it 'メッセージ作成者には削除ボタンが表示されること' do
         sign_in(@community.user)
         visit community_messages_path(@community)
-        expect(page).to have_css(".fa-trash-alt")
+        expect(page).to have_css('.fa-trash-alt')
       end
 
       it '店舗作成者は自身が作成していないメッセージでも削除ボタンが表示されること' do
@@ -65,8 +65,8 @@ RSpec.describe 'Messages', type: :system do
         FactoryBot.create(:message, community_id: @another_community.id, user_id: @community.user_id)
         sign_in(@another_community.user)
         visit community_messages_path(@another_community)
-        expect(page).to have_css(".fa-trash-alt")
-      end  
+        expect(page).to have_css('.fa-trash-alt')
+      end
 
       # # docker環境でjs動かない為一旦コメントアウト
       # it 'メッセージ削除するとページ遷移なく画面に留まること', js: true  do
@@ -96,17 +96,16 @@ RSpec.describe 'Messages', type: :system do
     end
 
     context 'メッセージ削除できない時' do
-
       it 'ログインしていないユーザーには削除ボタンが表示されないこと' do
         visit community_messages_path(@community)
-        expect(page).to have_no_css(".fa-trash-alt")
+        expect(page).to have_no_css('.fa-trash-alt')
       end
 
       it 'ログイン済みでもメッセージ作成者または店舗作成者以外のユーザーには削除ボタンが表示されないこと' do
         another_user = FactoryBot.create(:profile)
         sign_in(another_user.user)
         visit community_messages_path(@community)
-        expect(page).to have_no_css(".fa-trash-alt")
+        expect(page).to have_no_css('.fa-trash-alt')
       end
     end
   end

@@ -2,11 +2,10 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :find_community
 
-
   def index
     @message = Message.new
-    @messages = @community.messages.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
-                .with_attached_message_images.order('created_at DESC')
+    @messages = @community.messages.includes(:user, [user: :profile], [user: { profile: { profile_image_attachment: :blob } }])
+                          .with_attached_message_images.order('created_at DESC')
   end
 
   def create
@@ -15,8 +14,9 @@ class MessagesController < ApplicationController
       if @message.save
         format.js
       else
-        @messages = @community.messages.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
-                    .with_attached_message_images.order('created_at DESC')
+        @messages = @community.messages.includes(:user, [user: :profile],
+                                                 [user: { profile: { profile_image_attachment: :blob } }])
+                              .with_attached_message_images.order('created_at DESC')
         format.html { render template: 'messages/index.html.erb' }
       end
     end
@@ -39,5 +39,4 @@ class MessagesController < ApplicationController
   def find_community
     @community = Community.find(params[:community_id])
   end
-
 end

@@ -37,8 +37,8 @@ class StoresController < ApplicationController
   def show
     @store = Store.with_attached_store_images.find(params[:id])
     @comment = Comment.new
-    @comments = @store.comments.includes(:user, [user: :profile], [user: {profile: {profile_image_attachment: :blob}}])
-                .with_attached_comment_images.order('created_at DESC')
+    @comments = @store.comments.includes(:user, [user: :profile], [user: { profile: { profile_image_attachment: :blob } }])
+                      .with_attached_comment_images.order('created_at DESC')
     gon.store = @store
   end
 
