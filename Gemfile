@@ -40,7 +40,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'gimei'
-  gem 'database_cleaner'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -56,6 +55,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
+  gem 'bullet'
 end
 
 group :test do
@@ -78,4 +78,3 @@ gem 'active_storage_validations'
 gem 'gon'
 gem 'kaminari'
 gem "aws-sdk-s3", require: false
-gem 'bullet'
